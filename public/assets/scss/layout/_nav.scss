@@ -1,0 +1,40 @@
+.container-fluid-nav {
+  border-bottom: 1px solid #ccc;
+}
+.nav {
+  &__list {
+    a {
+      position: relative;
+      text-decoration: none;
+      color: #424141;
+      padding: 0.8rem 0;
+      display: inline-block;
+      width: 10rem;
+      text-align: center;
+      background-color: pink;
+    }
+    a::before {
+      content: "";
+      height: 2px;
+      width: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: #ff0000;
+      transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      opacity: 0;
+    }
+
+    a:hover::before {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+
+  &__item {
+    padding: 0.5rem;
+    background-color: #424141;
+  }
+}
+
+// 880 ngắt

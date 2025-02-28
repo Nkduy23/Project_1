@@ -1,0 +1,114 @@
+// Tạo display: flex
+.flex {
+  display: flex;
+}
+
+// Căn chiều ngang (justify-content)
+.justify-start {
+  justify-content: flex-start;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-around {
+  justify-content: space-around;
+}
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+// Căn chiều dọc (align-items)
+.items-start {
+  align-items: flex-start;
+}
+.items-center {
+  align-items: center;
+}
+.items-end {
+  align-items: flex-end;
+}
+.items-stretch {
+  align-items: stretch;
+}
+.items-baseline {
+  align-items: baseline;
+}
+
+// Hướng flex (flex-direction)
+.flex-row {
+  flex-direction: row;
+}
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-col-reverse {
+  flex-direction: column-reverse;
+}
+
+// Wrap (xuống hàng khi cần)
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+// Căn chính giữa hoàn hảo
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Grow (tăng kích thước linh hoạt)
+.flex-grow {
+  flex-grow: 1;
+}
+
+// Shrink (giảm kích thước khi cần)
+.flex-shrink {
+  flex-shrink: 1;
+}
+
+// Basis (định nghĩa kích thước ban đầu)
+.flex-basis-0 {
+  flex-basis: 0;
+}
+.flex-basis-auto {
+  flex-basis: auto;
+}
+
+// Gap giữa các item
+.gap-4 {
+  gap: 4px;
+}
+.gap-8 {
+  gap: 8px;
+}
+.gap-16 {
+  gap: 16px;
+}
+.gap-24 {
+  gap: 24px;
+}
+.gap-32 {
+  gap: 32px;
+}
