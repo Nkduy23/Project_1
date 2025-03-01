@@ -2,7 +2,8 @@
   .header {
     &__menu {
       opacity: 1;
-      width: 10rem;
+      width: 5rem;
+      text-align: left;
     }
 
     &__search {
@@ -10,6 +11,34 @@
       &-input {
         display: none;
       }
+    }
+  }
+  .search-input-mobile {
+    display: block;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .search-input {
+    position: relative;
+    width: 90%;
+    input {
+      padding: 0.8rem 3rem;
+      border-radius: 5px;
+      border: none;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #ededed;
+      font-size: 1.2rem;
+      text-overflow: ellipsis;
+    }
+    i {
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: 0.8rem;
+      cursor: pointer;
     }
   }
 }

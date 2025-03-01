@@ -1,7 +1,8 @@
 .header {
   &__top {
-    background-color: #e9e6e6;
-    padding: 1rem 0;
+    background-color: #ededed;
+    padding: 0.5rem 0;
+    font-size: 1.2rem;
     p {
       text-align: center;
       color: #2e2b2b;
@@ -17,7 +18,7 @@
     width: 33.5rem;
     text-align: center;
     i {
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
   }
 
@@ -37,7 +38,7 @@
       input {
         box-sizing: border-box;
         border: none;
-        border: 1px solid #ccc;
+        background-color: #ededed;
         padding: 1rem 3rem;
         border-radius: 5px;
         width: 100%;
@@ -52,15 +53,15 @@
   }
 
   &__cart {
-    width: 10rem;
+    width: 5rem;
     text-align: center;
     i {
       font-size: 2rem;
     }
-    &-center {
-        position: relative;
+    &-left {
+      position: relative;
     }
-    &-center span {
+    &-left span {
       position: absolute;
       top: -10px;
       right: -7px;
@@ -71,4 +72,8 @@
       color: white;
     }
   }
+}
+
+.search-input-mobile {
+  display: none;
 }

@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="./assets/css/main.css" />
     <link rel="stylesheet" href="./assets/css/home.css" />
   </head>
-  <body style="height: 2000px">
+  <body>
     <header class="header">
       <div class="header__top"><p>Bộ Sưu Tập Đồng Hồ Mới Về</p></div>
       <div class="header__bottom flex-between">
         <div class="header__menu">
-          <i class="fa-solid fa-bars"></i>
+          <i class="fa-solid fa-bars bar"></i>
         </div>
         <div class="header__logo">
           <a href="./index.html"><img src="./assets/img/logo.png" alt="logo Khánh Duy" /></a>
@@ -28,9 +28,6 @@
           </div>
           <div class="header__cart flex-center gap-16">
             <div class="header__cart-left">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-            <div class="header__cart-center">
               <i class="fa-solid fa-bag-shopping"></i>
               <span class="flex-center">0</span>
             </div>
@@ -42,21 +39,639 @@
       </div>
     </header>
 
+    <!-- Search input mobile -->
+    <div class="search-input-mobile">
+      <div class="search-input">
+        <input type="text" placeholder="Tìm kiếm sản phẩm hoặc thương hiệu" />
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+    </div>
+
+    <!-- Nav Desktop -->
     <div class="container-fluid-nav">
       <div class="container-main">
-        <nav class="nav">
+        <nav class="nav-desktop">
           <ul class="nav__list flex-between flex-wrap">
-            <li class="nav__item"><a href="#">Thương Hiệu</a></li>
-            <li class="nav__item"><a href="#">Nam</a></li>
-            <li class="nav__item"><a href="#">Nữ</a></li>
-            <li class="nav__item"><a href="#">Cặp Đôi</a></li>
-            <li class="nav__item"><a href="#">Trang Sức</a></li>
-            <li class="nav__item"><a href="#">Phụ Kiện</a></li>
-            <li class="nav__item"><a href="#">Liên Hệ</a></li>
-            <li class="nav__item"><a href="#">Tin Tức</a></li>
+            <li class="nav__item" aria-haspopup="true" role="menu">
+              <a class="nav__link" href="#">Thương Hiệu</a>
+              <div class="nav__sub-wrap flex-center">
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">Nam</a>
+              <div class="nav__sub-wrap flex-center">
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">Nữ</a>
+              <div class="nav__sub-wrap flex-center">
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">Cặp Đôi</a>
+              <div class="nav__sub-wrap flex-center">
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">Trang Sức</a>
+              <div class="nav__sub-wrap flex-center">
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">Phụ Kiện</a>
+              <div class="nav__sub-wrap flex-center">
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">Liên Hệ</a>
+              <div class="nav__sub-wrap flex-center">
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">Tin Tức</a>
+              <div class="nav__sub-wrap flex-center">
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+                <ul class="nav__sub" role="menuitem">
+                  <li class="nav__sub-title">CÁC HÃNG BÁN CHẠY</li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Daniel Wellington (DW)</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Seiko</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Saga</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Sokolov</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Casio</a></li>
+                  <li class="nav__item-sub"><a class="nav__link-sub" href="#">Citizen</a></li>
+                </ul>
+              </div>
+            </li>
           </ul>
         </nav>
       </div>
     </div>
+
+    <!-- Nav Mobile -->
+    <div class="wrapper">
+      <nav class="nav-mobile">
+        <div class="nav-mobile__title">
+          <span>Menu</span>
+        </div>
+        <div class="nav-mobile__list">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#" class="nav__link">Thương Hiệu</a>
+              <ul class="nav__sub">
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="nav__dropdown">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        </div>
+        <div class="nav-mobile__list">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#" class="nav__link">Thương Hiệu</a>
+              <ul class="nav__sub">
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="nav__dropdown">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        </div>
+        <div class="nav-mobile__list">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#" class="nav__link">Thương Hiệu</a>
+              <ul class="nav__sub">
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="nav__dropdown">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        </div>
+        <div class="nav-mobile__list">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#" class="nav__link">Thương Hiệu</a>
+              <ul class="nav__sub">
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="nav__dropdown">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        </div>
+        <div class="nav-mobile__list">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#" class="nav__link">Thương Hiệu</a>
+              <ul class="nav__sub">
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="nav__dropdown">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        </div>
+        <div class="nav-mobile__list">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#" class="nav__link">Thương Hiệu</a>
+              <ul class="nav__sub">
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="nav__dropdown">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        </div>
+        <div class="nav-mobile__list">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#" class="nav__link">Thương Hiệu</a>
+              <ul class="nav__sub">
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="nav__dropdown">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        </div>
+        <div class="nav-mobile__list">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#" class="nav__link">Thương Hiệu</a>
+              <ul class="nav__sub">
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="nav__dropdown">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        </div>
+        <div class="nav-mobile__list">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#" class="nav__link">Thương Hiệu</a>
+              <ul class="nav__sub">
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+                <li class="nav__item-sub"><a href="#" class="nav__link-sub">Sản Phẩm 1</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="nav__dropdown">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        </div>
+
+        <div class="nav-mobile__icon">
+          <div class="icon-bag">
+            <i class="fa-solid fa-bag-shopping"></i>
+          </div>
+          <div class="icon-phone">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="overlay"></div>
+
+    <!-- Slider -->
+    <div class="slider">
+      <div class="slider__item">
+        <img class="slider__img" src="./assets/img/sliders/slider-1.jpg" alt="" />
+      </div>
+    </div>
   </body>
+  <script src="./assets/js/header.js"></script>
+  <script src="./assets/js/nav.js"></script>
 </html>
