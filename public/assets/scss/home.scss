@@ -1,2 +1,8 @@
 @use "./layout/home";
 @use "./layout/slider";
+@use "./layout/feature";
+@use "./layout/banner";
+
+
+@use "./res/desktop/d-feature";
+@use "./res/mobile/m-feature";

@@ -1,0 +1,16 @@
+@media screen and (max-width: 425px) {
+  .feature {
+    padding: 0 1rem;
+    &__list {
+      gap: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 270px) {
+  .feature {
+    &__list {
+     grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

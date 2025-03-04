@@ -62,7 +62,7 @@ body {
 }
 
 .container-main {
-  max-width: 105rem;
+  max-width: 108rem;
   margin: 0 auto;
 }
 
@@ -145,7 +145,7 @@ body {
 .nav-desktop .nav__link, .nav-desktop .nav__link-sub {
   position: relative;
   text-decoration: none;
-  color: #424141;
+  color: #585454;
   padding: 0.8rem 0;
   display: inline-block;
   width: 10rem;
@@ -254,6 +254,12 @@ body {
 .nav-mobile .nav__list {
   flex: 1;
 }
+.nav-mobile .nav__link, .nav-mobile .nav__link-sub {
+  text-decoration: none;
+  color: #585454;
+  padding: 0.8rem 0;
+  display: inline-block;
+}
 .nav-mobile .nav__sub {
   max-height: 0;
   overflow: hidden;
@@ -265,12 +271,6 @@ body {
   max-height: 500px;
   opacity: 1;
   visibility: visible;
-}
-.nav-mobile .nav__link, .nav-mobile .nav__link-sub {
-  text-decoration: none;
-  color: #424141;
-  padding: 0.8rem 0;
-  display: inline-block;
 }
 .nav-mobile .nav__link-sub {
   width: 100%;

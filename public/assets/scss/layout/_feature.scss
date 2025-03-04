@@ -1,0 +1,59 @@
+.feature {
+  max-width: 85rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2rem;
+    text-align: center;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &__item {
+    padding: 1rem;
+    cursor: pointer;
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    border-radius: 2rem;
+    text-align: center;
+  }
+
+  &__title {
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    color: #616060;
+  }
+
+  &__arrow {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    transform: translateY(-50%);
+    color: #333;
+    transition: color 0.3s ease-in-out;
+    display: none;
+    &:hover {
+      color: #005eca;
+    }
+
+    &--left {
+      left: -3rem;
+    }
+
+    &--right {
+      right: -3rem;
+    }
+  }
+
+}
