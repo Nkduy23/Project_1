@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const itemsPerPage = 6;
   let currentPage = 0;
 
-  // Hàm hiển thị các ảnh theo trang
   function showItems(page) {
     featureItems.forEach((item, index) => {
       if (index >= page * itemsPerPage && index < (page + 1) * itemsPerPage) {

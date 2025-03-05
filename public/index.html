@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./assets/css/main.css" />
     <link rel="stylesheet" href="./assets/css/home.css" />
   </head>
-  <body style="height: 2000px">
+  <body style="height: 10000px">
     <header class="header">
       <div class="header__top"><p>Bộ Sưu Tập Đồng Hồ Mới Về</p></div>
       <div class="header__bottom flex-between">
@@ -21,7 +21,7 @@
         <div class="header__logo">
           <a href="./index.html"><img src="./assets/img/logo.png" alt="logo Khánh Duy" /></a>
         </div>
-        <div class="header__search flex-center gap-8">
+        <div class="header__search flex-center gap-16">
           <div class="header__search-input">
             <input type="text" placeholder="Tìm kiếm..." />
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -49,7 +49,7 @@
 
     <!-- Nav Desktop -->
     <div class="container-fluid-nav">
-      <div class="container-main">
+      <div class="container-nav">
         <nav class="nav-desktop">
           <ul class="nav__list flex-between flex-wrap">
             <li class="nav__item" aria-haspopup="true" role="menu">
@@ -649,7 +649,7 @@
           </div>
         </div>
 
-        <div class="nav-mobile__icon">
+        <div class="nav-mobile__icon flex-center">
           <div class="icon-bag">
             <i class="fa-solid fa-bag-shopping"></i>
           </div>
@@ -669,11 +669,11 @@
     </div>
 
     <!-- Feature List -->
-    <div class="feature">
+    <div class="feature flex-center">
       <button class="feature__arrow feature__arrow--left">
         <i class="fa-solid fa-angles-left"></i>
       </button>
-      <div class="feature__list">
+      <div class="feature__list grid gap-16">
         <div class="feature__item">
           <a href="#"><img src="./assets/img/feature/dong-ho-xa-cu.jpg" alt="Đồng hồ thời trang xà cừ" class="feature__img" /></a>
           <p class="feature__title">Đồng hồ thời trang xà cừ</p>
@@ -729,9 +729,115 @@
     </div>
 
     <!-- Banner -->
-    <div class="banner">
-      
+    <div class="container-main">
+      <div class="banner-top grid-2 gap-10">
+        <div class="banner-top__left">
+          <img src="./assets/img/banner/banner-1.jpeg" alt="Bộ sưu tập mới" />
+          <div class="banner-top__text flex-column-center">
+            <p class="banner-top__title">Bộ Sưu Tập Mới</p>
+            <a class="banner-top__link" href="#">Xem ngay</a>
+          </div>
+        </div>
+        <div class="banner-top__right grid gap-10">
+          <div class="banner-top__image small">
+            <img src="./assets/img/banner/banner-2.jpeg" alt="Nam" />
+            <div class="banner-top__text flex-column-center">
+              <p class="banner-top__title">Nam</p>
+              <a class="banner-top__link" href="#">Xem ngay</a>
+            </div>
+          </div>
+          <div class="banner-top__image small">
+            <img src="./assets/img/banner/banner-3.jpeg" alt="Nữ" />
+            <div class="banner-top__text flex-column-center">
+              <p class="banner-top__title">Nữ</p>
+              <a class="banner-top__link" href="#">Xem ngay</a>
+            </div>
+          </div>
+          <div class="banner-top__image full">
+            <img src="./assets/img/banner/banner-4.jpg" alt="Đồng hồ cặp đôi" />
+            <div class="banner-top__text flex-column-center">
+              <p class="banner-top__title">Đồng Hồ Cặp Đôi</p>
+              <a class="banner-top__link" href="#">Xem ngay</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- Banner bottom -->
+    <div class="container-main">
+      <div class="banner-bottom grid-4 gap-10">
+        <div class="banner-bottom__item flex-column-center gap-10">
+          <img src="./assets/img/banner/banner-5.jpg" alt="Bộ sưu tập mới" />
+          <span class="banner-bottom__title">BTS Đồng Hồ Nam Hot</span>
+        </div>
+        <div class="banner-bottom__item flex-column-center gap-10">
+          <img src="./assets/img/banner/banner-6.jpg" alt="Bộ sưu tập mới" />
+          <span class="banner-bottom__title">BTS Đồng Hồ Nam Hot</span>
+        </div>
+        <div class="banner-bottom__item flex-column-center gap-10">
+          <img src="./assets/img/banner/banner-7.jpg" alt="Bộ sưu tập mới" />
+          <span class="banner-bottom__title">BTS Đồng Hồ Nam Hot</span>
+        </div>
+        <div class="banner-bottom__item flex-column-center gap-10">
+          <img src="./assets/img/banner/banner-8.jpg" alt="Bộ sưu tập mới" />
+          <span class="banner-bottom__title">BTS Đồng Hồ Nam Hot</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Product -->
+     <main>
+       <div class="container-main">
+        <div class="product">
+          <div class="product__container">
+            <h2 class="product__title">Đồng Hồ Nam Bán Chạy</h2>
+            <div class="product__list">
+              <div class="product__item">
+                <a href="#"><img src="./assets/img/product-home/nam/product-1.jpg" alt="" class="product__img" /></a>
+                <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
+                <p class="product__price">1.500.000 ₫</p>
+              </div>
+              <div class="product__item">
+                <a href="#"><img src="./assets/img/product-home/nam/product-1.jpg" alt="" class="product__img" /></a>
+                <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
+                <p class="product__price">1.500.000 ₫</p>
+              </div>
+              <div class="product__item">
+                <a href="#"><img src="./assets/img/product-home/nam/product-1.jpg" alt="" class="product__img" /></a>
+                <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
+                <p class="product__price">1.500.000 ₫</p>
+              </div>
+              <div class="product__item">
+                <a href="#"><img src="./assets/img/product-home/nam/product-1.jpg" alt="" class="product__img" /></a>
+                <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
+                <p class="product__price">1.500.000 ₫</p>
+              </div>
+              <div class="product__item">
+                <a href="#"><img src="./assets/img/product-home/nam/product-1.jpg" alt="" class="product__img" /></a>
+                <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
+                <p class="product__price">1.500.000 ₫</p>
+              </div>
+              <div class="product__item">
+                <a href="#"><img src="./assets/img/product-home/nam/product-1.jpg" alt="" class="product__img" /></a>
+                <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
+                <p class="product__price">1.500.000 ₫</p>
+              </div>
+              <div class="product__item">
+                <a href="#"><img src="./assets/img/product-home/nam/product-1.jpg" alt="" class="product__img" /></a>
+                <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
+                <p class="product__price">1.500.000 ₫</p>
+              </div>
+              <div class="product__item">
+                <a href="#"><img src="./assets/img/product-home/nam/product-1.jpg" alt="" class="product__img" /></a>
+                <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
+                <p class="product__price">1.500.000 ₫</p>
+              </div>
+            </div>
+          </div>
+        </div>
+       </div>
+     </main>
   </body>
   <script src="./assets/js/header.js"></script>
   <script src="./assets/js/nav.js"></script>

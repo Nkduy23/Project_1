@@ -62,8 +62,10 @@ body {
 }
 
 .container-main {
-  max-width: 108rem;
+  max-width: 1060px;
   margin: 0 auto;
+  border-top: 1px solid #ccc;
+  padding: 2rem 1rem 1rem;
 }
 
 .header__top {
@@ -73,6 +75,7 @@ body {
 }
 .header__top p {
   text-align: center;
+  text-transform: uppercase;
   color: #2e2b2b;
 }
 .header__bottom {
@@ -142,14 +145,22 @@ body {
   position: relative;
 }
 
+.container-nav {
+  max-width: 108rem;
+  margin: 0 auto;
+}
+
 .nav-desktop .nav__link, .nav-desktop .nav__link-sub {
   position: relative;
   text-decoration: none;
   color: #585454;
   padding: 0.8rem 0;
   display: inline-block;
-  width: 10rem;
+  width: 12rem;
   text-align: center;
+}
+.nav-desktop .nav__link {
+  text-transform: uppercase;
 }
 .nav-desktop .nav__link-sub {
   width: 100%;
@@ -280,16 +291,13 @@ body {
   color: #141414;
 }
 .nav-mobile .nav-mobile__icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 4rem;
 }
 .nav-mobile .nav-mobile__icon i {
   font-size: 2.5rem;
 }
 
-.flex {
+.flex, .flex-column-center, .flex-between, .flex-center {
   display: flex;
 }
 
@@ -297,7 +305,7 @@ body {
   justify-content: flex-start;
 }
 
-.justify-center {
+.justify-center, .flex-center {
   justify-content: center;
 }
 
@@ -305,7 +313,7 @@ body {
   justify-content: flex-end;
 }
 
-.justify-between {
+.justify-between, .flex-between {
   justify-content: space-between;
 }
 
@@ -321,7 +329,7 @@ body {
   align-items: flex-start;
 }
 
-.items-center {
+.items-center, .flex-column-center, .flex-between, .flex-center {
   align-items: center;
 }
 
@@ -345,7 +353,7 @@ body {
   flex-direction: row-reverse;
 }
 
-.flex-col {
+.flex-col, .flex-column-center {
   flex-direction: column;
 }
 
@@ -363,18 +371,6 @@ body {
 
 .flex-wrap-reverse {
   flex-wrap: wrap-reverse;
-}
-
-.flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.flex-between {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .flex-grow {
@@ -401,6 +397,10 @@ body {
   gap: 8px;
 }
 
+.gap-10 {
+  gap: 10px;
+}
+
 .gap-16 {
   gap: 16px;
 }
@@ -413,6 +413,22 @@ body {
   gap: 32px;
 }
 
+.grid, .grid-4, .grid-3, .grid-2 {
+  display: grid;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 @media screen and (max-width: 960px) {
   .header__menu {
     opacity: 1;
@@ -420,7 +436,7 @@ body {
     text-align: left;
   }
   .header__search {
-    width: 10rem;
+    width: 6rem;
   }
   .header__search-input {
     display: none;

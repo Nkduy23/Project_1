@@ -1,0 +1,20 @@
+@media screen and (max-width: 768px) {
+  .product {
+    &__name {
+      max-height: 7.5rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 5;
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .product {
+    &__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

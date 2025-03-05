@@ -3,6 +3,11 @@
   position: relative;
 }
 
+.container-nav {
+  max-width: 108rem;
+  margin: 0 auto;
+}
+
 .nav-desktop {
   .nav {
     &__link,
@@ -12,8 +17,12 @@
       color: #585454;
       padding: 0.8rem 0;
       display: inline-block;
-      width: 10rem;
+      width: 12rem;
       text-align: center;
+    }
+
+    &__link {
+      text-transform: uppercase;
     }
 
     &__link-sub {
@@ -88,6 +97,7 @@
   -webkit-box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.5);
 }
+
 .wrapper.active {
   transform: translateX(0);
 }
@@ -128,7 +138,8 @@
       flex: 1;
     }
 
-    &__link, &__link-sub {
+    &__link,
+    &__link-sub {
       text-decoration: none;
       color: #585454;
       padding: 0.8rem 0;
@@ -158,9 +169,6 @@
     }
 
     &-mobile__icon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       gap: 4rem;
 
       i {

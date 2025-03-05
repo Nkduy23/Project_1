@@ -1,9 +1,6 @@
-// Tạo display: flex
 .flex {
   display: flex;
 }
-
-// Căn chiều ngang (justify-content)
 .justify-start {
   justify-content: flex-start;
 }
@@ -23,7 +20,6 @@
   justify-content: space-evenly;
 }
 
-// Căn chiều dọc (align-items)
 .items-start {
   align-items: flex-start;
 }
@@ -40,7 +36,6 @@
   align-items: baseline;
 }
 
-// Hướng flex (flex-direction)
 .flex-row {
   flex-direction: row;
 }
@@ -53,8 +48,6 @@
 .flex-col-reverse {
   flex-direction: column-reverse;
 }
-
-// Wrap (xuống hàng khi cần)
 .flex-wrap {
   flex-wrap: wrap;
 }
@@ -65,30 +58,32 @@
   flex-wrap: wrap-reverse;
 }
 
-// Căn chính giữa hoàn hảo
 .flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend .flex;
+  @extend .justify-center;
+  @extend .items-center;
 }
 
 .flex-between {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @extend .flex;
+  @extend .justify-between;
+  @extend .items-center;
 }
 
-// Grow (tăng kích thước linh hoạt)
+.flex-column-center {
+  @extend .flex;
+  @extend .flex-col;
+  @extend .items-center;
+}
+
 .flex-grow {
   flex-grow: 1;
 }
 
-// Shrink (giảm kích thước khi cần)
 .flex-shrink {
   flex-shrink: 1;
 }
 
-// Basis (định nghĩa kích thước ban đầu)
 .flex-basis-0 {
   flex-basis: 0;
 }
@@ -96,12 +91,14 @@
   flex-basis: auto;
 }
 
-// Gap giữa các item
 .gap-4 {
   gap: 4px;
 }
 .gap-8 {
   gap: 8px;
+}
+.gap-10 {
+  gap: 10px;
 }
 .gap-16 {
   gap: 16px;

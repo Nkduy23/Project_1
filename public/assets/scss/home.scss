@@ -2,7 +2,12 @@
 @use "./layout/slider";
 @use "./layout/feature";
 @use "./layout/banner";
+@use "./layout/product-home";
 
 
-@use "./res/desktop/d-feature";
+@use "./res/tablet/t-feature";
 @use "./res/mobile/m-feature";
+@use "./res/tablet/t-banner"; 
+@use "./res/mobile/m-banner"; 
+@use "./res/tablet/t-product-home";
+@use "./res/mobile/m-product-home";
