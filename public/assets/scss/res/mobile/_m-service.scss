@@ -1,0 +1,13 @@
+@media screen and (max-width: 425px) {
+  .service {
+    &__list {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto auto;
+    }
+
+    &__item:nth-child(3) {
+        grid-column: span 2;
+        justify-self: center;
+      }
+  }
+}

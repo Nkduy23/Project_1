@@ -1,16 +1,16 @@
-@media screen and (max-width: 768px) {
-  .feature {
+@media screen and (max-width: 650px) {
+  .brand {
     overflow: hidden;
-
     &__wrapper {
       width: 200%;
       gap: 2rem;
-      padding-left: 1rem;
     }
+    &__item {
 
+    }
     &__group {
       width: 100%;
-      gap: 1.5rem;
+      padding: 1rem 1rem 1rem 2rem;
     }
 
     &__arrow {

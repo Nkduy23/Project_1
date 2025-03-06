@@ -1,7 +1,6 @@
 .product {
+  padding: 2rem 0;
   &__container {
-    display: flex;
-    flex-direction: column;
     row-gap: 2rem;
   }
   &__title {
@@ -9,6 +8,7 @@
     font-size: 2.5rem;
     font-weight: 600;
     color: #676767;
+    text-transform: uppercase;
   }
 
   &__list {
@@ -18,6 +18,7 @@
   }
 
   &__item {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,19 +27,38 @@
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.096);
     border-radius: 10px;
     padding: 1rem;
+    overflow: hidden;
     img {
       width: 100%;
+      transform: scale(1);
+      transition: transform 0.5s ease-in-out;
     }
+  }
+
+  &__item:hover img {
+    transform: scale(1.1);
   }
 
   &__name {
     font-size: 1.5rem;
     color: #676767;
+    padding-top: 1rem;
   }
 
   &__price {
     font-size: 1.6rem;
     color: #676767;
+    font-weight: 600;
+  }
+
+  &__label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #313030e0;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
     font-weight: 600;
   }
 }

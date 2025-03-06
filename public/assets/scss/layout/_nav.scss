@@ -85,8 +85,9 @@
 .wrapper {
   background-color: #fff;
   width: 80%;
-  min-height: 100vh;
-  position: absolute;
+  height: 100dvh;
+  position: fixed;
+  // check lại sau
   top: 8.5rem;
   left: 0;
   z-index: 9999;

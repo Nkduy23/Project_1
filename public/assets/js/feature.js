@@ -1,51 +1,34 @@
 document.addEventListener("DOMContentLoaded", function () {
   const featureList = document.querySelector(".feature__list");
   const featureItems = document.querySelectorAll(".feature__item");
-  const itemsPerPage = 6;
-  let currentPage = 0;
+  const itemsPerGroup = 6;
+  let currentIndex = 0;
 
-  function showItems(page) {
-    featureItems.forEach((item, index) => {
-      if (index >= page * itemsPerPage && index < (page + 1) * itemsPerPage) {
-        item.style.display = "block";
-      } else {
-        item.style.display = "none";
-      }
-    });
-  }
-
-  // Hàm hiển thị tất cả các ảnh (dùng cho màn hình lớn hơn 768px)
-  function showAllItems() {
-    featureItems.forEach((item) => {
-      item.style.display = "block";
-    });
+  function updateSlider() {
+    const translateXValue = -currentIndex * 100 + "%";
+    featureList.style.transform = `translateX(${translateXValue})`;
   }
 
   function nextPage() {
-    if (currentPage < Math.ceil(featureItems.length / itemsPerPage) - 1) {
-      currentPage++;
-      showItems(currentPage);
+    if (currentIndex < Math.ceil(featureItems.length / itemsPerGroup) - 1) {
+      currentIndex++;
     } else {
-      currentPage = 0;
-      showItems(currentPage);
+      currentIndex = 0;
     }
+    updateSlider();
   }
 
   function prevPage() {
-    if (currentPage > 0) {
-      currentPage--;
-      showItems(currentPage);
+    if (currentIndex > 0) {
+      currentIndex--;
     } else {
-      currentPage = Math.ceil(featureItems.length / itemsPerPage) - 1;
-      showItems(currentPage);
+      currentIndex = Math.ceil(featureItems.length / itemsPerGroup) - 1;
     }
+    updateSlider();
   }
 
-  const nextButton = document.querySelector(".feature__arrow--right");
-  const prevButton = document.querySelector(".feature__arrow--left");
-
-  nextButton.addEventListener("click", nextPage);
-  prevButton.addEventListener("click", prevPage);
+  document.querySelector(".feature__arrow--right").addEventListener("click", nextPage);
+  document.querySelector(".feature__arrow--left").addEventListener("click", prevPage);
 
   let touchStartX = 0;
   let touchEndX = 0;
@@ -56,30 +39,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   featureList.addEventListener("touchend", function (event) {
     touchEndX = event.changedTouches[0].screenX;
-    handleSwipe();
+    if (touchEndX < touchStartX) nextPage();
+    if (touchEndX > touchStartX) prevPage();
   });
-
-  function handleSwipe() {
-    if (touchEndX < touchStartX) {
-      nextPage();
-    }
-    if (touchEndX > touchStartX) {
-      prevPage();
-    }
-  }
 
   window.addEventListener("resize", function () {
     if (window.innerWidth > 768) {
-      showAllItems();
+      featureList.style.transform = "translateX(0)";
     } else {
-      showItems(currentPage);
+      updateSlider();
     }
   });
-
-  // Khởi tạo hiển thị ban đầu
-  if (window.innerWidth <= 768) {
-    showItems(currentPage);
-  } else {
-    showAllItems();
-  }
 });

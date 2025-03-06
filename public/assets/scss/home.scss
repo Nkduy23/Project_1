@@ -3,6 +3,8 @@
 @use "./layout/feature";
 @use "./layout/banner";
 @use "./layout/product-home";
+@use "./layout/service";
+@use "./layout/brand";
 
 
 @use "./res/tablet/t-feature";
@@ -11,3 +13,5 @@
 @use "./res/mobile/m-banner"; 
 @use "./res/tablet/t-product-home";
 @use "./res/mobile/m-product-home";
+@use "./res/mobile/m-service";
+@use "./res/tablet/t-brand";
