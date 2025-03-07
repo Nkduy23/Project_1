@@ -4,3 +4,39 @@
   border-top: 1px solid #ccc;
   padding: 2rem 1rem 1rem;
 }
+
+.feature, .brand {
+  max-width: 85rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.product, .service, .brand {
+  &__title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #676767;
+    text-transform: uppercase;
+  }
+}
+
+.brand, .feature {
+  &__arrow {
+    position: absolute;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    transform: translateY(-50%);
+    color: #333;
+    transition: color 0.3s ease-in-out;
+    display: none;
+    z-index: 1;
+
+    &:hover {
+      color: #005eca;
+    }
+  }
+}

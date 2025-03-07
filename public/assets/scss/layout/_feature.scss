@@ -1,9 +1,4 @@
 .feature {
-  max-width: 85rem;
-  margin: 0 auto;
-  padding: 0 2rem;
-  position: relative;
-
   &__list {
     text-align: center;
     width: 100%;
@@ -29,19 +24,6 @@
   }
 
   &__arrow {
-    position: absolute;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    transform: translateY(-50%);
-    color: #333;
-    transition: color 0.3s ease-in-out;
-    display: none;
-    z-index: 1;
-    &:hover {
-      color: #005eca;
-    }
 
     &--left {
       left: 0rem;

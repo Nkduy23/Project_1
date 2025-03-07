@@ -68,6 +68,37 @@ body {
   padding: 2rem 1rem 1rem;
 }
 
+.feature, .brand {
+  max-width: 85rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.product__title, .service__title, .brand__title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #676767;
+  text-transform: uppercase;
+}
+
+.brand__arrow, .feature__arrow {
+  position: absolute;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  transform: translateY(-50%);
+  color: #333;
+  transition: color 0.3s ease-in-out;
+  display: none;
+  z-index: 1;
+}
+.brand__arrow:hover, .feature__arrow:hover {
+  color: #005eca;
+}
+
 .header__top {
   background-color: #ededed;
   padding: 0.5rem 0;
@@ -297,7 +328,7 @@ body {
   font-size: 2.5rem;
 }
 
-.flex, .flex-column-center, .flex-between, .flex-center {
+.flex, .flex-column-center-justify, .flex-column-center-items, .flex-between, .flex-center {
   display: flex;
 }
 
@@ -305,7 +336,7 @@ body {
   justify-content: flex-start;
 }
 
-.justify-center, .flex-center {
+.justify-center, .flex-column-center-justify, .flex-center {
   justify-content: center;
 }
 
@@ -329,7 +360,7 @@ body {
   align-items: flex-start;
 }
 
-.items-center, .flex-column-center, .flex-between, .flex-center {
+.items-center, .flex-column-center-items, .flex-between, .flex-center {
   align-items: center;
 }
 
@@ -353,7 +384,7 @@ body {
   flex-direction: row-reverse;
 }
 
-.flex-col, .flex-column-center {
+.flex-col, .flex-column-center-justify, .flex-column-center-items {
   flex-direction: column;
 }
 

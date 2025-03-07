@@ -70,11 +70,18 @@
   @extend .items-center;
 }
 
-.flex-column-center {
+.flex-column-center-items {
   @extend .flex;
   @extend .flex-col;
   @extend .items-center;
 }
+
+.flex-column-center-justify {
+  @extend .flex;
+  @extend .flex-col;
+  @extend .justify-center;
+}
+
 
 .flex-grow {
   flex-grow: 1;

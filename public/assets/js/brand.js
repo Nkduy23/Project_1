@@ -1,54 +1,63 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const brandList = document.querySelector(".brand__list");
-    const brandItems = document.querySelectorAll(".brand__item");
-    const itemsPerGroup = 6;
+  const brandContainers = document.querySelectorAll(".brand__container");
+
+  brandContainers.forEach((container) => {
+    const brandWrapper = container.querySelector(".brand__wrapper");
+    const brandGroups = container.querySelectorAll(".brand__group");
+    const nextBtn = container.querySelector(".brand__arrow--right");
+    const prevBtn = container.querySelector(".brand__arrow--left");
+
     let currentIndex = 0;
-  
+    const totalGroups = brandGroups.length;
+
     function updateSlider() {
-      const translateXValue = -currentIndex * 100 + "%";
-      brandList.style.transform = `translateX(${translateXValue})`;
+      const translateXValue = -currentIndex * 50 + "%";
+      brandWrapper.style.transform = `translateX(${translateXValue})`;
     }
-  
+
     function nextPage() {
-      if (currentIndex < Math.ceil(brandItems.length / itemsPerGroup) - 1) {
+      if (currentIndex < totalGroups - 1) {
         currentIndex++;
       } else {
         currentIndex = 0;
       }
       updateSlider();
     }
-  
+
     function prevPage() {
       if (currentIndex > 0) {
         currentIndex--;
       } else {
-        currentIndex = Math.ceil(brandItems.length / itemsPerGroup) - 1;
+        currentIndex = totalGroups - 1;
       }
       updateSlider();
     }
-  
-    document.querySelector(".brand__arrow--right").addEventListener("click", nextPage);
-    document.querySelector(".brand__arrow--left").addEventListener("click", prevPage);
-  
+
+    nextBtn.addEventListener("click", nextPage);
+    prevBtn.addEventListener("click", prevPage);
+
+    // Xử lý swipe trên mobile
     let touchStartX = 0;
     let touchEndX = 0;
-  
-    brandList.addEventListener("touchstart", function (event) {
+
+    brandWrapper.addEventListener("touchstart", (event) => {
       touchStartX = event.changedTouches[0].screenX;
     });
-  
-    brandList.addEventListener("touchend", function (event) {
+
+    brandWrapper.addEventListener("touchend", (event) => {
       touchEndX = event.changedTouches[0].screenX;
       if (touchEndX < touchStartX) nextPage();
       if (touchEndX > touchStartX) prevPage();
     });
-  
-    window.addEventListener("resize", function () {
+
+    // Reset khi resize
+    window.addEventListener("resize", () => {
       if (window.innerWidth > 768) {
-        brandList.style.transform = "translateX(0)";
+        brandWrapper.style.transform = "translateX(0)";
+        currentIndex = 0;
       } else {
         updateSlider();
       }
     });
   });
-  
+});

@@ -1,19 +1,11 @@
 .brand {
-  max-width: 85rem;
-  margin: 0 auto;
-  padding: 0 2rem;
-
   &__container {
     row-gap: 2rem;
     padding: 2rem 0;
     position: relative;
-    justify-content: center;
   }
 
   &__list {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     transition: transform 0.3s ease-in-out;
   }
 
@@ -29,27 +21,8 @@
     }
   }
 
-  &__title {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: #676767;
-    text-transform: uppercase;
-  }
 
   &__arrow {
-    position: absolute;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #333;
-    transition: color 0.3s ease-in-out;
-    display: none;
-    z-index: 1;
-    &:hover {
-      color: #005eca;
-    }
 
     &--left {
       top: 57%;
