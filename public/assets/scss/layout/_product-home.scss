@@ -1,5 +1,10 @@
 .product {
   padding: 2rem 0;
+
+  &.sale {
+    border-bottom: 1px solid #ccc;
+  }
+
   &__container {
     row-gap: 2rem;
   }

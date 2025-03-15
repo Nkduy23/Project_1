@@ -5,6 +5,8 @@
 @use "./layout/product-home";
 @use "./layout/service";
 @use "./layout/brand";
+@use "./layout/sale";
+@use "./layout/news";
 
 
 @use "./res/tablet/t-feature";
@@ -15,3 +17,4 @@
 @use "./res/mobile/m-product-home";
 @use "./res/mobile/m-service";
 @use "./res/tablet/t-brand";
+@use "./res/desktop/d-news";

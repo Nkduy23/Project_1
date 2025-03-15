@@ -1,5 +1,8 @@
 @media screen and (max-width: 960px) {
   .header {
+    position: sticky;
+    top: -22px;
+    z-index: 1999;
     &__menu {
       opacity: 1;
       width: 5rem;
@@ -23,6 +26,7 @@
   .search-input {
     position: relative;
     width: 90%;
+    
     input {
       padding: 0.8rem 3rem;
       border-radius: 5px;
