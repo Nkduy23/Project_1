@@ -331,6 +331,114 @@ body {
   font-size: 2.5rem;
 }
 
+.footer {
+  background-color: #9f1d25;
+}
+.footer__hotline, .footer__daily, .footer__baohanh {
+  max-width: 15rem;
+  padding: 1rem;
+}
+.footer__list {
+  padding: 1rem;
+}
+.footer__bocongthuong {
+  max-width: 12rem;
+}
+.footer__top {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.footer__text {
+  color: #fff;
+  padding: 0.8rem;
+}
+.footer__item {
+  padding: 1rem 0;
+  position: relative;
+}
+.footer__title {
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: #f1efef;
+  padding: 1rem 0;
+}
+.footer__link {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 400;
+  padding: 0.5rem 0.5rem 0.5rem 0;
+}
+.footer__group-store .footer__item::after {
+  content: "";
+  position: absolute;
+  width: 0.75rem;
+  height: 0.75rem;
+  right: 1rem;
+  background: url(../img/footer/arrow-right.svg) no-repeat center center;
+  background-size: contain;
+  filter: invert(1);
+  top: 0.5rem;
+}
+
+.container-footer-top,
+.footer__bottom {
+  max-width: 108rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.container-footer-bottom {
+  width: 100%;
+  background-color: #8b191b;
+}
+
+.launcher {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #c40d2e;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 2rem 2rem 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+.launcher::after {
+  content: "";
+  position: absolute;
+  bottom: -1rem;
+  right: 0rem;
+  width: 0;
+  height: 0;
+  border-left: 3rem solid transparent;
+  border-top: 1.5rem solid #c40d2e;
+}
+.launcher__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.launcher__icon span {
+  display: block;
+  height: 0.4rem;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+.launcher__icon span:nth-child(1) {
+  width: 2.5rem;
+}
+.launcher__icon span:nth-child(2) {
+  width: 2rem;
+}
+.launcher__icon span:nth-child(3) {
+  width: 2.2rem;
+}
+
 .flex, .flex-column-center-justify, .flex-column-center-items, .flex-between, .flex-center {
   display: flex;
 }
@@ -516,5 +624,18 @@ body {
 @media screen and (max-width: 425px) {
   .header .header__bottom {
     padding: 0.5rem 1rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .footer__top {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer__group {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 425px) {
+  .footer__top {
+    grid-template-columns: 1fr;
   }
 }

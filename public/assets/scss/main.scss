@@ -4,6 +4,7 @@
 @use "./layout/header";
 @use "./layout/nav";
 @use "./layout/footer";
+@use "./layout/launcher";
 @use "./utils/flex";
 @use "./utils/grid";
 
@@ -11,3 +12,5 @@
 @use "./res/desktop/d-nav";
 
 @use "./res/mobile/m-header";
+@use "./res/tablet/t-footer";
+@use "./res/mobile/m-footer";

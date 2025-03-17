@@ -1,0 +1,8 @@
+@media screen and (max-width: 425px) {
+    .footer {
+        &__top {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+}

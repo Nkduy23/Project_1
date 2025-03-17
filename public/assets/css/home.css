@@ -170,6 +170,12 @@
   max-width: 100%;
 }
 
+.top10__img {
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .brand__container {
   row-gap: 2rem;
   padding: 2rem 0;

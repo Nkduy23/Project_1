@@ -12,6 +12,15 @@
     <link rel="stylesheet" href="./assets/css/home.css" />
   </head>
   <body>
+    <!-- launcher -->
+    <div class="launcher">
+      <div class="launcher__icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    
     <header class="header">
       <div class="header__top"><p>Bộ Sưu Tập Đồng Hồ Mới Về</p></div>
       <div class="header__bottom flex-between">
@@ -1423,6 +1432,23 @@
       </div>
     </div>
 
+    <!-- Top 10 -->
+    <div class="container-main">
+      <div class="top10">
+        <div class="top10__list">
+          <div class="top10__item">
+            <img
+              class="top10__img"
+              src="./assets/img/top-10/top-10-large.jpg"
+              data-large="./assets/img/top-10/top-10-large.jpg"
+              data-small="./assets/img/top-10/top-10-small.avif"
+              alt="Hình ảnh top 10"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Brand -->
     <div class="brand">
       <div class="brand__container flex-column-center-justify">
@@ -1431,7 +1457,7 @@
           <i class="fa-solid fa-angles-left"></i>
         </button>
         <div class="brand__list flex-column-center-justify">
-          <div class="brand__wrapper flex">
+          <div class="brand__wrapper flex gap-10">
             <div class="brand__group grid-3 gap-10">
               <div class="brand__item">
                 <a href="#"><img src="./assets/img/brand/noitieng/casio.avif" alt="Thương hiệu casio" /></a>
@@ -1580,7 +1606,7 @@
     </div>
 
     <!-- News -->
-   <div class="container-main">
+    <div class="container-main">
       <div class="news">
         <div class="news__main">
           <div class="news__list">
@@ -1607,7 +1633,7 @@
           </div>
         </div>
         <div class="news__main">
-         <div class="news__list">
+          <div class="news__list">
             <article class="news__item news__item--large">
               <img class="news__img" src="./assets/img/news/new1.avif" alt="Hình ảnh bài viết" />
               <a class="news__link" href="#"><h2 class="news__title">Tiêu đề bài viếtTiêu đề bài viếtTiêu đề bài viếtTiêu đề bài viết</h2></a>
@@ -1628,7 +1654,7 @@
               <img class="news__img" src="./assets/img/news/new1.avif" alt="Hình ảnh bài viết" />
               <a class="news__link" href="#"><h2 class="news__title">Tiêu đề bài viếtTiêu đề bài viếtTiêu đề bài viếtTiêu đề bài viết</h2></a>
             </article>
-         </div>
+          </div>
         </div>
         <aside class="news__sidebar">
           <div class="news__list">
@@ -1655,12 +1681,116 @@
           </div>
         </aside>
       </div>
-   </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="footer">
+      <div class="container-footer-top">
+        <div class="footer__top">
+          <div class="footer__group">
+            <img class="footer__hotline" src="./assets/img/footer/hotline.avif" alt="Hình ảnh hotline" class="footer__img" />
+            <h3 class="footer__title">Chính Sách</h3>
+            <ul class="footer__list">
+              <li class="footer__item">
+                <a class="footer__link" href="#">Chính sách đổi hàng</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">Chính sách bảo hành</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer__group footer__group-store">
+            <h3 class="footer__title">Hệ Thống Cửa Hàng</h3>
+            <ul class="footer__list">
+              <li class="footer__item">
+                <a class="footer__link" href="#">TP. Hồ Chí Minh</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">Hà Nội</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">Hải Phòng</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">Biên Hoà - Bình Dương</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">Đà Nẵng</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">Vũng Tàu</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">Cần Thơ</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">Long Xuyên</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">Trung Tâm Bảo Hành</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer__group">
+            <h3 class="footer__title">Thông Tin</h3>
+            <ul class="footer__list">
+              <li class="footer__item">
+                <a class="footer__link" href="#">Liên hệ</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">Giới thiệu</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">Khuyến mãi</a>
+              </li>
+            </ul>
+            <h3 class="footer__title">Tham Khảo</h3>
+            <ul class="footer__list">
+              <li class="footer__item">
+                <a class="footer__link" href="#">Liên hệ</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">Giới thiệu</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">Khuyến mãi</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer__group">
+            <h3 class="footer__title">Về Chúng Tôi</h3>
+            <img class="footer__daily" src="./assets/img/footer/daily.avif" alt="Hình ảnh đại lý" />
+            <img class="footer__baohanh" src="./assets/img/footer/baohanh.avif" alt="Hình ảnh bảo thành" />
+            <h3 class="footer__title">Website Cùng Thệ Thống</h3>
+            <ul class="footer__list">
+              <li class="footer__item">
+                <a class="footer__link" href="#">Kính Khánh Duy</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">Tuyển dụng Khánh Duy</a>
+              </li>
+            </ul>
+            <img class="footer__bocongthuong" src="./assets/img/footer/bocongthuong.avif" alt="Hình ảnh bộ công thương" />
+          </div>
+        </div>
+      </div>
+      <div class="container-footer-bottom">
+        <div class="footer__bottom">
+          <p class="footer__text">Copyright by Đồng Hồ Khánh Duy® Since 1991</p>
+          <p class="footer__text">Công ty TNHH Khánh Duy Việt Nam</p>
+          <p class="footer__text">GPDKKD Số: 0315667679 do sở KH & ĐT TP.HCM cấp ngày: 22/08/2022</p>
+          <p class="footer__text">Góp ý & Khiếu nại: ceo@donghokhanhduy.com</p>
+          <p class="footer__text">Địa chỉ trụ sở: 50/22 Gò Dầu, Phường Tân Quý, Quận Tân Phú, TP. Hồ Chí Minh</p>
+          <p class="footer__text">Hotline: 1900 6777</p>
+        </div>
+      </div>
+    </footer>
   </body>
   <script src="./assets/js/header.js"></script>
   <script src="./assets/js/nav.js"></script>
   <script src="./assets/js/slider.js"></script>
   <script src="./assets/js/feature.js"></script>
   <script src="./assets/js/product.js"></script>
+  <script src="./assets/js/top-10.js"></script>
   <script src="./assets/js/brand.js"></script>
 </html>

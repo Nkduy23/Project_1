@@ -1,0 +1,72 @@
+.footer {
+  background-color: #9f1d25;
+
+  &__hotline, &__daily, &__baohanh {
+    max-width: 15rem;
+    padding: 1rem;
+  }
+
+  &__list {
+    padding: 1rem;
+  }
+
+  &__bocongthuong {
+    max-width: 12rem;
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  &__text {
+    color: #fff;
+    padding: 0.8rem;
+  }
+
+  &__item {
+    padding: 1rem 0;
+    position: relative;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: #f1efef;
+    padding: 1rem 0;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 400;
+    padding: 0.5rem 0.5rem 0.5rem 0;
+  }
+
+  &__group-store {
+    .footer__item::after {
+      content: "";
+      position: absolute;
+      width: 0.75rem;
+      height: 0.75rem;
+      right: 1rem;
+      background: url(../img/footer/arrow-right.svg) no-repeat center center;
+      background-size: contain;
+      filter: invert(1);
+      top: 0.5rem;
+    }
+  }
+}
+
+.container-footer-top,
+.footer__bottom {
+  max-width: 108rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.container-footer-bottom {
+  width: 100%;
+  background-color: #8b191b;
+}

@@ -1,0 +1,47 @@
+.launcher {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #c40d2e;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 2rem 2rem 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -1rem;
+    right: 0rem;
+    width: 0;
+    height: 0;
+    border-left: 3rem solid transparent;
+    border-top: 1.5rem solid #c40d2e;
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    span {
+      display: block;
+      height: 0.4rem;
+      background-color: #fff;
+      border-radius: 1rem;
+      &:nth-child(1) {
+        width: 2.5rem;
+      }
+      &:nth-child(2) {
+        width: 2rem;
+      }
+      &:nth-child(3) {
+        width: 2.2rem;
+      }
+    }
+  }
+}

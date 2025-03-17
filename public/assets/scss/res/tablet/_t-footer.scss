@@ -1,0 +1,11 @@
+@media screen and (max-width: 768px) {
+    .footer {
+        &__top {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        &__group {
+            text-align: center;
+        }
+    }
+}
