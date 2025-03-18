@@ -14,12 +14,6 @@
     max-width: 12rem;
   }
 
-  &__top {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-  }
-
   &__text {
     color: #fff;
     padding: 0.8rem;

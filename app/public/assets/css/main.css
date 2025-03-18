@@ -344,11 +344,6 @@ body {
 .footer__bocongthuong {
   max-width: 12rem;
 }
-.footer__top {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-}
 .footer__text {
   color: #fff;
   padding: 0.8rem;
@@ -417,10 +412,6 @@ body {
   border-top: 1.5rem solid #c40d2e;
 }
 .launcher__icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   gap: 0.5rem;
 }
 .launcher__icon span {

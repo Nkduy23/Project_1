@@ -2,9 +2,9 @@
 @use "./base/typography";
 @use "./base/common";
 @use "./layout/header";
-@use "./layout/nav";
-@use "./layout/footer";
-@use "./layout/launcher";
+@use "./layout/main/nav";
+@use "./layout/main/footer";
+@use "./layout/main/launcher";
 @use "./utils/flex";
 @use "./utils/grid";
 

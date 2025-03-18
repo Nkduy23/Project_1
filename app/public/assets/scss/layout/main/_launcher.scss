@@ -6,9 +6,6 @@
   width: 6rem;
   height: 6rem;
   border-radius: 2rem 2rem 0 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 2000;
 
   &::after {
@@ -23,10 +20,6 @@
   }
 
   &__icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     gap: 0.5rem;
     span {
       display: block;
