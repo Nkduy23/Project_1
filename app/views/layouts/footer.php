@@ -99,3 +99,14 @@
     </div>
   </div>
 </footer>
+
+<script src="../public/assets/js/header.js"></script>
+<script src="../public/assets/js/nav.js"></script>
+<script src="../public/assets/js/slider.js"></script>
+<script src="../public/assets/js/feature.js"></script>
+<script src="../public/assets/js/product.js"></script>
+<script src="../public/assets/js/top-10.js"></script>
+<script src="../public/assets/js/brand.js"></script>
+</body>
+
+</html>
