@@ -1,10 +1,9 @@
-<!-- Main Product -->
-<main>
+<!-- Sản Phẩm Khuyến Mãi -->
+<?php if (!empty($saleProducts)): ?>
   <div class="container-main">
     <div class="product sale">
       <div class="product__container flex-column-center-items">
         <h2 class="product__title">Sản Phẩm Khuyến Mãi</h2>
-        <!-- flash sale -->
         <div class="flash-sale" role="region" aria-labelledby="flashSaleTitle">
           <div class="flash-sale__timer flex" aria-live="countdown">
             <div class="flash-sale__timer-box">
@@ -21,550 +20,69 @@
             </div>
           </div>
         </div>
-
         <div class="product__list">
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nam/product-1.avif"
-                data-src="../public/assets/img/product/nam/product-1.avif"
-                data-hover="../public/assets/img/product/nam/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <div class="product__label">New</div>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nam/product-1.avif"
-                data-src="../public/assets/img/product/nam/product-1.avif"
-                data-hover="../public/assets/img/product/nam/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nam/product-1.avif"
-                data-src="../public/assets/img/product/nam/product-1.avif"
-                data-hover="../public/assets/img/product/nam/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nam/product-1.avif"
-                data-src="../public/assets/img/product/nam/product-1.avif"
-                data-hover="../public/assets/img/product/nam/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="product">
-      <div class="product__container flex-column-center-items">
-        <h2 class="product__title">Các Mẫu Đồng Hồ Mới Về</h2>
-        <div class="product__list">
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nam/product-1.avif"
-                data-src="../public/assets/img/product/nam/product-1.avif"
-                data-hover="../public/assets/img/product/nam/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <div class="product__label">New</div>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nam/product-1.avif"
-                data-src="../public/assets/img/product/nam/product-1.avif"
-                data-hover="../public/assets/img/product/nam/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nam/product-1.avif"
-                data-src="../public/assets/img/product/nam/product-1.avif"
-                data-hover="../public/assets/img/product/nam/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nam/product-1.avif"
-                data-src="../public/assets/img/product/nam/product-1.avif"
-                data-hover="../public/assets/img/product/nam/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="product">
-      <div class="product__container flex-column-center-items">
-        <h2 class="product__title">Đồng Hồ Nam Bán Chạy</h2>
-        <div class="product__list">
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nam/product-1.avif"
-                data-src="../public/assets/img/product/nam/product-1.avif"
-                data-hover="../public/assets/img/product/nam/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <div class="product__label">New</div>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nam/product-1.avif"
-                data-src="../public/assets/img/product/nam/product-1.avif"
-                data-hover="../public/assets/img/product/nam/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nam/product-1.avif"
-                data-src="../public/assets/img/product/nam/product-1.avif"
-                data-hover="../public/assets/img/product/nam/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nam/product-1.avif"
-                data-src="../public/assets/img/product/nam/product-1.avif"
-                data-hover="../public/assets/img/product/nam/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nam/product-1.avif"
-                data-src="../public/assets/img/product/nam/product-1.avif"
-                data-hover="../public/assets/img/product/nam/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nam/product-1.avif"
-                data-src="../public/assets/img/product/nam/product-1.avif"
-                data-hover="../public/assets/img/product/nam/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nam/product-1.avif"
-                data-src="../public/assets/img/product/nam/product-1.avif"
-                data-hover="../public/assets/img/product/nam/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nam/product-1.avif"
-                data-src="../public/assets/img/product/nam/product-1.avif"
-                data-hover="../public/assets/img/product/nam/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="product">
-      <div class="product__container flex-column-center-items">
-        <h2 class="product__title">Đồng Hồ Nữ Bán Chạy</h2>
-        <div class="product__list">
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nu/product-1.avif"
-                data-src="../public/assets/img/product/nu/product-1.avif"
-                data-hover="../public/assets/img/product/nu/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <div class="product__label">New</div>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nu/product-1.avif"
-                data-src="../public/assets/img/product/nu/product-1.avif"
-                data-hover="../public/assets/img/product/nu/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nu/product-1.avif"
-                data-src="../public/assets/img/product/nu/product-1.avif"
-                data-hover="../public/assets/img/product/nu/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nu/product-1.avif"
-                data-src="../public/assets/img/product/nu/product-1.avif"
-                data-hover="../public/assets/img/product/nu/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nu/product-1.avif"
-                data-src="../public/assets/img/product/nu/product-1.avif"
-                data-hover="../public/assets/img/product/nu/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nu/product-1.avif"
-                data-src="../public/assets/img/product/nu/product-1.avif"
-                data-hover="../public/assets/img/product/nu/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nu/product-1.avif"
-                data-src="../public/assets/img/product/nu/product-1.avif"
-                data-hover="../public/assets/img/product/nu/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/nu/product-1.avif"
-                data-src="../public/assets/img/product/nu/product-1.avif"
-                data-hover="../public/assets/img/product/nu/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="product">
-      <div class="product__container flex-column-center-items">
-        <h2 class="product__title">Trang Sức Thời Trang</h2>
-        <div class="product__list">
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/trangsuc/product-1.avif"
-                data-src="../public/assets/img/product/trangsuc/product-1.avif"
-                data-hover="../public/assets/img/product/trangsuc/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <div class="product__label">New</div>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/trangsuc/product-1.avif"
-                data-src="../public/assets/img/product/trangsuc/product-1.avif"
-                data-hover="../public/assets/img/product/trangsuc/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <div class="product__label">New</div>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/trangsuc/product-1.avif"
-                data-src="../public/assets/img/product/trangsuc/product-1.avif"
-                data-hover="../public/assets/img/product/trangsuc/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <div class="product__label">New</div>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/trangsuc/product-1.avif"
-                data-src="../public/assets/img/product/trangsuc/product-1.avif"
-                data-hover="../public/assets/img/product/trangsuc/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <div class="product__label">New</div>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/trangsuc/product-1.avif"
-                data-src="../public/assets/img/product/trangsuc/product-1.avif"
-                data-hover="../public/assets/img/product/trangsuc/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <div class="product__label">New</div>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/trangsuc/product-1.avif"
-                data-src="../public/assets/img/product/trangsuc/product-1.avif"
-                data-hover="../public/assets/img/product/trangsuc/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <div class="product__label">New</div>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/trangsuc/product-1.avif"
-                data-src="../public/assets/img/product/trangsuc/product-1.avif"
-                data-hover="../public/assets/img/product/trangsuc/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <div class="product__label">New</div>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/trangsuc/product-1.avif"
-                data-src="../public/assets/img/product/trangsuc/product-1.avif"
-                data-hover="../public/assets/img/product/trangsuc/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <div class="product__label">New</div>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="product">
-      <div class="product__container flex-column-center-items">
-        <h2 class="product__title">Đồ Da Thực Cao Cấp</h2>
-        <div class="product__list">
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/doda/product-1.avif"
-                data-src="../public/assets/img/product/doda/product-1.avif"
-                data-hover="../public/assets/img/product/doda/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <div class="product__label">New</div>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/doda/product-1.avif"
-                data-src="../public/assets/img/product/doda/product-1.avif"
-                data-hover="../public/assets/img/product/doda/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <div class="product__label">New</div>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/doda/product-1.avif"
-                data-src="../public/assets/img/product/doda/product-1.avif"
-                data-hover="../public/assets/img/product/doda/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <div class="product__label">New</div>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/doda/product-1.avif"
-                data-src="../public/assets/img/product/doda/product-1.avif"
-                data-hover="../public/assets/img/product/doda/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <div class="product__label">New</div>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/doda/product-1.avif"
-                data-src="../public/assets/img/product/doda/product-1.avif"
-                data-hover="../public/assets/img/product/doda/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <div class="product__label">New</div>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/doda/product-1.avif"
-                data-src="../public/assets/img/product/doda/product-1.avif"
-                data-hover="../public/assets/img/product/doda/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <div class="product__label">New</div>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/doda/product-1.avif"
-                data-src="../public/assets/img/product/doda/product-1.avif"
-                data-hover="../public/assets/img/product/doda/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <div class="product__label">New</div>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
-          <div class="product__item">
-            <a href="#">
-              <img
-                src="../public/assets/img/product/doda/product-1.avif"
-                data-src="../public/assets/img/product/doda/product-1.avif"
-                data-hover="../public/assets/img/product/doda/product-1.1.avif"
-                alt="Casio World Time"
-                class="product__img" />
-            </a>
-            <div class="product__label">New</div>
-            <p class="product__name">Casio World Time AE-1200WHD-1AVDF – Nam – Quartz (Pin) – Mặt Số 45 mm x 42.1 mm, Giờ Thế GIới, Chống Nước 10ATM</p>
-            <p class="product__price">1.500.000 ₫</p>
-          </div>
+          <?php foreach ($saleProducts as $product): ?>
+            <div class="product__item">
+              <a href="<?php echo htmlspecialchars($product['link']); ?>">
+                <img src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($product['image']); ?>"
+                  data-hover="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($product['image_hover']); ?>"
+                  alt="<?php echo htmlspecialchars($product['name']); ?>" class="product__img">
+              </a>
+              <?php if (!empty($product['label'])): ?>
+                <div class="product__label"><?php echo htmlspecialchars($product['label']); ?></div>
+              <?php endif; ?>
+              <p class="product__name">
+                <a href="<?php echo htmlspecialchars($product['link']); ?>">
+                  <?php echo htmlspecialchars($product['name']); ?>
+                </a>
+              </p>
+              <p class="product__price"><?php echo number_format($product['price'], 0, ',', '.') ?> ₫</p>
+            </div>
+          <?php endforeach; ?>
         </div>
       </div>
     </div>
   </div>
-</main>
+<?php endif; ?>
+
+<!-- Hiển thị từng loại sản phẩm -->
+<?php
+$productCategories = [
+  'Đồng Hồ Nam Bán Chạy' => $menProducts,
+  'Đồng Hồ Nữ Bán Chạy' => $womenProducts,
+  'Trang Sức Thời Trang' => $jewelryProducts,
+  'Đồ Da Thật Cao Cấp' => $leatherProducts
+];
+
+foreach ($productCategories as $title => $products):
+?>
+  <?php if (!empty($products)): ?>
+    <div class="container-main">
+      <div class="product">
+        <div class="product__container flex-column-center-items">
+          <h2 class="product__title"><?php echo "$title"; ?></h2>
+          <div class="product__list">
+            <?php foreach ($products as $product): ?>
+              <div class="product__item">
+                <a href="<?php echo htmlspecialchars($product['link']); ?>">
+                  <img src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($product['image']); ?>"
+                    data-hover="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($product['image_hover']); ?>"
+                    alt="<?php echo htmlspecialchars($product['name']); ?>" class="product__img">
+                </a>
+                <?php if (!empty($product['label'])): ?>
+                  <div class="product__label"><?php echo htmlspecialchars($product['label']); ?></div>
+                <?php endif; ?>
+                <p class="product__name">
+                  <a href="<?php echo htmlspecialchars($product['link']); ?>">
+                    <?php echo htmlspecialchars($product['name']); ?>
+                  </a>
+                </p>
+                <p class="product__price"><?php echo number_format($product['price'], 0, ',', '.') ?> ₫</p>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        </div>
+      </div>
+    </div>
+  <?php endif; ?>
+<?php endforeach; ?>
