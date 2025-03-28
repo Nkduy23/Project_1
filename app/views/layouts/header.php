@@ -13,8 +13,9 @@ $baseUrl = "/app/public/assets/";
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-  <link rel="stylesheet" href="<?= $baseUrl ?>css/main.css" />
-  <link rel="stylesheet" href="<?= $baseUrl ?>css/home.css" />
+  <link rel="stylesheet" href="<?= $baseUrl ?>css/main.css?v=<?php echo time(); ?>" />
+  <link rel="stylesheet" href="<?= $baseUrl ?>css/home.css?v=<?php echo time(); ?>" />
+  <link rel="stylesheet" href="<?= $baseUrl ?>css/detail.css?v=<?php echo time(); ?>" />
 </head>
 
 <body>
@@ -33,7 +34,7 @@ $baseUrl = "/app/public/assets/";
       </div>
       <!-- Logo -->
       <div class="header__logo">
-        <a href="?page=home"><img src="/app/public/assets/img/logo.png" alt="logo Khánh Duy" /></a>
+        <a href="/home"><img src="/app/public/assets/img/logo.png" alt="logo Khánh Duy" /></a>
       </div>
       <!-- Search -->
       <div class="header__search flex-center gap-16">

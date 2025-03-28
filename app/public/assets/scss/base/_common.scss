@@ -5,14 +5,21 @@
   padding: 2rem 1rem 1rem;
 }
 
-.feature, .brand {
+.container-main.no-border {
+  border: none;
+}
+
+.feature,
+.brand {
   max-width: 85rem;
   margin: 0 auto;
   padding: 0 2rem;
   position: relative;
 }
 
-.product, .service, .brand {
+.product,
+.service,
+.brand {
   &__title {
     text-align: center;
     font-size: 2.5rem;
@@ -22,7 +29,8 @@
   }
 }
 
-.brand, .feature {
+.brand,
+.feature {
   &__arrow {
     position: absolute;
     background: none;

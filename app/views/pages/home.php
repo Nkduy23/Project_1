@@ -2,23 +2,47 @@
 require_once __DIR__ . '/../../controllers/Controllers.php';
 
 // Gọi dữ liệu trước khi render giao diện
-$sliders = $sliderController->getAllSliders();
-$features = $featureController->getAllFeature();
-$bannerTop = $bannerController->getBanners('top');
-$bannerBottom = $bannerController->getBanners('bottom');
+$sliders = $mediaController->getMedia(
+    'type',
+    'slider',
+    'id,image, image_large, image_small, title, link'
+);
+$features = $mediaController->getMedia(
+    'type',
+    'feature',
+    'image, title, link'
+);
+$bannerTop = $mediaController->getMedia(
+    'banner_type', 
+    'top', 
+    'image, title, link, banner_type, position'
+);
+$bannerBottom = $mediaController->getMedia(
+    'banner_type', 
+    'bottom', 
+    'image, title, link, banner_type, position'
+);
 
 // Product
-$menProducts = $productController->getProducts('men');
-$womenProducts = $productController->getProducts('women');
-$jewelryProducts = $productController->getProducts('jewelry');
-$leatherProducts = $productController->getProducts('leather');
+$maleProducts = $productController->getProducts('male', 8);
+$femaleProducts = $productController->getProducts('female', 8);
+$jewelryProducts = $productController->getProducts('jewelry', 8);
+$leatherProducts = $productController->getProducts('leather', 8);
 $saleProducts = $productController->getSaleProducts();
 
 // Service
-$services = $serviceController->getAllServices();
+$services =  $mediaController->getMedia(
+    'type',
+    'service',
+    'image, title, link'
+);
 
 // Top 10
-$top10 = $top10Controller->getTop10();
+$top10 =  $mediaController->getMedia(
+    'type',
+    'top10',
+    'image, image_large, image_small'
+);
 
 // Brand
 $popularBrands = $brandController->getBrands('popular');

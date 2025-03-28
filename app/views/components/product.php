@@ -48,8 +48,8 @@
 <!-- Hiển thị từng loại sản phẩm -->
 <?php
 $productCategories = [
-  'Đồng Hồ Nam Bán Chạy' => $menProducts,
-  'Đồng Hồ Nữ Bán Chạy' => $womenProducts,
+  'Đồng Hồ Nam Bán Chạy' => $maleProducts,
+  'Đồng Hồ Nữ Bán Chạy' => $femaleProducts,
   'Trang Sức Thời Trang' => $jewelryProducts,
   'Đồ Da Thật Cao Cấp' => $leatherProducts
 ];

@@ -1,19 +1,15 @@
 <?php
-require_once __DIR__ . '/../config/Database.php';
+require_once __DIR__ . '/BaseModel.php';
 
-class MenuModel
+class MenuModel extends BaseModel
 {
-    private $db;
-
-    public function __construct()
-    {
-        $this->db = Database::getInstance();
-    }
+    protected $table = 'menus'; // Định nghĩa bảng menus
 
     public function getAllMenusTree()
     {
-        $sql = "SELECT * FROM menus ORDER BY position";
-        $menus = $this->db->getAll($sql);
+        // Gọi phương thức getAll() từ BaseModel, sắp xếp theo 'position'
+        $menus = $this->getAll($this->table, 'position');
+
         $menuTree = [];
         foreach ($menus as $menu) {
             $menuTree[$menu['parent_id']][] = $menu;

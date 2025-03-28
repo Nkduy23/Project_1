@@ -32,8 +32,10 @@
     <div class="banner-bottom grid-4 gap-10">
       <?php foreach ($bannerBottom as $banner): ?>
         <div class="banner-bottom__item flex-column-center-items gap-10">
-          <img src="<?= $baseUrl ?>img/banner/<?php echo htmlspecialchars($banner['image']); ?>"
-            alt="<?php echo htmlspecialchars($banner['title']); ?>" />
+          <a href="<?php echo htmlspecialchars($banner['link']); ?>">
+            <img src="<?= $baseUrl ?>img/banner/<?php echo htmlspecialchars($banner['image']); ?>"
+              alt="<?php echo htmlspecialchars($banner['title']); ?>" />
+          </a>
           <span class="banner-bottom__title"><?php echo htmlspecialchars($banner['title']); ?></span>
         </div>
       <?php endforeach; ?>

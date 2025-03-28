@@ -144,6 +144,10 @@
   color: #676767;
   padding-top: 1rem;
 }
+.product__name a {
+  text-decoration: none;
+  color: #676767;
+}
 .product__price {
   font-size: 1.6rem;
   color: #676767;

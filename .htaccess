@@ -5,16 +5,25 @@ RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule \.(css|js|png|jpg|jpeg|gif|svg|webp|ico)$ - [L,NC]
 
-# Xử lý các URL động
+# Xử lý product có ID
+RewriteRule ^detail/([0-9]+)$ /app/views/index.php?page=detail&id=$1 [L,QSA]
+
+# Xử lý URL dạng category/type/value (3 cấp)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-  
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)$ /app/views/index.php?page=$1&category=$2&type=$3 [L,QSA]
+
+# Xử lý URL dạng page/name (2 cấp)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([^/]+)/([^/]+)/?$ /app/views/index.php?page=$1&id=$2 [L,QSA]
+RewriteRule ^([^/]+)/([^/]+)$ /app/views/index.php?page=$1&name=$2 [L,QSA]
 
+# Xử lý URL dạng page (1 cấp)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([^/]+)/?$ /app/views/index.php?page=$1 [L,QSA]
+RewriteRule ^([^/]+)$ /app/views/index.php?page=$1 [L,QSA]
 
-# Chuyển hướng mặc định cho tất cả các request khác về index.php
+# Chuyển hướng mặc định tất cả các request khác về index.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ /app/views/index.php [L,QSA]

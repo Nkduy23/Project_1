@@ -1,0 +1,14 @@
+.breadcrumb {
+  &__link {
+    text-decoration: none;
+    color: #585454;
+    padding: 0.8rem 0;
+    display: inline-block;
+    width: 12rem;
+    text-align: center;
+
+    &:hover {
+      color: #141414;
+    }
+  }
+}

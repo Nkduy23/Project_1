@@ -64,14 +64,21 @@ body {
   padding: 2rem 1rem 1rem;
 }
 
-.feature, .brand {
+.container-main.no-border {
+  border: none;
+}
+
+.feature,
+.brand {
   max-width: 85rem;
   margin: 0 auto;
   padding: 0 2rem;
   position: relative;
 }
 
-.product__title, .service__title, .brand__title {
+.product__title,
+.service__title,
+.brand__title {
   text-align: center;
   font-size: 2.5rem;
   font-weight: 600;
@@ -79,7 +86,8 @@ body {
   text-transform: uppercase;
 }
 
-.brand__arrow, .feature__arrow {
+.brand__arrow,
+.feature__arrow {
   position: absolute;
   background: none;
   border: none;
@@ -91,7 +99,8 @@ body {
   display: none;
   z-index: 1;
 }
-.brand__arrow:hover, .feature__arrow:hover {
+.brand__arrow:hover,
+.feature__arrow:hover {
   color: #005eca;
 }
 
@@ -396,9 +405,6 @@ body {
   width: 6rem;
   height: 6rem;
   border-radius: 2rem 2rem 0 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 2000;
 }
 .launcher::after {
@@ -413,6 +419,7 @@ body {
 }
 .launcher__icon {
   gap: 0.5rem;
+  height: 100%;
 }
 .launcher__icon span {
   display: block;
