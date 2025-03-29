@@ -16,6 +16,8 @@ $baseUrl = "/app/public/assets/";
   <link rel="stylesheet" href="<?= $baseUrl ?>css/main.css?v=<?php echo time(); ?>" />
   <link rel="stylesheet" href="<?= $baseUrl ?>css/home.css?v=<?php echo time(); ?>" />
   <link rel="stylesheet" href="<?= $baseUrl ?>css/detail.css?v=<?php echo time(); ?>" />
+  <link rel="stylesheet" href="<?= $baseUrl ?>css/cart.css?v=<?php echo time(); ?>" />
+  <link rel="stylesheet" href="<?= $baseUrl ?>css/auth.css?v=<?php echo time(); ?>" />
 </head>
 
 <body>
@@ -43,13 +45,17 @@ $baseUrl = "/app/public/assets/";
           <i class="fa-solid fa-magnifying-glass"></i>
         </div>
         <div class="header__cart flex-center gap-16">
-          <div class="header__cart-left">
-            <i class="fa-solid fa-bag-shopping"></i>
-            <span class="flex-center">0</span>
-          </div>
-          <div class="header__cart-right">
-            <i class="fa-solid fa-user"></i>
-          </div>
+          <a href="/cart">
+            <div class="header__cart-left">
+              <i class="fa-solid fa-bag-shopping"></i>
+              <span class="flex-center">0</span>
+            </div>
+          </a>
+          <a href="/login">
+            <div class="header__cart-right">
+              <i class="fa-solid fa-user"></i>
+            </div>
+          </a>
         </div>
       </div>
     </div>

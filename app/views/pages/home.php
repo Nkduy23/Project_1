@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../controllers/Controllers.php';
+require_once __DIR__ . '/../../controllers/CallControllers.php';
 
 // Gọi dữ liệu trước khi render giao diện
 $sliders = $mediaController->getMedia(
@@ -13,13 +13,13 @@ $features = $mediaController->getMedia(
     'image, title, link'
 );
 $bannerTop = $mediaController->getMedia(
-    'banner_type', 
-    'top', 
+    'banner_type',
+    'top',
     'image, title, link, banner_type, position'
 );
 $bannerBottom = $mediaController->getMedia(
-    'banner_type', 
-    'bottom', 
+    'banner_type',
+    'bottom',
     'image, title, link, banner_type, position'
 );
 

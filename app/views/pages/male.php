@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../controllers/Controllers.php';
+require_once __DIR__ . '/../../controllers/CallControllers.php';
 require_once __DIR__ . '/../components/breadcrumb.php';
 
 // Lấy danh sách sản phẩm Nam từ Controller
@@ -11,7 +11,7 @@ $maleProducts = $productController->getProducts('male');
     getBreadcrumb();
     ?>
     <div class="product">
-        <div class="product__container flex-column-center-items">
+        <div class="product__container flex-column-center">
             <div class="product__list">
                 <?php if (!empty($maleProducts)): ?>
                     <?php foreach ($maleProducts as $product): ?>

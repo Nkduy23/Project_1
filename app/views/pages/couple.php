@@ -3,7 +3,7 @@ require_once __DIR__ . '/../../controllers/CallControllers.php';
 require_once __DIR__ . '/../components/breadcrumb.php';
 
 // Lấy danh sách sản phẩm Nam từ Controller
-$jewelryProducts = $productController->getProducts('jewelry');
+$coupeProducts = $productController->getProducts('couple');
 ?>
 
 <div class="container-main no-border">
@@ -13,8 +13,8 @@ $jewelryProducts = $productController->getProducts('jewelry');
     <div class="product">
         <div class="product__container flex-column-center">
             <div class="product__list">
-                <?php if (!empty($jewelryProducts)): ?>
-                    <?php foreach ($jewelryProducts as $product): ?>
+                <?php if (!empty($coupeProducts)): ?>
+                    <?php foreach ($coupeProducts as $product): ?>
                         <div class="product__item">
                             <a href="<?php echo htmlspecialchars($product['link']); ?>">
                                 <img src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($product['image']); ?>"

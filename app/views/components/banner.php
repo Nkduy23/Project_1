@@ -5,7 +5,7 @@
       <div class="banner-top__left">
         <img src="<?= $baseUrl ?>img/banner/<?php echo htmlspecialchars($bannerTop[0]['image']); ?>"
           alt="<?php echo htmlspecialchars($bannerTop[0]['title']); ?>" />
-        <div class="banner-top__text flex-column-center-items">
+        <div class="banner-top__text flex-column-center">
           <p class="banner-top__title"><?php echo htmlspecialchars($bannerTop[0]['title']); ?></p>
           <a class="banner-top__link" href="<?php echo htmlspecialchars($bannerTop[0]['link']); ?>">Xem ngay</a>
         </div>
@@ -15,7 +15,7 @@
           <div class="banner-top__image <?php echo ($i == count($bannerTop) - 1) ? 'full' : 'small'; ?>">
             <img src="<?= $baseUrl ?>img/banner/<?php echo htmlspecialchars($bannerTop[$i]['image']); ?>"
               alt="<?php echo htmlspecialchars($bannerTop[$i]['title']); ?>" />
-            <div class="banner-top__text flex-column-center-items">
+            <div class="banner-top__text flex-column-center">
               <p class="banner-top__title"><?php echo htmlspecialchars($bannerTop[$i]['title']); ?></p>
               <a class="banner-top__link" href="<?php echo htmlspecialchars($bannerTop[$i]['link']); ?>">Xem ngay</a>
             </div>
@@ -31,7 +31,7 @@
   <div class="container-main">
     <div class="banner-bottom grid-4 gap-10">
       <?php foreach ($bannerBottom as $banner): ?>
-        <div class="banner-bottom__item flex-column-center-items gap-10">
+        <div class="banner-bottom__item flex-column-center gap-10">
           <a href="<?php echo htmlspecialchars($banner['link']); ?>">
             <img src="<?= $baseUrl ?>img/banner/<?php echo htmlspecialchars($banner['image']); ?>"
               alt="<?php echo htmlspecialchars($banner['title']); ?>" />

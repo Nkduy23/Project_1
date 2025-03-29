@@ -1,0 +1,67 @@
+// Biến màu sắc
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$background-color: #f8f9fa;
+$text-color: #333;
+$border-radius: 5px;
+
+.auth-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: $border-radius;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+    h2 {
+        color: $text-color;
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        text-align: left;
+        margin: 10px 0 5px;
+        font-weight: bold;
+        color: $text-color;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid $secondary-color;
+        border-radius: $border-radius;
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background: $primary-color;
+        color: white;
+        border: none;
+        border-radius: $border-radius;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 15px;
+        transition: background 0.3s;
+
+        &:hover {
+            background: darken($primary-color, 10%);
+        }
+    }
+
+    a {
+        display: block;
+        margin-top: 10px;
+        color: $primary-color;
+        text-decoration: none;
+        font-size: 14px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

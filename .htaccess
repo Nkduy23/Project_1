@@ -1,4 +1,8 @@
 RewriteEngine On
+RewriteRule ^user/register$ /app/views/index.php?page=user&action=register [L,QSA]
+# Chuyển hướng mặc định tất cả các request khác về index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 
 # Bỏ qua các file tĩnh (CSS, JS, hình ảnh)
 RewriteCond %{REQUEST_FILENAME} -f [OR]
@@ -23,7 +27,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^/]+)$ /app/views/index.php?page=$1 [L,QSA]
 
-# Chuyển hướng mặc định tất cả các request khác về index.php
+# Thêm rule này trước rule cuối cùng
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ /app/views/index.php [L,QSA]

@@ -12,7 +12,7 @@ class ProductController
 
     public function getProducts($category, $limit = null)
     {
-        return $this->productModel->getProductsByCategory($category, $limit);
+        return $this->productModel->getProducts($category, $limit);
     }
     
     public function getSaleProducts()
@@ -23,5 +23,10 @@ class ProductController
     public function getProductById($id)
     {
         return $this->productModel->getProductById($id);
+    }
+
+    public function getProductDetails($id) 
+    {
+        return $this->productModel->getProductDetails($id);
     }
 }

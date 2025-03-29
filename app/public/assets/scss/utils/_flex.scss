@@ -70,9 +70,10 @@
   @extend .items-center;
 }
 
-.flex-column-center-items {
+.flex-column-center {
   @extend .flex;
   @extend .flex-col;
+  @extend .justify-center;
   @extend .items-center;
 }
 
@@ -80,6 +81,12 @@
   @extend .flex;
   @extend .flex-col;
   @extend .justify-center;
+}
+
+.flex-column-center-items {
+  @extend .flex;
+  @extend .flex-col;
+  @extend .items-center;
 }
 
 

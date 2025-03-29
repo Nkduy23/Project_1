@@ -12,6 +12,6 @@ class BrandController
 
     public function getBrands($category)
     {
-        return $this->brandModel->getBrandsByCategory($category);
+        return $this->brandModel->getBrands($category);
     }
 }

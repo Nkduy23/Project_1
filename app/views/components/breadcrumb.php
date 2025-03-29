@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../controllers/Controllers.php';
+require_once __DIR__ . '/../../controllers/CallControllers.php';
 
 /**
  * Lấy tên rút gọn của sản phẩm từ tên đầy đủ.
@@ -25,8 +25,9 @@ function getBreadcrumb()
         "home" => ["title" => "Trang chủ", "slug" => "/"],
         "male" => ["title" => "Đồng Hồ Nam", "slug" => "/male"],
         "female" => ["title" => "Đồng Hồ Nữ", "slug" => "/female"],
-        "jewelry" => ["title" => "Trang Sức Thời Trang", "slug" => "/jewelry"],
-        "leather" => ["title" => "Đồ Da Thật Cao Cấp", "slug" => "/leather"],
+        "couple" => ["title" => "Cặp đôi", "slug" => "/couple"],
+        "jewelry" => ["title" => "Trang Sức", "slug" => "/jewelry"],
+        "leather" => ["title" => "Đồ Da", "slug" => "/leather"],
     ];
 
     echo '<nav class="breadcrumb">';
@@ -51,10 +52,12 @@ function getBreadcrumb()
         if ($product) {
             // Ánh xạ category_id sang danh mục tương ứng
             $categoryMapping = [
-                1 => "male",
-                2 => "female",
-                3 => "jewelry",
-                4 => "leather"
+                1 => "home",
+                2 => "male",
+                3 => "female",
+                4 => "couple",
+                5 => "jewelry",
+                6 => "leather",
             ];
             $categoryKey = $categoryMapping[$product['category_id']] ?? "male"; // Mặc định là "male"
             $categoryData = $categories[$categoryKey] ?? null;

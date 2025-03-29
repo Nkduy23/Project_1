@@ -1,16 +1,17 @@
 <?php
-require_once __DIR__ . '/BaseModel.php';
+require_once __DIR__ . '/CallDatabase.php';
 
-class NewsModel extends BaseModel
+class NewsModel extends CallDatabase
 {
     public function getAllNews()
     {
-        return $this->getAll('news', 'id', 'DESC');
+        $sql = "SELECT * FROM news ORDER BY id DESC";
+        return $this->db->getAll($sql);
     }
 
     public function getFeaturedNews()
     {
-        $sql = "SELECT * FROM news WHERE is_featured = 1 ORDER BY id DESC";
+        $sql = "SELECT * FROM news WHERE featured = 1 ORDER BY id DESC";
         return $this->db->getAll($sql);
     }
 }

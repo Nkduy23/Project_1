@@ -1,7 +1,7 @@
 <?php if (!empty($services)): ?>
   <div class="container-main">
     <div class="service">
-      <div class="service__container flex-column-center-items">
+      <div class="service__container flex-column-center">
         <div class="service__title">Các Dịch Vụ Tại Khánh Duy</div>
         <div class="service__list grid-3 gap-10">
           <?php foreach ($services as $service): ?>

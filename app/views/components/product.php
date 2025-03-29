@@ -2,7 +2,7 @@
 <?php if (!empty($saleProducts)): ?>
   <div class="container-main">
     <div class="product sale">
-      <div class="product__container flex-column-center-items">
+      <div class="product__container flex-column-center">
         <h2 class="product__title">Sản Phẩm Khuyến Mãi</h2>
         <div class="flash-sale" role="region" aria-labelledby="flashSaleTitle">
           <div class="flash-sale__timer flex" aria-live="countdown">
@@ -59,7 +59,7 @@ foreach ($productCategories as $title => $products):
   <?php if (!empty($products)): ?>
     <div class="container-main">
       <div class="product">
-        <div class="product__container flex-column-center-items">
+        <div class="product__container flex-column-center">
           <h2 class="product__title"><?php echo "$title"; ?></h2>
           <div class="product__list">
             <?php foreach ($products as $product): ?>
