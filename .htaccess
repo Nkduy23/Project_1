@@ -1,33 +1,29 @@
 RewriteEngine On
-RewriteRule ^user/register$ /app/views/index.php?page=user&action=register [L,QSA]
-# Chuyển hướng mặc định tất cả các request khác về index.php
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+RewriteBase /
 
-# Bỏ qua các file tĩnh (CSS, JS, hình ảnh)
+# Skip existing files and directories
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule \.(css|js|png|jpg|jpeg|gif|svg|webp|ico)$ - [L,NC]
+RewriteRule ^ - [L]
 
-# Xử lý product có ID
-RewriteRule ^detail/([0-9]+)$ /app/views/index.php?page=detail&id=$1 [L,QSA]
+# Static files exception (more comprehensive)
+RewriteRule \.(css|js|png|jpg|jpeg|gif|svg|webp|ico|woff|woff2|ttf|eot|mp4|webm)$ - [L,NC]
 
-# Xử lý URL dạng category/type/value (3 cấp)
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-  
-RewriteRule ^([^/]+)/([^/]+)/([^/]+)$ /app/views/index.php?page=$1&category=$2&type=$3 [L,QSA]
+# Specific routes first
+RewriteRule ^user/login/?$ /app/views/index.php?page=user&action=login [L,QSA]
+RewriteRule ^user/register/?$ /app/views/index.php?page=user&action=register [L,QSA]
 
-# Xử lý URL dạng page/name (2 cấp)
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([^/]+)/([^/]+)$ /app/views/index.php?page=$1&name=$2 [L,QSA]
 
-# Xử lý URL dạng page (1 cấp)
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([^/]+)$ /app/views/index.php?page=$1 [L,QSA]
+RewriteRule ^detail/([0-9]+)/?$ /app/views/index.php?page=detail&id=$1 [L,QSA]
 
-# Thêm rule này trước rule cuối cùng
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /app/views/index.php [L,QSA]
+# 3-level URLs: category/type/value
+RewriteRule ^([a-z0-9-]+)/([a-z0-9-]+)/([a-z0-9-]+)/?$ /app/views/index.php?page=$1&category=$2&type=$3 [L,QSA,NC]
+
+# 2-level URLs: page/name
+RewriteRule ^([a-z0-9-]+)/([a-z0-9-]+)/?$ /app/views/index.php?page=$1&name=$2 [L,QSA,NC]
+
+# 1-level URLs: page
+RewriteRule ^([a-z0-9-]+)/?$ /app/views/index.php?page=$1 [L,QSA,NC]
+
+# Fallback to index.php for all other requests
+RewriteRule ^ /app/views/index.php [L,QSA]

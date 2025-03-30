@@ -1,35 +1,29 @@
 <?php
-class Cart {
-    private $db;
+require_once __DIR__ . '/CallDatabase.php';
 
-    public function __construct($db) {
-        $this->db = $db;
-    }
+class CartModel extends CallDatabase
+{
+    public function addToCart($userId, $productId, $quantity)
+    {
+        // Kiểm tra sản phẩm đã có trong giỏ hàng chưa
+        $sql = "SELECT * FROM cart WHERE user_id = ? AND product_id = ?";
+        $cartItem = $this->db->getOne($sql, [$userId, $productId]);
 
-    public function addToCart($userId, $productId, $quantity) {
-        $sql = "INSERT INTO cart (user_id, product_id, quantity) 
-                VALUES (?, ?, ?) 
-                ON DUPLICATE KEY UPDATE quantity = quantity + ?";
-        $this->db->execute($sql, [$userId, $productId, $quantity, $quantity]);
-    }
-
-    public function syncLocalCart($userId, $localCart) {
-        foreach ($localCart as $productId => $quantity) {
-            $this->addToCart($userId, $productId, $quantity);
+        if ($cartItem) {
+            // ✅ Nếu sản phẩm đã có → Cập nhật số lượng
+            $updateSql = "UPDATE cart SET quantity = quantity + ? WHERE user_id = ? AND product_id = ?";
+            return $this->db->execute($updateSql, [$quantity, $userId, $productId]);
+        } else {
+            // ✅ Nếu chưa có → Thêm mới
+            $insertSql = "INSERT INTO cart (user_id, product_id, quantity) VALUES (?, ?, ?)";
+            return $this->db->execute($insertSql, [$userId, $productId, $quantity]);
         }
     }
 
-    public function getCartItems($userId) {
-        $sql = "SELECT products.id, products.name, products.price, cart.quantity 
-                FROM cart 
-                JOIN products ON cart.product_id = products.id 
-                WHERE cart.user_id = ?";
-        return $this->db->fetchAll($sql, [$userId]);
-    }
-
-    public function clearCart($userId) {
-        $sql = "DELETE FROM cart WHERE user_id = ?";
-        $this->db->execute($sql, [$userId]);
+    public function getTotalCartQuantity($userId)
+    {
+        $sql = "SELECT SUM(quantity) as total FROM cart WHERE user_id = ?";
+        $result = $this->db->getOne($sql, [$userId]);
+        return $result['total'] ?? 0;
     }
 }
-?>

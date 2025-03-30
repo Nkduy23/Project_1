@@ -10,6 +10,7 @@ if (!$productId) {
 }
 
 $product = $productController->getProductById($productId);
+print_r($product);
 $productDetails = $productController->getProductDetails($productId);
 
 
@@ -58,7 +59,16 @@ if (!$product) {
             </p>
 
             <button class="product-detail__buy-btn gray">Xem Showroom còn hàng</button>
-            <button class="product-detail__buy-btn darkred">Thêm vào giỏ hàng</button>
+
+                <form action="/add-to-cart" method="POST">
+                    <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                    <input type="hidden" name="product_name" value="<?php echo $product['name']; ?>">
+                    <input type="hidden" name="product_price" value="<?php echo $product['price']; ?>">
+                    <input type="hidden" name="product_image" value="<?php echo $product['image']; ?>">
+
+                    <button type="submit" class="product-detail__buy-btn darkred">Thêm vào giỏ hàng</button>
+                </form>
+
             <button class="product-detail__buy-btn blue">Mua trả góp - Duyệt hồ sơ trong 3 phút</button>
             <p class="product-detail__text">Có thanh toán:<b> Trả góp</b> khi mua Online (Qua thẻ tín dụng)</p>
             <p class="product-detail__text">Gọi đặt mua:<b> 1900.6777 (8:00-1:30)</b></p>

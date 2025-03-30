@@ -1,6 +1,9 @@
 <?php
-require_once __DIR__ . '/../controllers/CallControllers.php';
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
+require_once __DIR__ . '/../controllers/CallControllers.php';
 $page = $_GET['page'] ?? 'home';
 $action = $_GET['action'] ?? null;
 
@@ -17,6 +20,12 @@ if ($page === 'user' && $action) {
     }
     exit;
 }
+
+if ($page === 'add-to-cart' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    include_once "pages/add_to_cart.php";
+    exit;
+}
+
 
 echo '<pre>';
 print_r($_GET);

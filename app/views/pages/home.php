@@ -66,3 +66,23 @@ $featuredNews = $newsController->getFeaturedNews();
     <?php require 'components/brand.php'; ?>
     <?php require 'components/new.php'; ?>
 </main>
+
+<?php if (isset($_SESSION['login_success'])): ?>
+    <div id="successMessage" class="success-message">
+        <span class="checkmark">✔</span>
+        <p><?= $_SESSION['login_success'] ?></p>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            let message = document.getElementById('successMessage');
+            if (message) {
+                message.classList.add('fade-out');
+                setTimeout(() => message.style.display = 'none', 500); // Ẩn hẳn sau khi mờ dần
+            }
+        }, 1000);
+    </script>
+    <?php unset($_SESSION['login_success']); // Xóa session ngay lập tức 
+    ?>
+<?php endif;
+?>

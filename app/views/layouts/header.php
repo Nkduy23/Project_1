@@ -1,5 +1,9 @@
 <?php
 $baseUrl = "/app/public/assets/";
+require_once __DIR__ . '/../../controllers/CartController.php';
+
+$cartController = new CartController();
+$cartCount = $cartController->getCartQuantity();
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +22,7 @@ $baseUrl = "/app/public/assets/";
   <link rel="stylesheet" href="<?= $baseUrl ?>css/detail.css?v=<?php echo time(); ?>" />
   <link rel="stylesheet" href="<?= $baseUrl ?>css/cart.css?v=<?php echo time(); ?>" />
   <link rel="stylesheet" href="<?= $baseUrl ?>css/auth.css?v=<?php echo time(); ?>" />
+  <link rel="stylesheet" href="<?= $baseUrl ?>css/profile.css?v=<?php echo time(); ?>" />
 </head>
 
 <body>
@@ -48,12 +53,16 @@ $baseUrl = "/app/public/assets/";
           <a href="/cart">
             <div class="header__cart-left">
               <i class="fa-solid fa-bag-shopping"></i>
-              <span class="flex-center">0</span>
+              <span class="flex-center"><?php echo $cartCount; ?></span> <!-- Hiển thị số lượng -->
             </div>
           </a>
-          <a href="/login">
+          <a href="<?php echo isset($_SESSION['user']) ? '/profile' : '/login'; ?>">
             <div class="header__cart-right">
-              <i class="fa-solid fa-user"></i>
+              <?php if (isset($_SESSION['user'])) : ?>
+                <i class="fa-solid fa-user-check"></i> <!-- Icon khi đã đăng nhập -->
+              <?php else : ?>
+                <i class="fa-solid fa-user"></i> <!-- Icon mặc định -->
+              <?php endif; ?>
             </div>
           </a>
         </div>
@@ -69,7 +78,6 @@ $baseUrl = "/app/public/assets/";
       <i class="fa-solid fa-magnifying-glass"></i>
     </div>
   </div>
-
   <?php
   require_once __DIR__ . "/../components/nav.php";
   ?>
