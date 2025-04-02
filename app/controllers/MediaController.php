@@ -1,13 +1,14 @@
 <?php
-require_once __DIR__ . '/../models/MediaModel.php';
+
+namespace App\Controllers;
 
 class MediaController
 {
     private $mediaModel;
 
-    public function __construct()
+    public function __construct($mediaModel,)
     {
-        $this->mediaModel = new MediaModel();
+        $this->mediaModel = $mediaModel;
     }
 
     public function getMedia($column, $value, $columns = '*', $orderBy = 'position', $order = 'ASC')

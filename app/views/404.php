@@ -1,4 +1,3 @@
-<?php include 'layouts/header.php'; ?>
 <div style="text-align: center; padding: 50px;">
     <h1 style="font-size: 48px; color: red;">404</h1>
     <h2 style="padding: 10px;">Oops! Trang bạn tìm không tồn tại.</h2>
@@ -7,4 +6,3 @@
         Quay về trang chủ
     </a>
 </div>
-<?php include 'layouts/footer.php'; ?>

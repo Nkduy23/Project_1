@@ -1,13 +1,14 @@
 <?php
-require_once __DIR__ . '/../models/BrandModel.php';
+
+namespace App\Controllers;
 
 class BrandController
 {
     private $brandModel;
 
-    public function __construct()
+    public function __construct($brandModel)
     {
-        $this->brandModel = new BrandModel();
+        $this->brandModel = $brandModel;
     }
 
     public function getBrands($category)

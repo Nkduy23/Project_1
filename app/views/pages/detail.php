@@ -1,25 +1,6 @@
 <?php
-require_once __DIR__ . '/../../controllers/CallControllers.php';
-require_once __DIR__ . '/../components/breadcrumb.php';
-
-$productId = $_GET['id'] ?? null;
-
-if (!$productId) {
-    echo "<p class='error-message'>Sản phẩm không tồn tại.</p>";
-    exit;
-}
-
-$product = $productController->getProductById($productId);
-print_r($product);
-$productDetails = $productController->getProductDetails($productId);
-
-
-$attributes = [];
-
-// Chuyển đổi dữ liệu về dạng <key-value></key-value>
-foreach ($productDetails as $detail) {
-    $attributes[$detail['attribute_name']] = $detail['attribute_value'];
-}
+$product = $details ?? [];
+$baseUrl = $GLOBALS['baseUrl'] ?? '/';
 
 if (!$product) {
     echo "<p class='error-message'>Không tìm thấy sản phẩm.</p>";
@@ -60,14 +41,14 @@ if (!$product) {
 
             <button class="product-detail__buy-btn gray">Xem Showroom còn hàng</button>
 
-                <form action="/add-to-cart" method="POST">
-                    <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
-                    <input type="hidden" name="product_name" value="<?php echo $product['name']; ?>">
-                    <input type="hidden" name="product_price" value="<?php echo $product['price']; ?>">
-                    <input type="hidden" name="product_image" value="<?php echo $product['image']; ?>">
+            <form action="/add-to-cart" method="POST">
+                <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                <input type="hidden" name="product_name" value="<?php echo $product['name']; ?>">
+                <input type="hidden" name="product_price" value="<?php echo $product['price']; ?>">
+                <input type="hidden" name="product_image" value="<?php echo $product['image']; ?>">
 
-                    <button type="submit" class="product-detail__buy-btn darkred">Thêm vào giỏ hàng</button>
-                </form>
+                <button type="submit" class="product-detail__buy-btn darkred">Thêm vào giỏ hàng</button>
+            </form>
 
             <button class="product-detail__buy-btn blue">Mua trả góp - Duyệt hồ sơ trong 3 phút</button>
             <p class="product-detail__text">Có thanh toán:<b> Trả góp</b> khi mua Online (Qua thẻ tín dụng)</p>

@@ -1,31 +1,20 @@
 <?php
-require_once __DIR__ . '/../../models/CallDatabase.php';
-
-class CartHandler extends CallDatabase
-{
-    public function getCart()
-    {
-        if (isset($_SESSION['user'])) {
-            $user_id = $_SESSION['user']['id'];
-            return $this->db->getAll("SELECT c.*, p.name, p.price, p.image FROM cart c 
-                                      JOIN products p ON c.product_id = p.id 
-                                      WHERE c.user_id = ?", [$user_id]);
-        } else {
-            return isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
-        }
-    }
-}
-
-$cartHandler = new CartHandler();
-$cartItems = $cartHandler->getCart();
+$baseUrl = $GLOBALS['baseUrl'] ?? '/';
 ?>
-
 <div class="cart-container">
     <h2>Giỏ hàng của bạn</h2>
-
     <?php if (empty($cartItems)): ?>
         <p>Giỏ hàng trống.</p>
     <?php else: ?>
+        <?php if (!empty($_SESSION['message'])): ?>
+            <div class="alert alert-success"><?= $_SESSION['message'] ?></div>
+            <?php unset($_SESSION['message']); ?>
+        <?php endif; ?>
+
+        <?php if (!empty($_SESSION['error'])): ?>
+            <div class="alert alert-danger"><?= $_SESSION['error'] ?></div>
+            <?php unset($_SESSION['error']); ?>
+        <?php endif; ?>
         <table border="1">
             <tr>
                 <th>Hình ảnh</th>
@@ -37,13 +26,16 @@ $cartItems = $cartHandler->getCart();
             </tr>
             <?php foreach ($cartItems as $item): ?>
                 <tr>
-                    <td><img src="<?= $baseUrl ?>img/product/<?= $item['image'] ?>" width="50"></td>
+                    <td><img src="<?= $baseUrl ?>img/product/<?= htmlspecialchars($item['image']) ?>" width="50"></td>
                     <td><?= htmlspecialchars($item['name']) ?></td>
                     <td><?= number_format($item['price'], 0, ',', '.') ?> VNĐ</td>
                     <td><?= $item['quantity'] ?></td>
                     <td><?= number_format($item['price'] * $item['quantity'], 0, ',', '.') ?> VNĐ</td>
                     <td>
-                        <a href="remove_from_cart.php?id=<?= isset($item['product_id']) ? $item['product_id'] : $key ?>">Xóa</a>
+                        <form action="/cart/remove/<?= $item['id'] ?>" method="POST">
+                            <input type="hidden" name="id" value="<?= $item['id'] ?>">
+                            <button type="submit">Xóa</button>
+                        </form>
                     </td>
                 </tr>
             <?php endforeach; ?>

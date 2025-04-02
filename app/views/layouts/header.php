@@ -1,9 +1,7 @@
 <?php
-$baseUrl = "/app/public/assets/";
-require_once __DIR__ . '/../../controllers/CartController.php';
-
-$cartController = new CartController();
-$cartCount = $cartController->getCartQuantity();
+$baseUrl = $GLOBALS['baseUrl'] ?? '/';
+$dependencies = require __DIR__ . '/../../config/dependencies.php';
+$cartCount = $dependencies['cartController']->getCartQuantity();
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +39,7 @@ $cartCount = $cartController->getCartQuantity();
       </div>
       <!-- Logo -->
       <div class="header__logo">
-        <a href="/home"><img src="/app/public/assets/img/logo.png" alt="logo Khánh Duy" /></a>
+        <a href="/"><img src="<?= $baseUrl ?>/img/logo.png" alt="logo Khánh Duy" /></a>
       </div>
       <!-- Search -->
       <div class="header__search flex-center gap-16">
@@ -53,24 +51,22 @@ $cartCount = $cartController->getCartQuantity();
           <a href="/cart">
             <div class="header__cart-left">
               <i class="fa-solid fa-bag-shopping"></i>
-              <span class="flex-center"><?php echo $cartCount; ?></span> <!-- Hiển thị số lượng -->
+              <span class="flex-center"><?php echo $cartCount; ?></span>
             </div>
           </a>
           <a href="<?php echo isset($_SESSION['user']) ? '/profile' : '/login'; ?>">
             <div class="header__cart-right">
               <?php if (isset($_SESSION['user'])) : ?>
-                <i class="fa-solid fa-user-check"></i> <!-- Icon khi đã đăng nhập -->
+                <i class="fa-solid fa-user-check"></i>
               <?php else : ?>
-                <i class="fa-solid fa-user"></i> <!-- Icon mặc định -->
+                <i class="fa-solid fa-user"></i>
               <?php endif; ?>
             </div>
           </a>
         </div>
       </div>
     </div>
-
   </header>
-
   <!-- Search mobile -->
   <div class="search-input-mobile">
     <div class="search-input">

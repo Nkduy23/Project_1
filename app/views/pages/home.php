@@ -1,76 +1,101 @@
 <?php
-require_once __DIR__ . '/../../controllers/CallControllers.php';
-
-// Gọi dữ liệu trước khi render giao diện
-$sliders = $mediaController->getMedia(
-    'type',
-    'slider',
-    'id,image, image_large, image_small, title, link'
-);
-$features = $mediaController->getMedia(
-    'type',
-    'feature',
-    'image, title, link'
-);
-$bannerTop = $mediaController->getMedia(
-    'banner_type',
-    'top',
-    'image, title, link, banner_type, position'
-);
-$bannerBottom = $mediaController->getMedia(
-    'banner_type',
-    'bottom',
-    'image, title, link, banner_type, position'
-);
-
-// Product
-$maleProducts = $productController->getProducts('male', 8);
-$femaleProducts = $productController->getProducts('female', 8);
-$jewelryProducts = $productController->getProducts('jewelry', 8);
-$leatherProducts = $productController->getProducts('leather', 8);
-$saleProducts = $productController->getSaleProducts();
-
-// Service
-$services =  $mediaController->getMedia(
-    'type',
-    'service',
-    'image, title, link'
-);
-
-// Top 10
-$top10 =  $mediaController->getMedia(
-    'type',
-    'top10',
-    'image, image_large, image_small'
-);
-
-// Brand
-$popularBrands = $brandController->getBrands('popular');
-$swissBrands = $brandController->getBrands('swiss');
-$jewelryBrands = $brandController->getBrands('jewelry');
-
-// News
-$allNews = $newsController->getAllNews();
-$featuredNews = $newsController->getFeaturedNews();
-
+$sliders = $data['sliders'] ?? null;
+$features = $data['features'] ?? null;
+$bannerTop = $data['bannerTop'] ?? null;
+$bannerBottom = $data['bannerBottom'] ?? null;
+$maleProducts = $data['maleProducts'] ?? null;
+$femaleProducts = $data['femaleProducts'] ?? null;
+$jewelryProducts = $data['jewelryProducts'] ?? null;
+$leatherProducts = $data['leatherProducts'] ?? null;
+$saleProducts = $data['saleProducts'] ?? null;
+$services = $data['services'] ?? null;
+$allNews = $data['allNews'] ?? null;
+$featuredNews = $data['featuredNews'] ?? null;
+$popularBrands = $data['popularBrands'] ?? null;
+$swissBrands = $data['swissBrands'] ?? null;
+$jewelryBrands = $data['jewelryBrands'] ?? null;
+$top10 = $data['top10'] ?? null;
 ?>
-
 <main>
-    <?php require 'components/launcher.php'; ?>
-    <?php require 'components/slider.php'; ?>
-    <?php require 'components/feature.php'; ?>
-    <?php require 'components/banner.php'; ?>
-    <?php require 'components/product.php'; ?>
-    <?php require 'components/service.php'; ?>
-    <?php require 'components/top10.php'; ?>
-    <?php require 'components/brand.php'; ?>
-    <?php require 'components/new.php'; ?>
+    <?php require __DIR__ . '/../components/launcher.php'; ?>
+
+    <!-- Slider Section -->
+    <?php if (!empty($sliders)): ?>
+        <?php require __DIR__ . '/../components/slider.php'; ?>
+    <?php else: ?>
+        <section class="no-data">
+            <p>No sliders available</p>
+        </section>
+    <?php endif; ?>
+
+    <!-- Feature Section -->
+    <?php if (!empty($features)): ?>
+        <?php require __DIR__ . '/../components/feature.php'; ?>
+    <?php else: ?>
+        <section class="no-data">
+            <p>No features available</p>
+        </section>
+    <?php endif; ?>
+
+    <!-- Banner Section -->
+    <?php if (!empty($bannerTop) || !empty($bannerBottom)): ?>
+        <?php require __DIR__ . '/../components/banner.php'; ?>
+    <?php else: ?>
+        <section class="no-data">
+            <p>No banner available</p>
+        </section>
+    <?php endif; ?>
+
+    <!-- Product Sections -->
+    <?php if (!empty($maleProducts) || !empty($femaleProducts) || !empty($jewelryProducts) || !empty($leatherProducts) || !empty($saleProducts)): ?>
+        <?php require __DIR__ . '/../components/product.php'; ?>
+    <?php else: ?>
+        <section class="no-data">
+            <p>No products available</p>
+        </section>
+    <?php endif; ?>
+
+    <!-- Service Section -->
+    <?php if (!empty($services)): ?>
+        <?php require __DIR__ . '/../components/service.php'; ?>
+    <?php else: ?>
+        <section class="no-data">
+            <p>No services available</p>
+        </section>
+    <?php endif; ?>
+
+    <!-- Top 10 Section -->
+    <?php if (!empty($top10)): ?>
+        <?php require __DIR__ . '/../components/top10.php'; ?>
+    <?php else: ?>
+        <section class="no-data">
+            <p>No top 10 available</p>
+        </section>
+    <?php endif; ?>
+
+    <!-- Brand Section -->
+    <?php if (!empty($popularBrands) || !empty($swissBrands) || !empty($jewelryBrands)): ?>
+        <?php require __DIR__ . '/../components/brand.php'; ?>
+    <?php else: ?>
+        <section class="no-data">
+            <p>No brands available</p>
+        </section>
+    <?php endif; ?>
+
+    <!-- News Section -->
+    <?php if (!empty($allNews) || !empty($featuredNews)): ?>
+        <?php require __DIR__ . '/../components/new.php'; ?>
+    <?php else: ?>
+        <section class="no-data">
+            <p>No news available</p>
+        </section>
+    <?php endif; ?>
 </main>
 
 <?php if (isset($_SESSION['login_success'])): ?>
     <div id="successMessage" class="success-message">
         <span class="checkmark">✔</span>
-        <p><?= $_SESSION['login_success'] ?></p>
+        <p><?= htmlspecialchars($_SESSION['login_success']) ?></p>
     </div>
 
     <script>
@@ -78,11 +103,9 @@ $featuredNews = $newsController->getFeaturedNews();
             let message = document.getElementById('successMessage');
             if (message) {
                 message.classList.add('fade-out');
-                setTimeout(() => message.style.display = 'none', 500); // Ẩn hẳn sau khi mờ dần
+                setTimeout(() => message.style.display = 'none', 500);
             }
         }, 1000);
     </script>
-    <?php unset($_SESSION['login_success']); // Xóa session ngay lập tức 
-    ?>
-<?php endif;
-?>
+    <?php unset($_SESSION['login_success']); ?>
+<?php endif; ?>

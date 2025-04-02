@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/../../controllers/MenuController.php';
 
-$menuController = new MenuController();
-$menuTree = $menuController->getAllMenusTree();
+$dependencies = require __DIR__ . '/../../config/dependencies.php';
+$menuTree = $dependencies['menuController']->getAllMenusTree();
+    
 
 function renderMenu($menuTree, $parent_id = NULL, $isMobile = false)
 {

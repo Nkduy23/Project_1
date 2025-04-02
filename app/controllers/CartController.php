@@ -1,25 +1,37 @@
 <?php
-require_once __DIR__ . '/../models/CartModel.php';
+
+namespace App\Controllers;
 
 class CartController
 {
     private $cartModel;
 
-    public function __construct()
+    public function __construct(
+        $cartModel
+    ) {
+        $this->cartModel = $cartModel;
+    }
+
+    public function showCart()
     {
-        $this->cartModel = new CartModel();
+        $cartItems = $this->getCartItems();
+        require_once __DIR__ . '/../views/pages/cart.php';
+    }
+
+    private function getCartItems()
+    {
+        if (isset($_SESSION['user'])) {
+            return $this->cartModel->getUserCart($_SESSION['user']['id']);
+        }
+        return $_SESSION['cart'] ?? [];
     }
 
     public function getCartQuantity()
     {
         $cartCount = 0;
-
-        // Nếu user đã đăng nhập, lấy số lượng sản phẩm từ database
         if (isset($_SESSION['user'])) {
             $cartCount = $this->cartModel->getTotalCartQuantity($_SESSION['user']['id']);
-        } 
-        // Nếu user chưa đăng nhập, lấy số lượng sản phẩm từ session
-        else {
+        } else {
             if (!empty($_SESSION['cart'])) {
                 foreach ($_SESSION['cart'] as $item) {
                     $cartCount += $item['quantity'];
@@ -41,11 +53,8 @@ class CartController
 
             if (isset($_SESSION['user'])) {
                 $user_id = $_SESSION['user']['id'];
-
-                // ✅ Đẩy giỏ hàng vào database nếu đã đăng nhập
                 $this->cartModel->addToCart($user_id, $product_id, $quantity);
             } else {
-                // ✅ Nếu chưa đăng nhập, lưu vào SESSION
                 if (!isset($_SESSION['cart'])) {
                     $_SESSION['cart'] = [];
                 }
@@ -54,6 +63,7 @@ class CartController
                     $_SESSION['cart'][$product_id]['quantity'] += 1;
                 } else {
                     $_SESSION['cart'][$product_id] = [
+                        'id' => $product_id,
                         'name' => $product_name,
                         'price' => $product_price,
                         'image' => $product_image,
@@ -61,10 +71,27 @@ class CartController
                     ];
                 }
             }
-
-            // ✅ Chuyển hướng về trang giỏ hàng
             header('Location: /cart');
-            exit();
         }
+    }
+
+    public function removeFromCart($productId)
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if (isset($_SESSION['user'])) {
+            $this->cartModel->removeFromCart($_SESSION['user']['id'], $productId);
+        } elseif (isset($_SESSION['cart'][$productId])) {
+            if ($_SESSION['cart'][$productId]['quantity'] > 1) {
+                $_SESSION['cart'][$productId]['quantity'] -= 1;
+        } else {
+                unset($_SESSION['cart'][$productId]);
+            }
+        }
+
+        header('Location: /cart');
+        exit;
     }
 }

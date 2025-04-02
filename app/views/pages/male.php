@@ -1,9 +1,7 @@
 <?php
-require_once __DIR__ . '/../../controllers/CallControllers.php';
-require_once __DIR__ . '/../components/breadcrumb.php';
+$maleProducts = $products ?? [];
+$baseUrl = $GLOBALS['baseUrl'] ?? '/';
 
-// Lấy danh sách sản phẩm Nam từ Controller
-$maleProducts = $productController->getProducts('male');
 ?>
 
 <div class="container-main no-border">

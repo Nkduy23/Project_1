@@ -1,9 +1,5 @@
 <?php
-require_once __DIR__ . '/../../controllers/CallControllers.php';
 
-/**
- * Lấy tên rút gọn của sản phẩm từ tên đầy đủ.
- */
 function getShortProductName($productName)
 {
     preg_match('/^([A-Za-z]+\s\w+)/', $productName, $matches);

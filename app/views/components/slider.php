@@ -1,3 +1,7 @@
+<?php
+$baseUrl = $GLOBALS['baseUrl'] ?? '/';
+?>
+
 <?php if (!empty($sliders)): ?>
   <div class="slider">
     <?php foreach ($sliders as $slider): ?>

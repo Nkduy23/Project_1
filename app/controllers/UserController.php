@@ -1,18 +1,26 @@
 <?php
-require_once __DIR__ . '/../models/UserModel.php';
-require_once __DIR__ . '/../models/CartModel.php';
+
+namespace App\Controllers;
 
 class UserController
 {
     private $userModel;
     private $cartModel;
 
-    public function __construct()
-    {
-        $this->userModel = new UserModel();
-        $this->cartModel = new CartModel();
+    // Constructor __construct() giúp khởi tạo các thuộc tính của đối tượng khi nó được tạo ra.
+    // Tham số $menuModel sẽ được truyền vào từ bên ngoài khi bạn khởi tạo lớp này, và sau đó giá trị đó sẽ được gán vào thuộc tính $menuModel của đối tượng.
+
+    public function __construct(
+        $userModel,
+        $cartModel
+    ) {
+        $this->userModel = $userModel;
+        $this->cartModel = $cartModel;
     }
 
+    public function registerPage() {
+        require_once __DIR__ . '/../views/pages/register.php';
+    }
 
     public function register()
     {
@@ -54,6 +62,11 @@ class UserController
         }
     }
 
+    public function loginPage()
+    {
+        require_once __DIR__ . '/../views/pages/login.php';
+    }
+
     public function login()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -84,10 +97,10 @@ class UserController
                         // ✅ Xóa session cart sau khi đồng bộ với database
                         unset($_SESSION['cart']);
                     }
-                    header('Location: /home');
+                    header('Location: /');
                     exit;
                 } else {
-                    $_SESSION['errors']['login'] = 'Email hoặc mật khẩu không chính xác!';
+                    $_SESSION['errors'] = ['Email hoặc mật khẩu không chính xác!'];
                     header('Location: /login');
                     exit;
                 }
@@ -98,15 +111,17 @@ class UserController
             header('Location: /login');
             exit;
         }
-
-        require '../views/pages/login.php';
     }
-
 
     public function logout()
     {
         session_destroy();
         header("Location: /login");
         exit;
+    }
+
+    public function profilePage()
+    {
+        require_once __DIR__ . '/../views/pages/profile.php';
     }
 }

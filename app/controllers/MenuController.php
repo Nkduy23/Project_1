@@ -1,15 +1,19 @@
 <?php
-require_once __DIR__ . '/../models/MenuModel.php';
 
-class MenuController {
+namespace App\Controllers;
+
+class MenuController
+{
     private $menuModel;
 
-    public function __construct() {
-        $this->menuModel = new MenuModel();
+    public function __construct(
+        $menuModel
+    ) {
+        $this->menuModel = $menuModel;
     }
 
-    public function getAllMenusTree() {
+    public function getAllMenusTree()
+    {
         return $this->menuModel->getAllMenusTree();
     }
 }
-?>
