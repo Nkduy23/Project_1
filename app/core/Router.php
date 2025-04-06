@@ -1,9 +1,10 @@
 <?php
-
 use App\Controllers\HomeController;
 use App\Controllers\ProductController;
 use App\Controllers\CartController;
 use App\Controllers\UserController;
+use App\Controllers\OrderController;
+use App\Controllers\CommentController;
 
 class Router
 {
@@ -12,7 +13,9 @@ class Router
     public function add($route, $controllerAction)
     {
         $this->routes[$route] = $controllerAction;
+        // $this->routes[/home] = HomeController@index;
     }
+
     public function dispatch($uri)
     {
         $uri = parse_url($uri, PHP_URL_PATH);
@@ -58,7 +61,7 @@ class Router
     }
 
 
-    // Hàm factory để tạo controller với dependencies
+    // Hàm factory để tạo controller với dependencies injection
     protected function createController($controllerName)
     {
         $dependenciesPath  = __DIR__ . '/../config/dependencies.php';
@@ -83,18 +86,23 @@ class Router
                 );
             case 'ProductController':
                 return new ProductController(
-                    $dependencies['productModel']
+                    $dependencies['productModel'],
+                    $dependencies['commentModel']
                 );
             case 'CartController':
                 return new CartController(
                     $dependencies['cartModel'],
                     $dependencies['db']
                 );
-            case 'UserController': 
+            case 'UserController':
                 return new UserController(
                     $dependencies['userModel'],
                     $dependencies['cartModel']
                 );
+            case 'OrderController':
+                return new OrderController();
+            case 'CommentController':
+                return new CommentController($dependencies['commentModel']);
             default:
                 throw new Exception("Controller $controllerName not found");
         }

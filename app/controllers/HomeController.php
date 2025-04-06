@@ -10,7 +10,7 @@ class HomeController
     private $newsModel;
 
     public function __construct(
-        $mediaModel, 
+        $mediaModel,
         $productModel,
         $brandModel,
         $newsModel
@@ -24,6 +24,7 @@ class HomeController
     public function index()
     {
         $data = [
+            // Key
             'sliders' => $this->mediaModel->getMedia('type', 'slider', 'id, image, image_large, image_small, title, link'),
             'features' => $this->mediaModel->getMedia('type', 'feature', 'image, title, link'),
             'bannerTop' => $this->mediaModel->getMedia('banner_type', 'top', 'image, title, link, banner_type, position'),

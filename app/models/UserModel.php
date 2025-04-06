@@ -13,7 +13,7 @@ class UserModel
     public function register($username, $email, $password)
     {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO KhachHang (TenDangNhap, Email, MatKhau) VALUES (?, ?, ?)";
         $stmt = $this->db->prepare($sql);
         $result = $stmt->execute([$username, $email, $hashedPassword]);
         return $result;
@@ -21,7 +21,7 @@ class UserModel
 
     public function isEmailExists($email)
     {
-        $sql = "SELECT * FROM users WHERE email = ?";
+        $sql = "SELECT * FROM KhachHang WHERE Email = ?";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([$email]);
         return $stmt->fetch() ? true : false;
@@ -29,7 +29,7 @@ class UserModel
 
     public function isUsernameExists($username)
     {
-        $sql = "SELECT * FROM users WHERE username = ?";
+        $sql = "SELECT * FROM KhachHang WHERE TenDangNhap = ?";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([$username]);
         return $stmt->fetch() ? true : false;
@@ -37,15 +37,15 @@ class UserModel
 
     public function login($email, $password)
     {
-        $sql = "SELECT id, email, username, password FROM users WHERE email = ?";
+        $sql = "SELECT MaKhachHang, Email, TenDangNhap, MatKhau FROM KhachHang WHERE email = ?";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([$email]);
         $user = $stmt->fetch();
-        if ($user && password_verify($password, $user['password'])) {
+        if ($user && password_verify($password, $user['MatKhau'])) {
             return [
-                'id' => $user['id'],
-                'email' => $user['email'],
-                'username' => $user['username']
+                'MaKhachHang' => $user['MaKhachHang'],
+                'Email' => $user['Email'],
+                'TenDangNhap' => $user['TenDangNhap']
             ];
         }
         return false;
@@ -53,7 +53,7 @@ class UserModel
 
     public function getUserById($id)
     {
-        $sql = "SELECT * FROM users WHERE id = ?";
+        $sql = "SELECT * FROM KhachHang WHERE MaKhachHang = ?";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([$id]);
         return $stmt->fetch();

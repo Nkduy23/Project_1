@@ -5,12 +5,16 @@ namespace App\Controllers;
 class ProductController
 {
     private $productModel;
+    private $commentModel;
 
     public function __construct(
         $productModel,
+        $commentModel
     ) {
         $this->productModel = $productModel;
+        $this->commentModel = $commentModel;
     }
+
     public function getProducts($category, $limit = null)
     {
         return $this->productModel->getProducts($category, $limit);
@@ -32,8 +36,8 @@ class ProductController
             require_once __DIR__ . '/../views/pages/jewelry.php';
         } elseif ($type == 'accessories') {
             require_once __DIR__ . '/../views/pages/accessories.php';
-        // } elseif ($type == 'sale') {
-        //     require_once __DIR__ . '/../views/pages/sale.php';
+            // } elseif ($type == 'sale') {
+            //     require_once __DIR__ . '/../views/pages/sale.php';
         } else {
             require_once __DIR__ . '/../views/404.php';
         }
@@ -44,20 +48,18 @@ class ProductController
         return $this->productModel->getSaleProducts();
     }
 
-    public function getProductById($id)
+    public function getRelatedProducts()
     {
-        $details =  $this->productModel->getProductById($id);
-
-        // echo '<pre>';
-        // var_dump($details);
-        // die();
-
-        require_once __DIR__ . '/../views/components/breadcrumb.php';
-        require_once __DIR__ . '/../views/pages/detail.php';
+        return $this->productModel->getRelatedProducts();
     }
 
-    public function getProductDetails($id)
+    public function getProductById($id)
     {
-        return $this->productModel->getProductDetails($id);
+        $productDetail =  $this->productModel->getProductById($id);
+        $attributes = $this->productModel->getProductDetails($id);
+        $relatedProducts = $this->productModel->getRelatedProducts($id);
+        $comments = $this->commentModel->getComments($id);
+        require_once __DIR__ . '/../views/components/breadcrumb.php';
+        require_once __DIR__ . '/../views/pages/detail.php';
     }
 }

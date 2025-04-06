@@ -1,0 +1,46 @@
+.checkout-container {
+  max-width: 90rem;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.checkout {
+  form {
+    gap: 1rem;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 2rem;
+    border-bottom: 1px solid #ccc;
+    padding: 1rem;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr;
+    input {
+      width: 2rem;
+    }
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 10px;
+    font-size: 16px;
+  }
+  &__remove-btn {
+    width: 5rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+}

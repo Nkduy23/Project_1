@@ -23,20 +23,20 @@
         <div class="product__list">
           <?php foreach ($saleProducts as $product): ?>
             <div class="product__item">
-              <a href="<?php echo htmlspecialchars($product['link']); ?>">
-                <img src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($product['image']); ?>"
-                  data-hover="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($product['image_hover']); ?>"
-                  alt="<?php echo htmlspecialchars($product['name']); ?>" class="product__img">
+              <a href="<?php echo htmlspecialchars($product['Link']); ?>">
+                <img src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($product['HinhAnh']); ?>"
+                  data-hover="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($product['HinhAnhHover']); ?>"
+                  alt="<?php echo htmlspecialchars($product['TenSanPham']); ?>" class="product__img">
               </a>
-              <?php if (!empty($product['label'])): ?>
-                <div class="product__label"><?php echo htmlspecialchars($product['label']); ?></div>
+              <?php if (!empty($product['Nhan'])): ?>
+                <div class="product__label"><?php echo htmlspecialchars($product['Nhan']); ?></div>
               <?php endif; ?>
               <p class="product__name">
-                <a href="<?php echo htmlspecialchars($product['link']); ?>">
-                  <?php echo htmlspecialchars($product['name']); ?>
+                <a href="<?php echo htmlspecialchars($product['Link']); ?>">
+                  <?php echo htmlspecialchars($product['TenSanPham']); ?>
                 </a>
               </p>
-              <p class="product__price"><?php echo number_format($product['price'], 0, ',', '.') ?> ₫</p>
+              <p class="product__price"><?php echo number_format($product['DonGia'], 0, ',', '.') ?> ₫</p>
             </div>
           <?php endforeach; ?>
         </div>
@@ -54,6 +54,7 @@ $productCategories = [
   'Đồ Da Thật Cao Cấp' => $leatherProducts
 ];
 
+
 foreach ($productCategories as $title => $products):
 ?>
   <?php if (!empty($products)): ?>
@@ -64,20 +65,20 @@ foreach ($productCategories as $title => $products):
           <div class="product__list">
             <?php foreach ($products as $product): ?>
               <div class="product__item">
-                <a href="<?php echo htmlspecialchars($product['link']); ?>">
-                  <img src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($product['image']); ?>"
-                    data-hover="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($product['image_hover']); ?>"
-                    alt="<?php echo htmlspecialchars($product['name']); ?>" class="product__img">
+                <a href="<?php echo htmlspecialchars($product['Link']); ?>">
+                  <img src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($product['HinhAnh']); ?>"
+                    data-hover="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($product['HinhAnhHover']); ?>"
+                    alt="<?php echo htmlspecialchars($product['TenSanPham']); ?>" class="product__img">
                 </a>
                 <?php if (!empty($product['label'])): ?>
                   <div class="product__label"><?php echo htmlspecialchars($product['label']); ?></div>
                 <?php endif; ?>
                 <p class="product__name">
-                  <a href="<?php echo htmlspecialchars($product['link']); ?>">
-                    <?php echo htmlspecialchars($product['name']); ?>
+                  <a href="<?php echo htmlspecialchars($product['Link']); ?>">
+                    <?php echo htmlspecialchars($product['TenSanPham']); ?>
                   </a>
                 </p>
-                <p class="product__price"><?php echo number_format($product['price'], 0, ',', '.') ?> ₫</p>
+                <p class="product__price"><?php echo number_format($product['DonGia'], 0, ',', '.') ?> ₫</p>
               </div>
             <?php endforeach; ?>
           </div>

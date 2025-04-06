@@ -1,66 +1,71 @@
 .cart-container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  
-    h2 {
+  max-width: 120rem;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart {
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+
+    th,
+    td {
+      padding: 10px;
       text-align: center;
-      margin-bottom: 20px;
-    }
-  
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-  
-      th, td {
-        padding: 10px;
-        text-align: center;
-        border: 1px solid #ddd;
-      }
-  
-      th {
-        background: #f8f8f8;
-      }
-  
-      img {
-        max-width: 50px;
-        height: auto;
+      border: 1px solid #ddd;
+
+      input, select {
+        display: inline-block;
+        width: 5rem;
+        padding: 5px;
+        border: 1px solid #ccc;
         border-radius: 5px;
       }
-  
-      a {
-        color: #e74c3c;
-        text-decoration: none;
-        font-weight: bold;
-        &:hover {
-          text-decoration: underline;
-        }
-      }
     }
-  
-    .empty-cart {
-      text-align: center;
-      font-size: 18px;
-      color: #777;
-      margin: 20px 0;
+
+    th {
+      background: #f8f8f8;
     }
-  
-    .continue-shopping {
-      display: block;
-      text-align: center;
-      margin-top: 20px;
-      padding: 10px;
-      background: #3498db;
-      color: white;
-      text-decoration: none;
+
+    img {
+      max-width: 5rem;
+      height: auto;
       border-radius: 5px;
-      &:hover {
-        background: #2980b9;
-      }
     }
   }
-  
+
+  &__total {
+    margin-top: 20px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  &__back {
+    width: 100%;
+    text-align: center;
+    color: blue;
+  }
+
+  &__back-link {
+    display: inline-block;
+    text-decoration: none;
+    margin: 2rem;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+}

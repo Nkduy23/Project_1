@@ -34,43 +34,43 @@ class Database
         return $this->conn;
     }
 
-    // Hàm lấy nhiều bản ghi
-    public function getAll($sql, $params = [])
-    {
-        try {
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute($params);
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            error_log("Database Query Error: " . $e->getMessage());
-            return []; // Trả về mảng rỗng nếu có lỗi
-        }
-    }
+    // // Hàm lấy nhiều bản ghi
+    // public function getAll($sql, $params = [])
+    // {
+    //     try {
+    //         $stmt = $this->conn->prepare($sql);
+    //         $stmt->execute($params);
+    //         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //     } catch (PDOException $e) {
+    //         error_log("Database Query Error: " . $e->getMessage());
+    //         return []; // Trả về mảng rỗng nếu có lỗi
+    //     }
+    // }
 
-    // Hàm lấy một bản ghi
-    public function getOne($sql, $params = [])
-    {
-        try {
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute($params);
-            return $stmt->fetch(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            error_log("Database Query Error: " . $e->getMessage());
-            return null;
-        }
-    }
+    // // Hàm lấy một bản ghi
+    // public function getOne($sql, $params = [])
+    // {
+    //     try {
+    //         $stmt = $this->conn->prepare($sql);
+    //         $stmt->execute($params);
+    //         return $stmt->fetch(PDO::FETCH_ASSOC);
+    //     } catch (PDOException $e) {
+    //         error_log("Database Query Error: " . $e->getMessage());
+    //         return null;
+    //     }
+    // }
 
-    // Hàm thực thi INSERT, UPDATE, DELETE
-    public function execute($sql, $params = [])
-    {
-        try {
-            $stmt = $this->conn->prepare($sql);
-            return $stmt->execute($params);
-        } catch (PDOException $e) {
-            error_log("Database Execution Error: " . $e->getMessage());
-            return false;
-        }
-    }
+    // // Hàm thực thi INSERT, UPDATE, DELETE
+    // public function execute($sql, $params = [])
+    // {
+    //     try {
+    //         $stmt = $this->conn->prepare($sql);
+    //         return $stmt->execute($params);
+    //     } catch (PDOException $e) {
+    //         error_log("Database Execution Error: " . $e->getMessage());
+    //         return false;
+    //     }
+    // }
 
     // Hàm đóng kết nối CSDL
     public function closeConnection()

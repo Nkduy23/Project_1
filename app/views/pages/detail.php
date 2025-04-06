@@ -1,52 +1,59 @@
 <?php
-$product = $details ?? [];
 $baseUrl = $GLOBALS['baseUrl'] ?? '/';
-
-if (!$product) {
-    echo "<p class='error-message'>Không tìm thấy sản phẩm.</p>";
-    exit;
-}
 ?>
 
 <div class="container-main no-border">
-    <?php getBreadcrumb(); ?>
+    <?php getBreadcrumb($productDetail); ?>
 
     <div class="product-detail grid-2 gap-32">
-        <!-- Cột trái: Hình ảnh sản phẩm -->
         <div class="product-detail__left">
             <div class="product-detail__image">
-                <img id="main-image" src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($product['image']); ?>"
-                    alt="<?php echo htmlspecialchars($product['name']); ?>">
-                <?php if (!empty($product['label'])): ?>
-                    <div class="product-detail__label"><?php echo htmlspecialchars($product['label']); ?></div>
+                <img id="main-image" src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($productDetail['HinhAnh']); ?>"
+                    alt="<?php echo htmlspecialchars($productDetail['TenSanPham']); ?>">
+                <?php if (!empty($productDetail['Nhan'])): ?>
+                    <div class="product-detail__label"><?php echo htmlspecialchars($productDetail['Nhan']); ?></div>
                 <?php endif; ?>
             </div>
             <div class="product-detail__thumbnails flex-center gap-8">
-                <img class="thumbnail" src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($product['image']); ?>"
+                <img class="thumbnail" src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($productDetail['HinhAnh']); ?>"
                     alt="Thumbnail 1" onclick="changeImage(this)">
-                <img class="thumbnail" src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($product['image_hover']); ?>"
+                <img class="thumbnail" src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($productDetail['HinhAnhHover']); ?>"
                     alt="Thumbnail 2" onclick="changeImage(this)">
             </div>
         </div>
 
-        <!-- Cột phải: Thông tin sản phẩm -->
         <div class="product-detail__right flex-column-center-justify">
-            <h1 class="product-detail__name"><?php echo htmlspecialchars($product['name']); ?></h1>
-            <p class="product-detail__price"><?php echo number_format($product['price'], 0, ',', '.') ?> ₫</p>
-
+            <h1 class="product-detail__name"><?php echo htmlspecialchars($productDetail['TenSanPham']); ?></h1>
+            <p class="product-detail__price"><?php echo number_format($productDetail['DonGia'], 0, ',', '.') ?> ₫</p>
+            <div class="product-detail__quantity-size flex flex-start gap-16">
+                <div class="product-detail__quantity">
+                    <label for="quantity">Số lượng:</label>
+                    <input type="number" id="quantity" name="quantity" min="1" value="1">
+                </div>
+                <div class="product-detail__size">
+                    <label for="size">Size:</label>
+                    <select id="size" name="size">
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+            </div>
 
             <p class="product-detail__description">
-                <?php echo htmlspecialchars($product['description']); ?>
+                <?php echo htmlspecialchars($productDetail['MoTa']); ?>
             </p>
 
             <button class="product-detail__buy-btn gray">Xem Showroom còn hàng</button>
 
             <form action="/add-to-cart" method="POST">
-                <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
-                <input type="hidden" name="product_name" value="<?php echo $product['name']; ?>">
-                <input type="hidden" name="product_price" value="<?php echo $product['price']; ?>">
-                <input type="hidden" name="product_image" value="<?php echo $product['image']; ?>">
-
+                <input type="hidden" name="product_id" value="<?php echo $productDetail['MaSanPham']; ?>">
+                <input type="hidden" name="product_name" value="<?php echo $productDetail['TenSanPham']; ?>">
+                <input type="hidden" name="product_price" value="<?php echo $productDetail['DonGia']; ?>">
+                <input type="hidden" name="product_image" value="<?php echo $productDetail['HinhAnh']; ?>">
+                <input type="hidden" name="product_quantity" value="1">
+                <input type="hidden" name="product_size" value="S">
                 <button type="submit" class="product-detail__buy-btn darkred">Thêm vào giỏ hàng</button>
             </form>
 
@@ -196,19 +203,159 @@ if (!$product) {
                 1. Vì DW00400386 đơn sắc nhưng không hề đơn điệu
             </p>
             <p class="product-detail__info-text"><?= htmlspecialchars($attributes['description2']) ?></p>
-            <img class="product-detail__info-image" src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($product['image_hover']); ?>" alt="Hình ảnh minh họa 1">
+            <button class="product-detail__toggle-info-btn">
+                <span class="btn-text">Xem thêm chi tiết</span>
+                <span class="btn-icon">▼</span>
+            </button>
+
+            <img class="product-detail__info-image" src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($productDetail['HinhAnh']); ?>" alt="Hình ảnh minh họa 1">
             <p class="product-detail__info-title">
                 2. Vì DW00400386 đơn sắc nhưng không hề đơn điệu
             </p>
             <p class="product-detail__info-text"><?= htmlspecialchars($attributes['description3']) ?></p>
-            <img class="product-detail__info-image" src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($product['image_hover']); ?>" alt="Hình ảnh minh họa 2">
+            <img class="product-detail__info-image" src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($productDetail['HinhAnhHover']); ?>" alt="Hình ảnh minh họa 2">
         </div>
     </div>
-</div>
+
+    <!-- Bình luận -->
+    <section class="product-detail__comment">
+        <h3>Bình luận sản phẩm</h3>
+
+        <form action="/comment" method="POST" class="product-detail__comment-form">
+            <input type="hidden" name="product_id" value="<?= $productDetail['MaSanPham'] ?>">
+            <?php if (isset($_SESSION['user'])): ?>
+                <input type="hidden" name="user_id" value="<?= $_SESSION['user']['MaKhachHang'] ?>">
+                <input type="hidden" name="name" value="<?= $_SESSION['user']['TenDangNhap'] ?>">
+            <?php else: ?>
+                <input type="text" name="name" placeholder="Tên của bạn" required>
+            <?php endif; ?>
+            <textarea name="content" rows="4" placeholder="Nhập bình luận..." required></textarea>
+            <button type="submit">Gửi bình luận</button>
+        </form>
+
+        <button class="product-detail__toggle-info-btn cmt  ">
+            <span class="btn-text">Xem thêm bình luận</span>
+            <span class="btn-icon">▼</span>
+        </button>
+
+        <div class="product-detail__comment-list">
+            <?php if ($comments): ?>
+                <?php foreach ($comments as $comment): ?>
+                    <div class="comment-item">
+                        <strong><?= htmlspecialchars($comment['TenKhachHang']) ?></strong>
+                        <span class="comment-time"><?= date('d/m/Y H:i', strtotime($comment['ThoiGianBinhLuan'])) ?></span>
+                        <p><?= nl2br(htmlspecialchars($comment['NoiDung'])) ?></p>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p class="error-message">Không có bình luận nào.</p>
+            <?php endif; ?>
+        </div>
+    </section>
+
+
+    <!-- Sản phẩm liên quan -->
+    <div class="product-detail__related">
+        <h3 class="product-detail__related-title size">Sản phẩm liên quan</h3>
+        <div class="product-detail__related-list grid-4 gap-16">
+            <?php foreach ($relatedProducts as $relatedProduct): ?>
+                <div class="product-detail__related-item">
+                    <a href="/detail/<?= $relatedProduct['MaSanPham'] ?>">
+                        <img src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($relatedProduct['HinhAnh']); ?>" alt="Hình ảnh sản phẩm" class="product-detail__related-image">
+                    </a>
+                    <div class="product-detail__related-info">
+                        <a href="/detail/<?= $relatedProduct['MaSanPham'] ?>">
+                            <p class="product-detail__related-name"><?= $relatedProduct['TenSanPham'] ?></p>
+                        </a>
+                        <p class="product-detail__related-price"><?= number_format($relatedProduct['DonGia']) ?> ₫</p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+    <!-- Có thể bạn cũng thích -->
+    <div class="product-detail__related">
+        <h3 class="product-detail__related-title size">Có thể bạn cũng thích</h3>
+        <div class="product-detail__related-list grid-4 gap-16">
+            <?php foreach ($relatedProducts as $relatedProduct): ?>
+                <div class="product-detail__related-item">
+                    <a href="/detail/<?= $relatedProduct['MaSanPham'] ?>">
+                        <img src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($relatedProduct['HinhAnh']); ?>" alt="Hình ảnh sản phẩm" class="product-detail__related-image">
+                    </a>
+                    <div class="product-detail__related-info">
+                        <a href="/detail/<?= $relatedProduct['MaSanPham'] ?>">
+                            <p class="product-detail__related-name"><?= $relatedProduct['TenSanPham'] ?></p>
+                        </a>
+                        <p class="product-detail__related-price"><?= number_format($relatedProduct['DonGia']) ?> ₫</p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
 </div>
 
 <script>
     function changeImage(thumbnail) {
         document.getElementById('main-image').src = thumbnail.src;
     }
+</script>
+
+<script>
+    const quantityInput = document.getElementById('quantity');
+    const sizeSelect = document.getElementById('size');
+
+    const hiddenQuantity = document.querySelector('input[name="product_quantity"]');
+    const hiddenSize = document.querySelector('input[name="product_size"]');
+
+    // Cập nhật khi người dùng thay đổi số lượng
+    quantityInput.addEventListener('input', function() {
+        hiddenQuantity.value = this.value;
+    });
+
+    // Cập nhật khi người dùng chọn size
+    sizeSelect.addEventListener('change', function() {
+        hiddenSize.value = this.value;
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Lấy tất cả các nút toggle
+        const toggleButtons = document.querySelectorAll(".product-detail__toggle-info-btn");
+        const infoRight = document.querySelector(".product-detail__info-right");
+        const productCmt = document.querySelector(".product-detail__comment");
+
+        // Gắn sự kiện cho mỗi nút
+        toggleButtons.forEach(button => {
+            button.addEventListener("click", function() {
+                // Chỉ toggle nút được click
+                button.classList.toggle("active");
+
+                // Lấy các phần tử text và icon trong nút hiện tại
+                const btnText = button.querySelector(".product-detail__btn-text");
+                const btnIcon = button.querySelector(".product-detail__btn-icon");
+
+                // Xác định xem nút này có class 'cmt' hay không
+                const isCmtButton = button.classList.contains("cmt");
+
+                if (isCmtButton) {
+                    // Xử lý riêng cho nút bình luận
+                    productCmt.classList.toggle("active");
+                } else {
+                    // Xử lý riêng cho nút thông tin
+                    infoRight.classList.toggle("active");
+                }
+
+                // Cập nhật text và icon chỉ cho nút được click
+                if (button.classList.contains("active")) {
+                    btnText.textContent = isCmtButton ? "Ẩn bình luận" : "Thu gọn";
+                    btnIcon.textContent = "▲";
+                } else {
+                    btnText.textContent = isCmtButton ? "Xem bình luận" : "Xem thêm thông tin";
+                    btnIcon.textContent = "▼";
+                }
+            });
+        });
+    });
 </script>

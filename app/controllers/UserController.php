@@ -7,13 +7,11 @@ class UserController
     private $userModel;
     private $cartModel;
 
-    // Constructor __construct() giúp khởi tạo các thuộc tính của đối tượng khi nó được tạo ra.
-    // Tham số $menuModel sẽ được truyền vào từ bên ngoài khi bạn khởi tạo lớp này, và sau đó giá trị đó sẽ được gán vào thuộc tính $menuModel của đối tượng.
-
     public function __construct(
         $userModel,
         $cartModel
     ) {
+        // $this->userModel: là thuộc tính nội bộ của controller để lưu lại model
         $this->userModel = $userModel;
         $this->cartModel = $cartModel;
     }
@@ -31,7 +29,7 @@ class UserController
             $confirmPassword = $_POST['confirmPassword'];
 
             $errors = [];
-
+            // Gọi method trong model từ bên trong controller
             if ($this->userModel->isEmailExists($email)) {
                 $errors[] = "Email đã tồn tại";
             }
@@ -92,7 +90,7 @@ class UserController
                     // Kiểm tra nếu có giỏ hàng trong session thì đẩy vào database
                     if (!empty($_SESSION['cart'])) {
                         foreach ($_SESSION['cart'] as $productId => $cartItem) {
-                            $this->cartModel->addToCart($user['id'], $productId, $cartItem['quantity']);
+                            $this->cartModel->addToCart($user['MaKhachHang'], $productId, $cartItem['SoLuong'], $cartItem['KichThuoc']);
                         }
                         // ✅ Xóa session cart sau khi đồng bộ với database
                         unset($_SESSION['cart']);

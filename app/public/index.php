@@ -6,6 +6,7 @@ $GLOBALS['baseUrl'] = BASE_URL;
 spl_autoload_register(function ($class) {
     $prefix = 'App\\';
     $base_dir = dirname(__DIR__) . '/';
+    // strlen function compares two strings
     $len = strlen($prefix);
     if (strncmp($prefix, $class, $len) !== 0) {
         return;
@@ -26,13 +27,12 @@ function renderWithLayout($content)
 {
     require __DIR__ . '/../views/layouts/header.php';
     echo $content;
-
     require __DIR__ . '/../views/layouts/footer.php';
 }
 
 $uri = $_GET['uri'] ?? '/';
 
-print_r($uri);
+// print_r($uri);
 
 ob_start();
 

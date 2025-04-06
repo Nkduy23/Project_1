@@ -7,6 +7,7 @@ use App\Models\NewsModel;
 use App\Models\CartModel;
 use App\Models\MenuModel;
 use App\Models\UserModel;
+use App\Models\CommentModel;
 
 //Gọi file controller
 use App\Controllers\MenuController;
@@ -26,6 +27,7 @@ $newsModel = new NewsModel($db);
 $cartModel = new CartModel($db);
 $menuModel = new MenuModel($db);
 $userModel = new UserModel($db);
+$commentModel = new CommentModel($db);
 
 
 // Khởi tạo Controller
@@ -41,7 +43,8 @@ $dependencies = [
     'cartModel' => $cartModel,
     'menuController' => $menuController,
     'cartController' => $cartController,
-    'userModel' => $userModel
+    'userModel' => $userModel,
+    'commentModel' => $commentModel
 ];
 
 return $dependencies;

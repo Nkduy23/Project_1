@@ -1,57 +1,104 @@
 .cart-container {
-  max-width: 800px;
+  max-width: 120rem;
   margin: 20px auto;
   padding: 20px;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.cart-container h2 {
+
+.cart h2 {
   text-align: center;
   margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 2rem;
 }
-.cart-container table {
+.cart table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
 }
-.cart-container table th, .cart-container table td {
+.cart table th,
+.cart table td {
   padding: 10px;
   text-align: center;
   border: 1px solid #ddd;
 }
-.cart-container table th {
+.cart table th input, .cart table th select,
+.cart table td input,
+.cart table td select {
+  display: inline-block;
+  width: 5rem;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.cart table th {
   background: #f8f8f8;
 }
-.cart-container table img {
-  max-width: 50px;
+.cart table img {
+  max-width: 5rem;
   height: auto;
   border-radius: 5px;
 }
-.cart-container table a {
-  color: #e74c3c;
-  text-decoration: none;
+.cart__total {
+  margin-top: 20px;
+  text-align: right;
   font-weight: bold;
+  font-size: 1.5rem;
 }
-.cart-container table a:hover {
+.cart__back {
+  width: 100%;
+  text-align: center;
+  color: blue;
+}
+.cart__back-link {
+  display: inline-block;
+  text-decoration: none;
+  margin: 2rem;
+}
+.cart__back-link:hover {
   text-decoration: underline;
 }
-.cart-container .empty-cart {
-  text-align: center;
-  font-size: 18px;
-  color: #777;
-  margin: 20px 0;
+
+.checkout-container {
+  max-width: 90rem;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.cart-container .continue-shopping {
-  display: block;
+
+.checkout form {
+  gap: 1rem;
+}
+.checkout__title {
   text-align: center;
-  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 2rem;
+  border-bottom: 1px solid #ccc;
+  padding: 1rem;
+}
+.checkout__item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 1fr;
+}
+.checkout__item input {
+  width: 2rem;
+}
+.checkout input,
+.checkout select,
+.checkout textarea {
   padding: 10px;
-  background: #3498db;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
+  font-size: 16px;
 }
-.cart-container .continue-shopping:hover {
-  background: #2980b9;
+.checkout__remove-btn {
+  width: 5rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
