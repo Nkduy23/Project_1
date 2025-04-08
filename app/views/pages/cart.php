@@ -1,8 +1,5 @@
-<?php
-$baseUrl = $GLOBALS['baseUrl'] ?? '/';
-?>
 <div class="cart-container">
-  <div class="cart">
+    <div class="cart">
         <h2>Giỏ hàng của bạn</h2>
         <?php if (empty($cartItems)): ?>
             <p>Giỏ hàng trống.</p>
@@ -20,7 +17,7 @@ $baseUrl = $GLOBALS['baseUrl'] ?? '/';
                 </tr>
                 <?php foreach ($cartItems as $item): ?>
                     <tr>
-                        <td><img src="<?= $baseUrl ?>img/product/<?= htmlspecialchars($item['HinhAnh']) ?>" width="50"></td>
+                        <td><img src="<?= $GLOBALS['baseUrl'] ?>img/product/<?= htmlspecialchars($item['HinhAnh']) ?>" width="50"></td>
                         <td><?= htmlspecialchars($item['TenSanPham']) ?></td>
                         <td><?= number_format($item['DonGia'], 0, ',', '.') ?> VNĐ</td>
                         <form action="/update-cart" method="POST">
@@ -34,7 +31,7 @@ $baseUrl = $GLOBALS['baseUrl'] ?? '/';
                                     <option value="XL" <?= $item['KichThuoc'] == 'XL' ? 'selected' : '' ?>>XL</option>
                                 </select>
                             </td>
-                           <td> <button type="submit">Cập nhật</button></td>
+                            <td> <button type="submit">Cập nhật</button></td>
                         </form>
                         <td><?= number_format($item['DonGia'] * $item['SoLuong'], 0, ',', '.') ?> VNĐ</td>
                         <td>
@@ -47,9 +44,9 @@ $baseUrl = $GLOBALS['baseUrl'] ?? '/';
                 <?php endforeach; ?>
             </table>
         <?php endif; ?>
-    
+
         <div class="cart__back"><a class="cart__back-link" href="/">Tiếp tục mua sắm</a></div>
-    
+
         <div class="cart__total">
             <?php
             $tongTien = 0;
@@ -62,7 +59,7 @@ $baseUrl = $GLOBALS['baseUrl'] ?? '/';
                 <input type="hidden" name="total_amount" value="<?= $tongTien ?>">
                 <button type="submit">Tiến hành thanh toán</button>
             </form>
-    
-  </div>
+
+        </div>
     </div>
 </div>

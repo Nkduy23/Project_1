@@ -1,9 +1,8 @@
 <?php
-require_once __DIR__ . '/../core/Router.php';
 
-// instance router
+use Core\Router;
+
 $router = new Router();
-
 $router->add('/', 'HomeController@index');
 $router->add('/products/{type}', 'ProductController@showProductsByType');
 $router->add('/detail/{id}', 'ProductController@getProductById');

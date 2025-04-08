@@ -1,12 +1,5 @@
-<?php
-$baseUrl = $GLOBALS['baseUrl'] ?? '/';
-$dependencies = require __DIR__ . '/../../config/dependencies.php';
-$cartCount = $dependencies['cartController']->getCartQuantity();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,12 +8,43 @@ $cartCount = $dependencies['cartController']->getCartQuantity();
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-  <link rel="stylesheet" href="<?= $baseUrl ?>css/main.css?v=<?php echo time(); ?>" />
-  <link rel="stylesheet" href="<?= $baseUrl ?>css/home.css?v=<?php echo time(); ?>" />
-  <link rel="stylesheet" href="<?= $baseUrl ?>css/detail.css?v=<?php echo time(); ?>" />
-  <link rel="stylesheet" href="<?= $baseUrl ?>css/cart.css?v=<?php echo time(); ?>" />
-  <link rel="stylesheet" href="<?= $baseUrl ?>css/auth.css?v=<?php echo time(); ?>" />
-  <link rel="stylesheet" href="<?= $baseUrl ?>css/profile.css?v=<?php echo time(); ?>" />
+  <?php
+  $uri = $_SERVER['REQUEST_URI'];
+  ?>
+
+  <!-- CSS chung cho tất cả các trang -->
+  <link rel="stylesheet" href="<?= $GLOBALS['baseUrl'] ?>css/main.css?v=<?= time(); ?>" />
+
+  <!-- Trang chủ (/) -->
+  <?php if ($uri === '/' || $uri === '/index.php'): ?>
+    <link rel="stylesheet" href="<?= $GLOBALS['baseUrl'] ?>css/home.css?v=<?= time(); ?>" />
+  <?php endif; ?>
+
+  <!-- Các trang product: /product/male, /product/female,... -->
+  <?php if (preg_match('#^/products/(male|female|couple|jewelry|leather|accessories)(/.*)?$#', $uri)): ?>
+    <link rel="stylesheet" href="<?= $GLOBALS['baseUrl'] ?>css/product.css?v=<?= time(); ?>" />
+  <?php endif; ?>
+
+  <!-- Trang chi tiết sản phẩm: /detail/123, /detail/abc -->
+  <?php if (preg_match('#^/detail(/.*)?$#', $uri)): ?>
+    <link rel="stylesheet" href="<?= $GLOBALS['baseUrl'] ?>css/detail.css?v=<?= time(); ?>" />
+  <?php endif; ?>
+
+  <!-- Trang giỏ hàng -->
+  <?php if (preg_match('#^/(cart|checkout)(/.*)?$#', $uri)): ?>
+    <link rel="stylesheet" href="<?= $GLOBALS['baseUrl'] ?>css/cart.css?v=<?= time(); ?>" />
+  <?php endif; ?>
+
+  <!-- Trang login & register -->
+  <?php if (preg_match('#^/(login|register)(/.*)?$#', $uri)): ?>
+    <link rel="stylesheet" href="<?= $GLOBALS['baseUrl'] ?>css/auth.css?v=<?= time(); ?>" />
+  <?php endif; ?>
+
+  <!-- Trang profile -->
+  <?php if (preg_match('#^/profile(/.*)?$#', $uri)): ?>
+    <link rel="stylesheet" href="<?= $GLOBALS['baseUrl'] ?>css/profile.css?v=<?= time(); ?>" />
+  <?php endif; ?>
+
 </head>
 
 <body>
@@ -39,7 +63,7 @@ $cartCount = $dependencies['cartController']->getCartQuantity();
       </div>
       <!-- Logo -->
       <div class="header__logo">
-        <a href="/"><img src="<?= $baseUrl ?>/img/logo.png" alt="logo Khánh Duy" /></a>
+        <a href="/"><img src="<?= $GLOBALS['baseUrl'] ?>/img/logo.png" alt="logo Khánh Duy" /></a>
       </div>
       <!-- Search -->
       <div class="header__search flex-center gap-16">

@@ -16,8 +16,9 @@ class UserController
         $this->cartModel = $cartModel;
     }
 
-    public function registerPage() {
-        require_once __DIR__ . '/../views/pages/register.php';
+    public function registerPage()
+    {
+        require_once __DIR__ . '/../Views/pages/register.php';
     }
 
     public function register()
@@ -62,7 +63,7 @@ class UserController
 
     public function loginPage()
     {
-        require_once __DIR__ . '/../views/pages/login.php';
+        require_once __DIR__ . '/../Views/pages/login.php';
     }
 
     public function login()
@@ -120,6 +121,6 @@ class UserController
 
     public function profilePage()
     {
-        require_once __DIR__ . '/../views/pages/profile.php';
+        require_once __DIR__ . '/../Views/pages/profile.php';
     }
 }

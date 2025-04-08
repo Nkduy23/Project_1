@@ -2,7 +2,7 @@
   <div class="container-footer-top">
     <div class="footer__top grid-4 gap-10">
       <div class="footer__group">
-        <img class="footer__hotline" src="<?= $baseUrl ?>img/footer/hotline.avif" alt="Hình ảnh hotline" class="footer__img" />
+        <img class="footer__hotline" src="<?= $GLOBALS['baseUrl'] ?>img/footer/hotline.avif" alt="Hình ảnh hotline" class="footer__img" />
         <h3 class="footer__title">Chính Sách</h3>
         <ul class="footer__list">
           <li class="footer__item">
@@ -73,8 +73,8 @@
       </div>
       <div class="footer__group">
         <h3 class="footer__title">Về Chúng Tôi</h3>
-        <img class="footer__daily" src="<?= $baseUrl ?>img/footer/daily.avif" alt="Hình ảnh đại lý" />
-        <img class="footer__baohanh" src="<?= $baseUrl ?>img/footer/baohanh.avif" alt="Hình ảnh bảo thành" />
+        <img class="footer__daily" src="<?= $GLOBALS['baseUrl'] ?>img/footer/daily.avif" alt="Hình ảnh đại lý" />
+        <img class="footer__baohanh" src="<?= $GLOBALS['baseUrl'] ?>img/footer/baohanh.avif" alt="Hình ảnh bảo thành" />
         <h3 class="footer__title">Website Cùng Thệ Thống</h3>
         <ul class="footer__list">
           <li class="footer__item">
@@ -84,7 +84,7 @@
             <a class="footer__link" href="#">Tuyển dụng Khánh Duy</a>
           </li>
         </ul>
-        <img class="footer__bocongthuong" src="<?= $baseUrl ?>img/footer/bocongthuong.avif" alt="Hình ảnh bộ công thương" />
+        <img class="footer__bocongthuong" src="<?= $GLOBALS['baseUrl'] ?>img/footer/bocongthuong.avif" alt="Hình ảnh bộ công thương" />
       </div>
     </div>
   </div>
@@ -100,13 +100,13 @@
   </div>
 </footer>
 
-<script src="<?= $baseUrl ?>js/header.js"></script>
-<script src="<?= $baseUrl ?>js/nav.js"></script>
-<script src="<?= $baseUrl ?>js/slider.js"></script>
-<script src="<?= $baseUrl ?>js/feature.js"></script>
-<script src="<?= $baseUrl ?>js/product.js"></script>
-<script src="<?= $baseUrl ?>js/top-10.js"></script>
-<script src="<?= $baseUrl ?>js/brand.js"></script>
+<script src="<?= $GLOBALS['baseUrl'] ?>js/header.js"></script>
+<script src="<?= $GLOBALS['baseUrl'] ?>js/nav.js"></script>
+<script src="<?= $GLOBALS['baseUrl'] ?>js/slider.js"></script>
+<script src="<?= $GLOBALS['baseUrl'] ?>js/feature.js"></script>
+<script src="<?= $GLOBALS['baseUrl'] ?>js/product.js"></script>
+<script src="<?= $GLOBALS['baseUrl'] ?>js/top-10.js"></script>
+<script src="<?= $GLOBALS['baseUrl'] ?>js/brand.js"></script>
 </body>
 
 </html>

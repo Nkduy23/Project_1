@@ -1,23 +1,19 @@
-<?php
-$baseUrl = $GLOBALS['baseUrl'] ?? '/';
-?>
-
 <div class="container-main no-border">
     <?php getBreadcrumb($productDetail); ?>
 
     <div class="product-detail grid-2 gap-32">
         <div class="product-detail__left">
             <div class="product-detail__image">
-                <img id="main-image" src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($productDetail['HinhAnh']); ?>"
+                <img id="main-image" src="<?= $GLOBALS['baseUrl'] ?>img/product/<?php echo htmlspecialchars($productDetail['HinhAnh']); ?>"
                     alt="<?php echo htmlspecialchars($productDetail['TenSanPham']); ?>">
                 <?php if (!empty($productDetail['Nhan'])): ?>
                     <div class="product-detail__label"><?php echo htmlspecialchars($productDetail['Nhan']); ?></div>
                 <?php endif; ?>
             </div>
             <div class="product-detail__thumbnails flex-center gap-8">
-                <img class="thumbnail" src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($productDetail['HinhAnh']); ?>"
+                <img class="thumbnail" src="<?= $GLOBALS['baseUrl'] ?>img/product/<?php echo htmlspecialchars($productDetail['HinhAnh']); ?>"
                     alt="Thumbnail 1" onclick="changeImage(this)">
-                <img class="thumbnail" src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($productDetail['HinhAnhHover']); ?>"
+                <img class="thumbnail" src="<?= $GLOBALS['baseUrl'] ?>img/product/<?php echo htmlspecialchars($productDetail['HinhAnhHover']); ?>"
                     alt="Thumbnail 2" onclick="changeImage(this)">
             </div>
         </div>
@@ -208,12 +204,12 @@ $baseUrl = $GLOBALS['baseUrl'] ?? '/';
                 <span class="btn-icon">▼</span>
             </button>
 
-            <img class="product-detail__info-image" src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($productDetail['HinhAnh']); ?>" alt="Hình ảnh minh họa 1">
+            <img class="product-detail__info-image" src="<?= $GLOBALS['baseUrl'] ?>img/product/<?php echo htmlspecialchars($productDetail['HinhAnh']); ?>" alt="Hình ảnh minh họa 1">
             <p class="product-detail__info-title">
                 2. Vì DW00400386 đơn sắc nhưng không hề đơn điệu
             </p>
             <p class="product-detail__info-text"><?= htmlspecialchars($attributes['description3']) ?></p>
-            <img class="product-detail__info-image" src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($productDetail['HinhAnhHover']); ?>" alt="Hình ảnh minh họa 2">
+            <img class="product-detail__info-image" src="<?= $GLOBALS['baseUrl'] ?>img/product/<?php echo htmlspecialchars($productDetail['HinhAnhHover']); ?>" alt="Hình ảnh minh họa 2">
         </div>
     </div>
 
@@ -261,7 +257,7 @@ $baseUrl = $GLOBALS['baseUrl'] ?? '/';
             <?php foreach ($relatedProducts as $relatedProduct): ?>
                 <div class="product-detail__related-item">
                     <a href="/detail/<?= $relatedProduct['MaSanPham'] ?>">
-                        <img src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($relatedProduct['HinhAnh']); ?>" alt="Hình ảnh sản phẩm" class="product-detail__related-image">
+                        <img src="<?= $GLOBALS['baseUrl'] ?>img/product/<?php echo htmlspecialchars($relatedProduct['HinhAnh']); ?>" alt="Hình ảnh sản phẩm" class="product-detail__related-image">
                     </a>
                     <div class="product-detail__related-info">
                         <a href="/detail/<?= $relatedProduct['MaSanPham'] ?>">
@@ -281,7 +277,7 @@ $baseUrl = $GLOBALS['baseUrl'] ?? '/';
             <?php foreach ($relatedProducts as $relatedProduct): ?>
                 <div class="product-detail__related-item">
                     <a href="/detail/<?= $relatedProduct['MaSanPham'] ?>">
-                        <img src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($relatedProduct['HinhAnh']); ?>" alt="Hình ảnh sản phẩm" class="product-detail__related-image">
+                        <img src="<?= $GLOBALS['baseUrl'] ?>img/product/<?php echo htmlspecialchars($relatedProduct['HinhAnh']); ?>" alt="Hình ảnh sản phẩm" class="product-detail__related-image">
                     </a>
                     <div class="product-detail__related-info">
                         <a href="/detail/<?= $relatedProduct['MaSanPham'] ?>">

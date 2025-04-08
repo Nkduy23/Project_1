@@ -1,9 +1,5 @@
 <?php
 
-$dependencies = require __DIR__ . '/../../config/dependencies.php';
-$menuTree = $dependencies['menuController']->getAllMenusTree();
-    
-
 function renderMenu($menuTree, $parent_id = NULL, $isMobile = false)
 {
     if (!isset($menuTree[$parent_id])) {

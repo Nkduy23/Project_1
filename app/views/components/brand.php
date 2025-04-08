@@ -21,7 +21,7 @@
                                 <?php foreach ($brandGroup as $brand): ?>
                                     <div class="brand__item">
                                         <a href="<?php echo htmlspecialchars($brand['link']); ?>">
-                                            <img src="<?= $baseUrl ?>img/brand/<?php echo htmlspecialchars($brand['image']); ?>"
+                                            <img src="<?= $GLOBALS['baseUrl'] ?>img/brand/<?php echo htmlspecialchars($brand['image']); ?>"
                                                 alt="Thương hiệu <?php echo htmlspecialchars($brand['name']); ?>" />
                                         </a>
                                     </div>

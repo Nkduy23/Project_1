@@ -1,6 +1,5 @@
 <?php
 $jewelryProducts = $products ?? [];
-$baseUrl = $GLOBALS['baseUrl'] ?? '/';
 ?>
 
 <div class="container-main no-border">
@@ -14,8 +13,8 @@ $baseUrl = $GLOBALS['baseUrl'] ?? '/';
                     <?php foreach ($jewelryProducts as $product): ?>
                         <div class="product__item">
                             <a href="<?php echo htmlspecialchars($product['Link']); ?>">
-                                <img src="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($product['HinhAnh']); ?>"
-                                    data-hover="<?= $baseUrl ?>img/product/<?php echo htmlspecialchars($product['HinhAnhHover']); ?>"
+                                <img src="<?= $GLOBALS['baseUrl'] ?>img/product/<?php echo htmlspecialchars($product['HinhAnh']); ?>"
+                                    data-hover="<?= $GLOBALS['baseUrl'] ?>img/product/<?php echo htmlspecialchars($product['HinhAnhHover']); ?>"
                                     alt="<?php echo htmlspecialchars($product['TenSanPham']); ?>"
                                     class="product__img">
                             </a>

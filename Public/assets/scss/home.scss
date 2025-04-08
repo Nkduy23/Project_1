@@ -1,13 +1,13 @@
-@use "./layout/home/home";
-@use "./layout/home/slider";
-@use "./layout/home/feature";
-@use "./layout/home/banner";
-@use "./layout/home/product";
-@use "./layout/home/service";
-@use "./layout/home/top10";
-@use "./layout/home/brand";
-@use "./layout/home/sale";
-@use "./layout/home/news";
+@use "./pages/home/home";
+@use "./pages/home/slider";
+@use "./pages/home/feature";
+@use "./pages/home/banner";
+@use "./components/product";
+@use "./pages/home/service";
+@use "./pages/home/top10";
+@use "./pages/home/brand";
+@use "./pages/home/sale";
+@use "./pages/home/news";
 
 
 @use "./res/tablet/t-feature";

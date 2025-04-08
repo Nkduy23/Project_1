@@ -1,10 +1,19 @@
 <?php
+
+namespace Core;
+
+use Exception;
+
 use App\Controllers\HomeController;
 use App\Controllers\ProductController;
 use App\Controllers\CartController;
 use App\Controllers\UserController;
 use App\Controllers\OrderController;
 use App\Controllers\CommentController;
+
+use Admin\Controllers\AdminController;
+use Admin\Controllers\AdminProductController;
+
 
 class Router
 {
@@ -34,8 +43,12 @@ class Router
                 $controllerName = $controllerAction[0];
                 $methodName = $controllerAction[1];
 
-                $controllerFile = __DIR__ . '/../controllers/' . $controllerName . '.php';
-
+                if(str_starts_with($controllerName, 'Admin')) {
+                    $controllerFile = __DIR__ . '/../Admin/Controllers/' . $controllerName . '.php';
+                } else {
+                    $controllerFile = __DIR__ . '/../App/Controllers/' . $controllerName . '.php';
+                }
+                
                 if (file_exists($controllerFile)) {
                     require_once $controllerFile;
 
@@ -64,7 +77,7 @@ class Router
     // Hàm factory để tạo controller với dependencies injection
     protected function createController($controllerName)
     {
-        $dependenciesPath  = __DIR__ . '/../config/dependencies.php';
+        $dependenciesPath  = __DIR__ . '/../Config/dependencies.php';
 
         if (!file_exists($dependenciesPath)) {
             throw new Exception("Dependencies file not found");
@@ -103,6 +116,10 @@ class Router
                 return new OrderController();
             case 'CommentController':
                 return new CommentController($dependencies['commentModel']);
+            case 'AdminController':
+                return new AdminController();
+            case 'AdminProductController':
+                return new AdminProductController();
             default:
                 throw new Exception("Controller $controllerName not found");
         }

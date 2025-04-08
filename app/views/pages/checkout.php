@@ -1,6 +1,4 @@
 <?php
-$baseUrl = $GLOBALS['baseUrl'] ?? '/';
-
 if (!isset($_SESSION['user'])) {
     header('Location: /login');
     exit;
@@ -28,7 +26,7 @@ $tongTien = $_POST['total_amount'] ?? 0;
                     <div class="checkout__item gap-16">
                         <input type="checkbox" name="selected_items[]" value="<?= $checkoutItem['MaSanPham'] ?>" checked>
                         <div class="checkout__left">
-                            <img class="checkout__img" src="<?= $baseUrl ?>img/product/<?= htmlspecialchars($checkoutItem['HinhAnh']) ?>" alt="<?= htmlspecialchars($checkoutItem['TenSanPham']) ?>" style="width: 100px; height: auto;">
+                            <img class="checkout__img" src="<?= $GLOBALS['baseUrl'] ?>img/product/<?= htmlspecialchars($checkoutItem['HinhAnh']) ?>" alt="<?= htmlspecialchars($checkoutItem['TenSanPham']) ?>" style="width: 100px; height: auto;">
                         </div>
 
                         <div class="checkout__right">

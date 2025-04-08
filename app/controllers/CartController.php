@@ -15,7 +15,7 @@ class CartController
     public function showCart()
     {
         $cartItems = $this->getCartItems();
-        require_once __DIR__ . '/../views/pages/cart.php';
+        require_once __DIR__ . '/../Views/pages/cart.php';
         return $cartItems;
     }
 
@@ -118,16 +118,17 @@ class CartController
     public function checkout()
     {
         $checkoutItems = $this->getCartItems();
-        require_once __DIR__ . '/../views/pages/checkout.php';
+        require_once __DIR__ . '/../Views/pages/checkout.php';
         return $checkoutItems;
     }
 
-    public function checkoutProcess() {
+    public function checkoutProcess()
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['user'])) {
             try {
                 $user_id = $_SESSION['user']['MaKhachHang'];
                 $cartItems = $this->cartModel->getCartItemByUser($user_id);
-                
+
                 // Lấy thông tin từ form
                 $orderData = [
                     'MaKhachHang' => $user_id,
@@ -137,27 +138,26 @@ class CartController
                     'PhuongThucThanhToan' => $_POST['payment_method'],
                     'selected_items' => $_POST['selected_items'] ?? []
                 ];
-    
+
                 // Tạo đơn hàng
                 $orderId = $this->cartModel->createOrder($orderData, $cartItems);
-                
+
                 // Xóa các sản phẩm đã đặt khỏi giỏ hàng
                 foreach ($orderData['selected_items'] as $productId) {
                     $this->cartModel->deleteCartItem($user_id, $productId);
                 }
-    
+
                 $_SESSION['order_success'] = true;
                 $_SESSION['order_id'] = $orderId;
                 header('Location: /order/success');
                 exit;
-                
             } catch (\Exception $e) {
                 $_SESSION['error'] = 'Có lỗi xảy ra khi đặt hàng: ' . $e->getMessage();
                 header('Location: /checkout');
                 exit;
             }
         }
-    
+
         $_SESSION['error'] = 'Yêu cầu không hợp lệ';
         header('Location: /checkout');
         exit;

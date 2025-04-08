@@ -24,22 +24,22 @@ class ProductController
     {
         $products = $this->productModel->getProducts($type);
 
-        require_once __DIR__ . '/../views/components/breadcrumb.php';
+        require_once __DIR__ . '/../Views/components/breadcrumb.php';
 
         if ($type == 'male') {
-            require_once __DIR__ . '/../views/pages/male.php';
+            require_once __DIR__ . '/../Views/pages/male.php';
         } elseif ($type == 'female') {
-            require_once __DIR__ . '/../views/pages/female.php';
+            require_once __DIR__ . '/../Views/pages/female.php';
         } elseif ($type == 'couple') {
-            require_once __DIR__ . '/../views/pages/couple.php';
+            require_once __DIR__ . '/../Views/pages/couple.php';
         } elseif ($type == 'jewelry') {
-            require_once __DIR__ . '/../views/pages/jewelry.php';
+            require_once __DIR__ . '/../Views/pages/jewelry.php';
         } elseif ($type == 'accessories') {
-            require_once __DIR__ . '/../views/pages/accessories.php';
+            require_once __DIR__ . '/../Views/pages/accessories.php';
             // } elseif ($type == 'sale') {
-            //     require_once __DIR__ . '/../views/pages/sale.php';
+            //     require_once __DIR__ . '/../Views/pages/sale.php';
         } else {
-            require_once __DIR__ . '/../views/404.php';
+            require_once __DIR__ . '/../Views/404.php';
         }
     }
 
@@ -59,7 +59,7 @@ class ProductController
         $attributes = $this->productModel->getProductDetails($id);
         $relatedProducts = $this->productModel->getRelatedProducts($id);
         $comments = $this->commentModel->getComments($id);
-        require_once __DIR__ . '/../views/components/breadcrumb.php';
-        require_once __DIR__ . '/../views/pages/detail.php';
+        require_once __DIR__ . '/../Views/components/breadcrumb.php';
+        require_once __DIR__ . '/../Views/pages/detail.php';
     }
 }

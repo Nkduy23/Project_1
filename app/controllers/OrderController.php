@@ -26,7 +26,7 @@ class OrderController
         unset($_SESSION['order_id']);
 
         // Render view
-        include __DIR__ . '/../views/pages/success.php';
+        include __DIR__ . '/../Views/pages/success.php';
     }
 
     public function history()
@@ -45,6 +45,6 @@ class OrderController
             'baseUrl' => $GLOBALS['baseUrl'] ?? '/'
         ];
 
-        include __DIR__ . '/../views/pages/history.php';
+        include __DIR__ . '/../Views/pages/history.php';
     }
 }

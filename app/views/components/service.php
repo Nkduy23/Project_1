@@ -7,7 +7,7 @@
           <?php foreach ($services as $service): ?>
             <div class="service__item">
               <a href="<?php echo htmlspecialchars($service['link'] ?? '#'); ?>">
-                <img src="<?= $baseUrl ?>img/service/<?php echo htmlspecialchars($service['image']); ?>"
+                <img src="<?= $GLOBALS['baseUrl'] ?>img/service/<?php echo htmlspecialchars($service['image']); ?>"
                   alt="<?php echo htmlspecialchars($service['title']); ?>" />
               </a>
             </div>

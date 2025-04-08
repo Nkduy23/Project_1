@@ -6,9 +6,9 @@
           <div class="top10__item">
             <img
               class="top10__img"
-              src="<?= $baseUrl ?>img/top10/<?php echo htmlspecialchars($item['image']); ?>"
-              data-large="<?= $baseUrl ?>img/top10/<?php echo htmlspecialchars($item['image_large']); ?>"
-              data-small="<?= $baseUrl ?>img/top10/<?php echo htmlspecialchars($item['image_small']); ?>"
+              src="<?= $GLOBALS['baseUrl'] ?>img/top10/<?php echo htmlspecialchars($item['image']); ?>"
+              data-large="<?= $GLOBALS['baseUrl'] ?>img/top10/<?php echo htmlspecialchars($item['image_large']); ?>"
+              data-small="<?= $GLOBALS['baseUrl'] ?>img/top10/<?php echo htmlspecialchars($item['image_small']); ?>"
               alt="Hình ảnh top 10" />
           </div>
         <?php endforeach; ?>

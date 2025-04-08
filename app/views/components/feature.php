@@ -10,7 +10,7 @@
                         <?php foreach ($featureGroup as $feature): ?>
                             <div class="feature__item">
                                 <a href="<?php echo htmlspecialchars($feature['link'] ?? '#'); ?>">
-                                    <img src="<?= $baseUrl ?>img/feature/<?php echo htmlspecialchars($feature['image']); ?>"
+                                    <img src="<?= $GLOBALS['baseUrl'] ?>img/feature/<?php echo htmlspecialchars($feature['image']); ?>"
                                         alt="<?php echo htmlspecialchars($feature['title']); ?>"
                                         class="feature__img" />
                                 </a>

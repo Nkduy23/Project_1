@@ -15,7 +15,7 @@ class CommentController
     public function getComments($productId)
     {
         $comments = $this->commentModel->getComments($productId);
-        require_once __DIR__ . '/../views/pages/detail.php';
+        require_once __DIR__ . '/../Views/pages/detail.php';
     }
 
     public function addComment()
@@ -25,7 +25,7 @@ class CommentController
             $MaKhachHang = $_POST['user_id'];
             $TenKhachHang = $_POST['name'];
             $NoiDung = $_POST['content'];
-            
+
             $commentId = $this->commentModel->addComment($MaSanPham, $MaKhachHang, $TenKhachHang, $NoiDung);
 
             header('Location: /detail/' . $MaSanPham);

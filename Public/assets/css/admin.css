@@ -1,0 +1,113 @@
+.admin-layout__container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f5f7fa;
+}
+.admin-layout .admin-sidebar {
+  width: 240px;
+  background-color: #2c3e50;
+  padding: 1rem;
+  color: #fff;
+}
+.admin-layout .admin-sidebar__menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.admin-layout .admin-sidebar__item {
+  margin-bottom: 1rem;
+}
+.admin-layout .admin-sidebar__link {
+  color: #bdc3c7;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+.admin-layout .admin-sidebar__link:hover {
+  background-color: #34495e;
+  color: #fff;
+}
+.admin-layout .admin-sidebar__link--active {
+  background-color: #1abc9c;
+  color: #fff;
+}
+.admin-layout .admin-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.admin-layout .admin-header {
+  padding: 1rem;
+  background-color: #ecf0f1;
+  border-bottom: 1px solid #ccc;
+}
+.admin-layout .admin-header__title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+.admin-layout .admin-content {
+  padding: 2rem;
+  background-color: #fff;
+  flex-grow: 1;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+}

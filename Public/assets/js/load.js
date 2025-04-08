@@ -7,6 +7,6 @@ function loadComponent(componentId, filePath) {
     .catch((error) => console.error(`Lỗi khi tải ${filePath}:`, error));
 }
 
-loadComponent("header", "../views/partials/header.html");
-loadComponent("footer", "../views/partials/footer.html");
-loadComponent("launcher", "../views/partials/launcher.html");
+loadComponent("header", "../Views/partials/header.html");
+loadComponent("footer", "../Views/partials/footer.html");
+loadComponent("launcher", "../Views/partials/launcher.html");
