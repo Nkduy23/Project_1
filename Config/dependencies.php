@@ -1,5 +1,5 @@
 <?php
-// Gọi file model
+// Gọi file model App
 use App\Models\ProductModel;
 use App\Models\MediaModel;
 use App\Models\BrandModel;
@@ -8,6 +8,9 @@ use App\Models\CartModel;
 use App\Models\MenuModel;
 use App\Models\UserModel;
 use App\Models\CommentModel;
+
+// Gọi file model Admin
+use Admin\Models\AdminProductModel;
 
 //Gọi file controller
 use App\Controllers\MenuController;
@@ -19,7 +22,7 @@ require_once __DIR__ . './Database.php';
 $dbInstance = Database::getInstance();
 $db = $dbInstance->getConnection();
 
-// Khởi tạo Model
+// Khởi tạo Model App
 $productModel = new ProductModel($db);
 $mediaModel = new MediaModel($db);
 $brandModel = new BrandModel($db);
@@ -28,6 +31,9 @@ $cartModel = new CartModel($db);
 $menuModel = new MenuModel($db);
 $userModel = new UserModel($db);
 $commentModel = new CommentModel($db);
+
+// Khởi tạo Model Admin
+$adminProductModel = new AdminProductModel($db);
 
 
 // Khởi tạo Controller
@@ -44,7 +50,9 @@ $dependencies = [
     'menuController' => $menuController,
     'cartController' => $cartController,
     'userModel' => $userModel,
-    'commentModel' => $commentModel
+    'commentModel' => $commentModel,
+
+    'adminProductModel' => $adminProductModel
 ];
 
 return $dependencies;

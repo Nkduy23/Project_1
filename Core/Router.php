@@ -43,12 +43,12 @@ class Router
                 $controllerName = $controllerAction[0];
                 $methodName = $controllerAction[1];
 
-                if(str_starts_with($controllerName, 'Admin')) {
+                if (str_starts_with($controllerName, 'Admin')) {
                     $controllerFile = __DIR__ . '/../Admin/Controllers/' . $controllerName . '.php';
                 } else {
                     $controllerFile = __DIR__ . '/../App/Controllers/' . $controllerName . '.php';
                 }
-                
+
                 if (file_exists($controllerFile)) {
                     require_once $controllerFile;
 
@@ -119,7 +119,9 @@ class Router
             case 'AdminController':
                 return new AdminController();
             case 'AdminProductController':
-                return new AdminProductController();
+                return new AdminProductController(
+                    $dependencies['adminProductModel']
+                );
             default:
                 throw new Exception("Controller $controllerName not found");
         }
