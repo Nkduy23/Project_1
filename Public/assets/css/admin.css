@@ -53,68 +53,68 @@
   flex-grow: 1;
 }
 
-.admin-products {
+.admin-tables {
   padding: 2rem;
 }
-.admin-products__title {
+.admin-tables__title {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
 }
-.admin-products__table {
+.admin-tables__table {
   width: 100%;
   border-collapse: collapse;
   background-color: #fff;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
 }
-.admin-products__table th,
-.admin-products__table td {
+.admin-tables__table th,
+.admin-tables__table td {
   padding: 1rem;
   border: 1px solid #ddd;
   text-align: left;
 }
-.admin-products__table th {
+.admin-tables__table th {
   background-color: #f1f1f1;
 }
-.admin-products__image {
+.admin-tables__image {
   width: 60px;
   height: auto;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 6px;
 }
-.admin-products__status {
+.admin-tables__status {
   padding: 0.4rem 0.8rem;
   border-radius: 4px;
-  font-size: 0.875rem;
+  font-size: 1.4rem;
   color: #fff;
 }
-.admin-products__status--active {
+.admin-tables__status--active {
   background-color: #2ecc71;
 }
-.admin-products__status--inactive {
+.admin-tables__status--inactive {
   background-color: #e74c3c;
 }
-.admin-products__action {
+.admin-tables__action {
   margin-right: 0.5rem;
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.9rem;
-  padding: 0.3rem 0.6rem;
+  font-size: 1.6rem;
+  padding: 1rem 1.5rem;
   border-radius: 4px;
   transition: background-color 0.2s;
 }
-.admin-products__action--edit {
+.admin-tables__action--edit {
   color: #2980b9;
   background-color: #ecf0f1;
 }
-.admin-products__action--edit:hover {
+.admin-tables__action--edit:hover {
   background-color: #d0e4f7;
 }
-.admin-products__action--delete {
+.admin-tables__action--delete {
   color: #c0392b;
   background-color: #f9e1e1;
 }
-.admin-products__action--delete:hover {
+.admin-tables__action--delete:hover {
   background-color: #f2c8c8;
 }
 

@@ -31,7 +31,7 @@ class AdminProductModel
             $sql = "SELECT * FROM SanPham WHERE MaSanPham = ?";
             $stmt = $this->db->prepare($sql);
             $stmt->execute([$id]);
-            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            $result = $stmt->fetch(\PDO::FETCH_ASSOC);
             return $result ?: [];
         } catch (\Exception $e) {
             error_log("AdminProductModel Error: " . $e->getMessage());
@@ -39,16 +39,27 @@ class AdminProductModel
         }
     }
 
-    public function updateProduct($id, $name, $price, $stock, $status)
+    public function updateProduct($data)
     {
         try {
-            $sql = "UPDATE SanPham SET TenSanPham = ?, DonGia = ?, SoLuongTonKho = ?, TrangThai = ? WHERE MaSanPham = ?";
+            $sql = "UPDATE SanPham SET TenSanPham = ?, DonGia = ?, SoLuongTonKho = ?, TrangThai = ?, MoTa = ? WHERE MaSanPham = ?";
             $stmt = $this->db->prepare($sql);
-            $stmt->execute([$name, $price, $stock, $status, $id]);
-            return true;
+            return $stmt->execute([$data['TenSanPham'], $data['DonGia'], $data['SoLuongTonKho'], $data['TrangThai'], $data['MoTa'], $data['id']]);
         } catch (\Exception $e) {
             error_log("AdminProductModel Error: " . $e->getMessage());
-            return false;
+            return [];
+        }
+    }
+
+    public function deleteProduct($id)
+    {
+        try {
+            $sql = "DELETE FROM SanPham WHERE MaSanPham = ?";
+            $stmt = $this->db->prepare($sql);
+            return $stmt->execute([$id]);
+        } catch (\Exception $e) {
+            error_log("AdminProductModel Error: " . $e->getMessage());
+            return [];
         }
     }
 }

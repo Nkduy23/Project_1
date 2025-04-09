@@ -13,6 +13,7 @@ use App\Controllers\CommentController;
 
 use Admin\Controllers\AdminController;
 use Admin\Controllers\AdminProductController;
+use Admin\Controllers\AdminCustomerController;
 
 
 class Router
@@ -75,7 +76,7 @@ class Router
 
 
     // Hàm factory để tạo controller với dependencies injection
-    protected function createController($controllerName)
+    public static function createController($controllerName)
     {
         $dependenciesPath  = __DIR__ . '/../Config/dependencies.php';
 
@@ -121,6 +122,10 @@ class Router
             case 'AdminProductController':
                 return new AdminProductController(
                     $dependencies['adminProductModel']
+                );
+            case 'AdminCustomerController':
+                return new AdminCustomerController(
+                    $dependencies['adminCustomerModel']
                 );
             default:
                 throw new Exception("Controller $controllerName not found");

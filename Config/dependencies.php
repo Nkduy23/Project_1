@@ -11,6 +11,7 @@ use App\Models\CommentModel;
 
 // Gọi file model Admin
 use Admin\Models\AdminProductModel;
+use Admin\Models\AdminCustomerModel;
 
 //Gọi file controller
 use App\Controllers\MenuController;
@@ -34,6 +35,7 @@ $commentModel = new CommentModel($db);
 
 // Khởi tạo Model Admin
 $adminProductModel = new AdminProductModel($db);
+$adminCustomerModel = new AdminCustomerModel($db);
 
 
 // Khởi tạo Controller
@@ -52,7 +54,9 @@ $dependencies = [
     'userModel' => $userModel,
     'commentModel' => $commentModel,
 
-    'adminProductModel' => $adminProductModel
+    'adminProductModel' => $adminProductModel,
+    'adminCustomerModel' => $adminCustomerModel
+
 ];
 
 return $dependencies;
