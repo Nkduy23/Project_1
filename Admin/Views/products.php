@@ -5,10 +5,12 @@
             <tr>
                 <th>ID</th>
                 <th>Ảnh</th>
+                <th>Ảnh hover</t>
                 <th>Tên</th>
                 <th>Giá</th>
                 <th>Tồn kho</th>
                 <th>Trạng thái</th>
+                <th>Mô tả</th>
                 <th>Thao tác</th>
             </tr>
         </thead>
@@ -19,6 +21,9 @@
                     <td class="product__image">
                         <img class="admin-tables__image" src="<?= $GLOBALS['baseUrl'] ?>img/product/<?php echo htmlspecialchars($product['HinhAnh']); ?>" alt="<?= $product['TenSanPham'] ?>">
                     </td>
+                    <td class="product__image">
+                        <img class="admin-tables__image" src="<?= $GLOBALS['baseUrl'] ?>img/product/<?php echo htmlspecialchars($product['HinhAnhHover']); ?>" alt="<?= $product['TenSanPham'] ?>">
+                    </td>
                     <td class="product__name"><?php echo htmlspecialchars($product['TenSanPham']); ?></td>
                     <td class="product__price"><?= number_format($product['DonGia'], 0, ',', '.') ?>đ</td>
                     <td class="product__quantity"><?php echo htmlspecialchars($product['SoLuongTonKho']); ?></td>
@@ -28,6 +33,11 @@
                         <?php else: ?>
                             <span class="admin-tables__status admin-tables__status--inactive">Ẩn</span>
                         <?php endif; ?>
+                    </td>
+                    <td class="product__description">
+                        <p class="product__description-text">
+                            <?php echo htmlspecialchars($product['MoTa']); ?>
+                        </p>
                     </td>
                     <td>
                         <a class="admin-tables__action admin-tables__action--edit js-edit-btn" href="#" data-product-id="<?= $product['MaSanPham'] ?>">Sửa</a>
@@ -47,10 +57,23 @@
         <h2 class="modal__title">Sửa sản phẩm</h2>
         <form class="modal__form" id="editProductForm">
             <input type="hidden" id="productId" name="MaSanPham">
+            <input type="hidden" id="oldImageInput" name="OldImage">
             <div class="modal__form-group">
-                <label for="productImage">Hình ảnh</label>
-                <input type="file" id="productImage">
+                <label for="productImage">Ảnh hiện tại</label>
+                <img id="currentImagePreview" src="" alt="Ảnh hiện tại" style="width: 100px; display: block; margin-bottom: 8px;">
             </div>
+            <div class="modal__form-group">
+                <label for="productImage">Chọn ảnh mới</label>
+                <input type="file" id="productImage" name="HinhAnh">
+            </div>
+            <select name="MaDanhMucSanPham">
+                <option value="2">Đồng hồ nam</option>
+                <option value="3">Đồng hồ nữ</option>
+                <option value="4">Đồng hồ cặp</option>
+                <option value="5">Trang sức</option>
+                <option value="6">Phụ kiện</option>
+            </select>
+
             <div class="modal__form-group">
                 <label for="productName">Tên sản phẩm</label>
                 <input type="text" id="productName" name="TenSanPham" />
@@ -87,17 +110,21 @@
     </div>
 </div>
 
-<!-- ✅ JS: Mở modal -->
+<!-- Modal -->
 <script>
     const modal = document.getElementById('editProductModal');
     const overlay = modal.querySelector('.modal__overlay');
     const closeBtn = document.getElementById('closeModalBtn');
+
     let editingProductId = null;
     document.querySelectorAll('.js-edit-btn').forEach(btn => {
         btn.addEventListener('click', async (e) => {
             e.preventDefault();
+
             const productId = btn.getAttribute('data-product-id');
+
             editingProductId = productId;
+
             modal.classList.add('modal--active');
 
             try {
@@ -109,6 +136,9 @@
 
                 const product = await response.json();
 
+                document.getElementById('currentImagePreview').src = `<?= rtrim($GLOBALS['baseUrl'], '/') ?>/img/product/${product.HinhAnh}`;
+                document.getElementById('currentImagePreview').alt = product.TenSanPham;
+                document.getElementById('oldImageInput').value = product.HinhAnh;
                 document.getElementById('productName').value = product.TenSanPham;
                 document.getElementById('productPrice').value = product.DonGia;
                 document.getElementById('productQuantity').value = product.SoLuongTonKho;
@@ -122,50 +152,62 @@
 
     document.getElementById('editProductForm').addEventListener('submit', async (e) => {
         e.preventDefault();
-        const data = {
-            id: editingProductId,
-            TenSanPham: document.getElementById('productName').value,
-            DonGia: document.getElementById('productPrice').value,
-            SoLuongTonKho: document.getElementById('productQuantity').value,
-            TrangThai: document.getElementById('productStatus').value,
-            MoTa: document.getElementById('productDescription').value
-        };
+        const formData = new FormData();
+        formData.append('TenSanPham', document.getElementById('productName').value);
+        formData.append('DonGia', document.getElementById('productPrice').value);
+        formData.append('SoLuongTonKho', document.getElementById('productQuantity').value);
+        formData.append('TrangThai', document.getElementById('productStatus').value);
+        formData.append('MoTa', document.getElementById('productDescription').value);
+        formData.append('id', editingProductId);
+        formData.append('MaDanhMucSanPham', document.querySelector('select[name="MaDanhMucSanPham"]').value);
+
+
+        const imageFile = document.getElementById('productImage').files[0];
+        if (imageFile) {
+            formData.append('HinhAnh', imageFile);
+        }
+
+        formData.append('OldImage', document.getElementById('oldImageInput').value);
 
         try {
             const response = await fetch('/call-api.php?action=update', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
+                body: formData, // ❗️ KHÔNG dùng JSON ở đây
             });
 
             if (!response.ok) {
                 throw new Error("Network response was not ok");
             }
-
             const result = await response.json();
 
             if (result.success) {
-                alert('Product updated successfully');
                 modal.classList.remove('modal--active');
+                const data = result.data;
+                const row = document.querySelector(`tr[data-product-id="${editingProductId}"]`);
 
-                const row = document.querySelector(`tr[data-product-id="${data.id}"]`);
+                if (typeof data !== 'object') {
+                    console.warn("Dữ liệu sai định dạng: ", data);
+                    return;
+                }
+
                 if (row) {
+                    row.querySelector('.product__image img').src = `<?= $GLOBALS['baseUrl'] ?>/img/product/${data.HinhAnh}`;
                     row.querySelector('.product__name').textContent = data.TenSanPham;
                     row.querySelector('.product__price').textContent = Number(data.DonGia).toLocaleString('vi-VN') + 'đ';
                     row.querySelector('.product__quantity').textContent = data.SoLuongTonKho;
 
                     const statusCell = row.querySelector('.product__status');
-                    if (data.TrangThai === '1') {
-                        statusCell.innerHTML = '<span class="admin-tables__status admin-tables__status--active">Hiển thị</span>';
-                    } else {
-                        statusCell.innerHTML = '<span class="admin-tables__status admin-tables__status--inactive">Ẩn</span>';
-                    }
+                    statusCell.innerHTML = data.TrangThai === 1 ?
+                        '<span class="admin-tables__status admin-tables__status--active">Hiển thị</span>' :
+                        '<span class="admin-tables__status admin-tables__status--inactive">Ẩn</span>';
+
+                    const descriptionCell = row.querySelector('.product__description');
+                    descriptionCell.textContent = data.MoTa || '';
                 }
             } else {
                 alert('Failed to update product');
             }
+
         } catch (error) {
             console.error("Fetch JSON error:", error);
             alert('Failed to update product')

@@ -20,16 +20,21 @@ class AdminProductController
 
     public function get($id)
     {
-        $product = $this->adminProductModel->getProductById($id);
         header('Content-Type: application/json');
+        $product = $this->adminProductModel->getProductById($id);
         echo json_encode($product);
     }
 
     public function update($data)
     {
-        $result = $this->adminProductModel->updateProduct($data);
         header('Content-Type: application/json');
-        echo json_encode(['success' => $result]); // 👈 wrap kết quả trong mảng
+
+        $result = $this->adminProductModel->updateProduct($data);
+
+        echo json_encode([
+            'success' => true,
+            'data' => $result
+        ]);
     }
 
     public function delete($id)
@@ -37,5 +42,4 @@ class AdminProductController
         $result = $this->adminProductModel->deleteProduct($id);
         return $result;
     }
-    
 }

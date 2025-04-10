@@ -42,12 +42,42 @@ class AdminProductModel
     public function updateProduct($data)
     {
         try {
-            $sql = "UPDATE SanPham SET TenSanPham = ?, DonGia = ?, SoLuongTonKho = ?, TrangThai = ?, MoTa = ? WHERE MaSanPham = ?";
-            $stmt = $this->db->prepare($sql);
-            return $stmt->execute([$data['TenSanPham'], $data['DonGia'], $data['SoLuongTonKho'], $data['TrangThai'], $data['MoTa'], $data['id']]);
+            if (!empty($data['HinhAnh'])) {
+                $sql = "UPDATE SanPham 
+                        SET TenSanPham = ?, DonGia = ?, SoLuongTonKho = ?, TrangThai = ?, MoTa = ?, HinhAnh = ? 
+                        WHERE MaSanPham = ?";
+                $stmt = $this->db->prepare($sql);
+                $stmt->execute([
+                    $data['TenSanPham'],
+                    $data['DonGia'],
+                    $data['SoLuongTonKho'],
+                    $data['TrangThai'],
+                    $data['MoTa'],
+                    $data['HinhAnh'],
+                    $data['id']
+                ]);
+            } else {
+                $sql = "UPDATE SanPham 
+                        SET TenSanPham = ?, DonGia = ?, SoLuongTonKho = ?, TrangThai = ?, MoTa = ? 
+                        WHERE MaSanPham = ?";
+                $stmt = $this->db->prepare($sql);
+                $stmt->execute([
+                    $data['TenSanPham'],
+                    $data['DonGia'],
+                    $data['SoLuongTonKho'],
+                    $data['TrangThai'],
+                    $data['MoTa'],
+                    $data['id']
+                ]);
+            }
+
+            // ✅ Lấy lại sản phẩm sau khi update
+            $selectStmt = $this->db->prepare("SELECT * FROM SanPham WHERE MaSanPham = ?");
+            $selectStmt->execute([$data['id']]);
+            return $selectStmt->fetch(\PDO::FETCH_ASSOC);
         } catch (\Exception $e) {
             error_log("AdminProductModel Error: " . $e->getMessage());
-            return [];
+            return false;
         }
     }
 
