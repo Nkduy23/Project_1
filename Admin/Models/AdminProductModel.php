@@ -25,6 +25,39 @@ class AdminProductModel
         }
     }
 
+    public function createProduct($data)
+    {
+        try {
+            $sql = "INSERT INTO SanPham (
+                        TenSanPham, DonGia, GiaGiam, SoLuongTonKho,
+                        TrangThai, MoTa, HinhAnh, HinhAnhHover,
+                        DangGiamGia, Nhan, MaDanhMucSanPham, MaDanhMucThuongHieu
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute([
+                $data['TenSanPham'] ?? '',
+                $data['DonGia'] ?? 0,
+                $data['GiaGiam'] ?? 0,
+                $data['SoLuongTonKho'] ?? 0,
+                $data['TrangThai'] ?? 1,
+                $data['MoTa'] ?? '',
+                $data['HinhAnh'] ?? null,
+                $data['HinhAnhHover'] ?? null,
+                $data['DangGiamGia'] ?? 0,
+                $data['Nhan'] ?? '',
+                $data['MaDanhMucSanPham'] ?? null,
+                $data['MaDanhMucThuongHieu'] ?? null
+            ]);
+
+            return $this->db->lastInsertId(); // trả về ID sản phẩm mới
+        } catch (\Exception $e) {
+            error_log("createProduct Error: " . $e->getMessage());
+            return false;
+        }
+    }
+
+
     public function getProductById($id)
     {
         try {
