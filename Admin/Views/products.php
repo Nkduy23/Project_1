@@ -3,8 +3,6 @@
         <span class="checkmark">✔</span>
         <p class="success-message__text"></p>
     </div>
-
-    <!-- Nút mở modal tạo sản phẩm -->
     <button id="openCreateModalBtn" class="btn btn--primary">Tạo sản phẩm</button>
     <h1 class="admin-tables__title">Danh sách sản phẩm</h1>
     <table class="admin-tables__table" id="productTable">
@@ -88,101 +86,22 @@
     </table>
 </div>
 
-<!-- ✅ HTML: Form sửa sản phẩm dùng modal -->
-<div class="modal" id="editProductModal">
-    <div class="modal__overlay"></div>
-    <div class="modal__content">
-        <h2 class="modal__title">Sửa sản phẩm</h2>
-        <form class="modal__form" id="editProductForm">
-            <input type="hidden" id="productId" name="MaSanPham">
-            <input type="hidden" id="oldImageInput" name="OldImage">
-
-            <div class="modal__form-group">
-                <label for="productImage">Ảnh hiện tại</label>
-                <img id="currentImagePreview" src="" alt="Ảnh hiện tại" style="width: 100px; display: block; margin-bottom: 8px;">
-            </div>
-
-            <div class="modal__form-group">
-                <label for="productImage">Chọn ảnh mới</label>
-                <input type="file" id="productImage" name="HinhAnh">
-            </div>
-
-            <div class="modal__form-group">
-                <label for="productImageHover">Chọn danh mục sản phẩm</label>
-                <select name="MaDanhMucSanPham">
-                    <option value="2">Đồng hồ nam</option>
-                    <option value="3">Đồng hồ nữ</option>
-                    <option value="4">Đồng hồ cặp</option>
-                    <option value="5">Trang sức</option>
-                    <option value="6">Phụ kiện</option>
-                </select>
-            </div>
-
-            <div class="modal__form-group">
-                <label for="productImageHover">Chọn danh mục thương hiệu</label>
-                <select name="MaDanhMucSanPham">
-                    <option value="1">Casio</option>
-                    <option value="2">Seiko</option>
-                    <option value="3">Citizen</option>
-                    <option value="4">Tissot</option>
-                </select>
-            </div>
-
-            <div class="modal__form-group">
-                <label for="productName">Tên sản phẩm</label>
-                <input type="text" id="productName" name="TenSanPham" />
-            </div>
-
-            <div class="modal__form-group">
-                <label for="productPrice">Giá</label>
-                <input type="number" id="productPrice" name="DonGia" />
-            </div>
-
-            <div class="modal__form-group">
-                <label for="productQuantity">Tồn kho</label>
-                <input type="number" id="productQuantity" name="SoLuongTonKho" />
-            </div>
-
-            <div class="modal__form-group">
-                <label for="productStatus">Trạng thái</label>
-                <select id="productStatus" name="TrangThai">
-                    <option value="1">Hiển thị</option>
-                    <option value="0">Ẩn</option>
-                </select>
-            </div>
-
-            <div class="modal__form-group">
-                <label for="productDescription">Mô tả</label>
-                <textarea id="productDescription" name="MoTa"></textarea>
-            </div>
-
-            <div class="modal__actions">
-                <button type="submit" class="modal__btn modal__btn--save">Lưu</button>
-                <button type="button" class="modal__btn modal__btn--close" id="closeEditModalBtn">Huỷ</button>
-            </div>
-        </form>
-    </div>
-</div>
-
-<!-- ✅ HTML: Modal tạo sản phẩm -->
+<!-- Thêm sản phẩm -->
 <div class="modal" id="createProductModal">
     <div class="modal__overlay"></div>
     <div class="modal__content">
         <h2 class="modal__title">Tạo sản phẩm</h2>
         <form class="modal__form" id="createProductForm">
-            <!-- Ảnh chính -->
             <div class="modal__form-group">
                 <label for="productImage">Ảnh sản phẩm</label>
-                <input type="file" id="productImage" name="HinhAnh" required>
+                <input type="file" id="createProductImage" name="HinhAnh" required>
             </div>
 
-            <!-- Ảnh Hover -->
             <div class="modal__form-group">
                 <label for="productImageHover">Ảnh hover</label>
-                <input type="file" id="productImageHover" name="HinhAnhHover" required>
+                <input type="file" id="createProductImageHover" name="HinhAnhHover" required>
             </div>
 
-            <!-- Danh mục sản phẩm -->
             <div class="modal__form-group">
                 <label>Danh mục sản phẩm</label>
                 <select name="MaDanhMucSanPham" required>
@@ -194,7 +113,6 @@
                 </select>
             </div>
 
-            <!-- Danh mục thương hiệu -->
             <div class="modal__form-group">
                 <label>Thương hiệu</label>
                 <select name="MaDanhMucThuongHieu" required>
@@ -205,61 +123,52 @@
                 </select>
             </div>
 
-            <!-- Tên sản phẩm -->
             <div class="modal__form-group">
                 <label for="productName">Tên sản phẩm</label>
-                <input type="text" id="productName" name="TenSanPham" required />
+                <input type="text" id="createProductName" name="TenSanPham" required />
             </div>
 
-            <!-- Giá -->
             <div class="modal__form-group">
                 <label for="productPrice">Giá gốc</label>
-                <input type="number" id="productPrice" name="DonGia" required />
+                <input type="number" id="createProductPrice" name="DonGia" required />
             </div>
 
-            <!-- Giá giảm -->
             <div class="modal__form-group">
                 <label for="discountPrice">Giá giảm</label>
-                <input type="number" id="discountPrice" name="GiaGiam" />
+                <input type="number" id="CreateDiscountPrice" name="GiaGiam" />
             </div>
 
-            <!-- Tồn kho -->
             <div class="modal__form-group">
                 <label for="productQuantity">Tồn kho</label>
-                <input type="number" id="productQuantity" name="SoLuongTonKho" required />
+                <input type="number" id="createProductQuantity" name="SoLuongTonKho" required />
             </div>
 
-            <!-- Đang giảm giá -->
             <div class="modal__form-group">
                 <label for="dangGiamGia">Đang giảm giá?</label>
-                <select id="dangGiamGia" name="DangGiamGia">
+                <select id="CreateDangGiamGia" name="DangGiamGia">
                     <option value="0">Không</option>
                     <option value="1">Có</option>
                 </select>
             </div>
 
-            <!-- Nhãn -->
             <div class="modal__form-group">
                 <label for="nhan">Nhãn</label>
-                <input type="text" id="nhan" name="Nhan" placeholder="VD: New, Hot, ..." />
+                <input type="text" id="createProductNhan" name="Nhan" placeholder="VD: New, Hot, ..." />
             </div>
 
-            <!-- Trạng thái -->
             <div class="modal__form-group">
                 <label for="productStatus">Trạng thái</label>
-                <select id="productStatus" name="TrangThai">
+                <select id="createProductStatus" name="TrangThai">
                     <option value="1">Hiển thị</option>
                     <option value="0">Ẩn</option>
                 </select>
             </div>
 
-            <!-- Mô tả -->
             <div class="modal__form-group">
                 <label for="productDescription">Mô tả</label>
-                <textarea id="productDescription" name="MoTa"></textarea>
+                <textarea id="createProductDescription" name="MoTa"></textarea>
             </div>
 
-            <!-- Nút hành động -->
             <div class="modal__actions">
                 <button type="submit" class="modal__btn modal__btn--save">Tạo</button>
                 <button type="button" class="modal__btn modal__btn--close" id="closeCreateModalBtn">Huỷ</button>
@@ -267,6 +176,94 @@
         </form>
     </div>
 </div>
+
+<!-- Sửa sản phẩm -->
+<div class="modal" id="editProductModal">
+    <div class="modal__overlay"></div>
+    <div class="modal__content">
+        <h2 class="modal__title">Sửa sản phẩm</h2>
+        <form class="modal__form" id="editProductForm">
+            <input type="hidden" id="editProductId" name="MaSanPham">
+            <input type="hidden" id="oldImageInput" name="OldImage">
+
+            <div class="modal__form-group">
+                <label for="productImage">Ảnh hiện tại</label>
+                <img id="EditCurrentImagePreview" src="" alt="Ảnh hiện tại" style="width: 100px; display: block; margin-bottom: 8px;">
+            </div>
+
+            <div class="modal__form-group">
+                <label for="productImage">Chọn ảnh mới</label>
+                <input type="file" id="EditProductImage" name="HinhAnh">
+            </div>
+
+            <div class="modal__form-group">
+                <label for="productCategory">Chọn danh mục sản phẩm</label>
+                <select name="MaDanhMucSanPham">
+                    <option value="2">Đồng hồ nam</option>
+                    <option value="3">Đồng hồ nữ</option>
+                    <option value="4">Đồng hồ cặp</option>
+                    <option value="5">Trang sức</option>
+                    <option value="6">Phụ kiện</option>
+                </select>
+            </div>
+
+            <div class="modal__form-group">
+                <label for="productBrand">Chọn danh mục thương hiệu</label>
+                <select name="MaDanhMucSanPham">
+                    <option value="1">Casio</option>
+                    <option value="2">Seiko</option>
+                    <option value="3">Citizen</option>
+                    <option value="4">Tissot</option>
+                </select>
+            </div>
+
+            <div class="modal__form-group">
+                <label for="productName">Tên sản phẩm</label>
+                <input type="text" id="EditProductName" name="TenSanPham" />
+            </div>
+
+            <div class="modal__form-group">
+                <label for="productPrice">Giá</label>
+                <input type="number" id="EditProductPrice" name="DonGia" />
+            </div>
+
+            <div class="modal__form-group">
+                <label for="productQuantity">Tồn kho</label>
+                <input type="number" id="EditProductQuantity" name="SoLuongTonKho" />
+            </div>
+
+            <div class="modal__form-group">
+                <label for="productStatus">Trạng thái</label>
+                <select id="EditProductStatus" name="TrangThai">
+                    <option value="1">Hiển thị</option>
+                    <option value="0">Ẩn</option>
+                </select>
+            </div>
+
+            <div class="modal__form-group">
+                <label for="productDescription">Mô tả</label>
+                <textarea id="EditProductDescription" name="MoTa"></textarea>
+            </div>
+
+            <div class="modal__actions">
+                <button type="submit" class="modal__btn modal__btn--save">Lưu</button>
+                <button type="button" class="modal__btn modal__btn--close" id="closeEditModalBtn">Huỷ</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function showSuccessMessage(message) {
+        const messageBox = document.getElementById('successMessage');
+        messageBox.querySelector('.success-message__text').textContent = message;
+        messageBox.style.display = 'flex';
+        setTimeout(() => {
+            messageBox.style.display = 'none';
+        }, 2500);
+    }
+</script>
+
 
 <!-- Tạo sản phẩm -->
 <script>
@@ -283,35 +280,18 @@
         createModal.classList.remove('modal--active');
     });
 
-    // Đóng modal khi click bên ngoài phần nội dung
     createModal.querySelector('.modal__overlay').addEventListener('click', () => {
         createModal.classList.remove('modal--active');
     });
 
     document.getElementById('createProductForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
+        e.preventDefault(); //Ngăn chặn trình duyệt gửi form đi
+
+        // Tự sử lý form bằng javascript tại đây
 
         const form = e.target;
 
-        const formData = new FormData();
-        formData.append('TenSanPham', form.querySelector('[name="TenSanPham"]').value);
-        formData.append('DonGia', form.querySelector('[name="DonGia"]').value);
-        formData.append('GiaGiam', form.querySelector('[name="GiaGiam"]').value);
-        formData.append('SoLuongTonKho', form.querySelector('[name="SoLuongTonKho"]').value);
-        formData.append('TrangThai', form.querySelector('[name="TrangThai"]').value);
-        formData.append('MoTa', form.querySelector('[name="MoTa"]').value);
-        formData.append('HinhAnh', form.querySelector('[name="HinhAnh"]').files[0]);
-        formData.append('HinhAnhHover', form.querySelector('[name="HinhAnhHover"]').files[0]);
-        formData.append('DangGiamGia', form.querySelector('[name="DangGiamGia"]').value);
-        formData.append('Nhan', form.querySelector('[name="Nhan"]').value);
-        formData.append('MaDanhMucSanPham', form.querySelector('[name="MaDanhMucSanPham"]').value);
-        formData.append('MaDanhMucThuongHieu', form.querySelector('[name="MaDanhMucThuongHieu"]').value);
-
-        const productImage = document.getElementById('productImage').files[0];
-        const productImageHover = document.getElementById('productImageHover').files[0];
-
-        if (productImage) formData.append('HinhAnh', productImage);
-        if (productImageHover) formData.append('HinhAnhHover', productImageHover);
+        const formData = new FormData(form); // Là đối tượng giúp dễ dàng lấy dữ liệu từ form
 
         try {
             const response = await fetch('/call-api.php?action=create', {
@@ -324,25 +304,14 @@
             }
 
             const result = await response.json();
-            console.log('Kết quả trả về:', result); // Thêm dòng này để debug
 
-            // Sửa lỗi ở đây: dùng && thay vì &
             if (result.success && result.data) {
-
-                const messageBox = document.getElementById('successMessage');
-                const messageText = messageBox.querySelector('.success-message__text');
-                messageText.textContent = result.message;
-
-                messageBox.style.display = 'flex';
-
-                // Ẩn sau 2.5s
-                setTimeout(() => {
-                    messageBox.style.display = 'none';
-                }, 2500);
 
                 const product = result.data;
 
                 createModal.classList.remove('modal--active');
+
+                showSuccessMessage(result.message);
 
                 form.reset();
 
@@ -404,6 +373,8 @@
 
             editingProductId = productId;
 
+            const editForm = document.getElementById('editProductForm');
+
             editModal.classList.add('modal--active');
 
             try {
@@ -415,14 +386,13 @@
 
                 const product = await response.json();
 
-                document.getElementById('currentImagePreview').src = `<?= rtrim($GLOBALS['baseUrl'], '/') ?>/img/product/${product.HinhAnh}`;
-                document.getElementById('currentImagePreview').alt = product.TenSanPham;
-                document.getElementById('oldImageInput').value = product.HinhAnh;
-                document.getElementById('productName').value = product.TenSanPham;
-                document.getElementById('productPrice').value = product.DonGia;
-                document.getElementById('productQuantity').value = product.SoLuongTonKho;
-                document.getElementById('productStatus').value = product.TrangThai;
-                document.getElementById('productDescription').value = product.MoTa || '';
+                editModal.querySelector('#EditCurrentImagePreview').src = `<?= rtrim($GLOBALS['baseUrl'], '/') ?>/img/product/${product.HinhAnh}`;
+                editModal.querySelector('#EditCurrentImagePreview').alt = product.TenSanPham;
+                editForm.querySelector('[name="TenSanPham"]').value = product.TenSanPham;
+                editForm.querySelector('[name="DonGia"]').value = product.DonGia;
+                editForm.querySelector('[name="SoLuongTonKho"]').value = product.SoLuongTonKho;
+                editForm.querySelector('[name="TrangThai"]').value = product.TrangThai;
+                editForm.querySelector('[name="MoTa"]').value = product.MoTa || '';
             } catch (error) {
                 console.error("Fetch JSON error:", error)
             }
@@ -434,21 +404,13 @@
 
         const form = e.target;
 
-        const formData = new FormData();
+        const formData = new FormData(form);
 
-        formData.append('TenSanPham', form.querySelector('[name="TenSanPham"]').value);
-        formData.append('DonGia', form.querySelector('[name="DonGia"]').value);
-        formData.append('SoLuongTonKho', form.querySelector('[name="SoLuongTonKho"]').value);
-        formData.append('TrangThai', form.querySelector('[name="TrangThai"]').value);
-        formData.append('MoTa', form.querySelector('[name="MoTa"]').value);
-        formData.append('id', editingProductId);
-        formData.append('MaDanhMucSanPham', form.querySelector('[name="MaDanhMucSanPham"]').value);
-
-        const imageFile = document.getElementById('productImage').files[0];
+        const imageFile = document.getElementById('EditProductImage').files[0];
         if (imageFile) {
             formData.append('HinhAnh', imageFile);
         }
-
+        formData.append('MaSanPham', editingProductId);
         formData.append('OldImage', document.getElementById('oldImageInput').value);
 
         try {
@@ -462,20 +424,10 @@
             }
             const result = await response.json();
 
-            console.log("Kết quả trả về:", result);
-
             if (result.success) {
                 editModal.classList.remove('modal--active');
-                const messageBox = document.getElementById('successMessage');
-                const messageText = messageBox.querySelector('.success-message__text');
-                messageText.textContent = result.message;
-
-                messageBox.style.display = 'flex';
-
-                // Ẩn sau 2.5s
-                setTimeout(() => {
-                    messageBox.style.display = 'none';
-                }, 2500);
+                
+                showSuccessMessage(result.message);
 
                 const data = result.data;
                 const row = document.querySelector(`tr[data-product-id="${editingProductId}"]`);

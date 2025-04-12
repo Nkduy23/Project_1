@@ -15,7 +15,7 @@ class AdminCustomerModel
     public function getAllCustomers()
     {
         try {
-            $sql = "SELECT * FROM KhachHang";
+            $sql = "SELECT * FROM TaiKhoan";
             $stmt = $this->db->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);

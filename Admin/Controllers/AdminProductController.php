@@ -76,22 +76,17 @@ class AdminProductController
         if (!$product) {
             return false;
         }
-
-        // Bước 2: Xóa ảnh chính
         $mainImagePath = __DIR__ . '/../../Public/assets/img/product/' . $product['HinhAnh'];
         if (file_exists($mainImagePath)) {
             unlink($mainImagePath);
         }
 
-        // Bước 3: Xóa ảnh hover (nếu có)
         if (!empty($product['HinhAnhHover'])) {
             $hoverImagePath = __DIR__ . '/../../Public/assets/img/product/' . $product['HinhAnhHover'];
             if (file_exists($hoverImagePath)) {
                 unlink($hoverImagePath);
             }
         }
-
-        // Bước 4: Xóa sản phẩm khỏi database
         return $this->adminProductModel->deleteProduct($id);
     }
 }

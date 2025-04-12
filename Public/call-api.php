@@ -1,17 +1,15 @@
 <?php
 require_once __DIR__ . '/../Core/Autoload.php';
-ini_set('display_errors', 0); // ẩn thông báo lỗi
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 
 use Admin\Controllers\AdminProductController;
-use Admin\Models\AdminProductModel;
+
 
 require_once __DIR__ . '/../Config/Database.php';
 // Lấy kết nối PDO từ class Database
 $pdo = Database::getInstance()->getConnection();
-$adminProductModel = new \Admin\Models\AdminProductModel($pdo); // 💡 Nhớ use hoặc thêm namespace
+
+$adminProductModel = new \Admin\Models\AdminProductModel($pdo);
 
 $action = $_GET['action'] ?? '';
 $id = $_GET['id'] ?? '';
@@ -22,7 +20,6 @@ switch ($action) {
         $image = $_FILES['HinhAnh'] ?? null;
         $imageHover = $_FILES['HinhAnhHover'] ?? null;
         $categoryId = $_POST['MaDanhMucSanPham'] ?? null;
-
         $categoryFolders = [
             1 => 'brand',
             2 => 'male',
@@ -49,7 +46,9 @@ switch ($action) {
             $uploadPath = "$uploadDir/$originalName";
             $imagePathForDb = "$publicPath/$originalName";
 
+            // Di chuyển từ muc tạm của PHP đến nơi lưu cố định
             move_uploaded_file($image['tmp_name'], $uploadPath);
+            // Gán đường dẫn ảnh vào $data để chuẩn bị lưu vào database
             $data['HinhAnh'] = $imagePathForDb;
         }
 
@@ -76,7 +75,6 @@ switch ($action) {
         $data = $_POST;
         $image = $_FILES['HinhAnh'] ?? null;
         $categoryId = $_POST['MaDanhMucSanPham'] ?? null;
-        // ❗️Lấy tên thư mục dựa vào mã danh mục
         $categoryFolders = [
             1 => 'brand',
             2 => 'male',
@@ -89,9 +87,9 @@ switch ($action) {
             9 => 'leather'
         ];
 
-        $folder = $categoryFolders[$categoryId] ?? 'other'; // fallback nếu không đúng mã danh mục
-        $uploadDir = __DIR__ . "/img/product/$folder"; // nơi lưu ảnh
-        $publicPath = "$folder"; // phần đường dẫn lưu trong CSDL
+        $folder = $categoryFolders[$categoryId] ?? 'other';
+        $uploadDir = __DIR__ . "/img/product/$folder";
+        $publicPath = "$folder";
 
         if (!file_exists($uploadDir)) {
             mkdir($uploadDir, 0777, true); // tạo folder nếu chưa có
@@ -105,7 +103,6 @@ switch ($action) {
             move_uploaded_file($image['tmp_name'], $uploadPath);
             $data['HinhAnh'] = $imagePathForDb;
 
-            // ❗️Xoá ảnh cũ nếu có
             if (!empty($_POST['OldImage'])) {
                 $oldImagePath = __DIR__ . '/img/product/' . $_POST['OldImage'];
                 if (file_exists($oldImagePath)) {
@@ -113,7 +110,7 @@ switch ($action) {
                 }
             }
         } else {
-            $data['HinhAnh'] = $_POST['OldImage']; // giữ ảnh cũ nếu không có ảnh mới
+            $data['HinhAnh'] = $_POST['OldImage'];
         }
 
         $controller = new AdminProductController($adminProductModel);
@@ -127,6 +124,6 @@ switch ($action) {
         echo json_encode(['success' => $success]);
         break;
     default:
-        echo "Duy đẹp mặc định";
+        echo "Invalid action";
         break;
 }

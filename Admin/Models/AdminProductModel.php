@@ -87,7 +87,7 @@ class AdminProductModel
                     $data['TrangThai'],
                     $data['MoTa'],
                     $data['HinhAnh'],
-                    $data['id']
+                    $data['MaSanPham']
                 ]);
             } else {
                 $sql = "UPDATE SanPham 
@@ -100,13 +100,13 @@ class AdminProductModel
                     $data['SoLuongTonKho'],
                     $data['TrangThai'],
                     $data['MoTa'],
-                    $data['id']
+                    $data['MaSanPham']
                 ]);
             }
 
             // ✅ Lấy lại sản phẩm sau khi update
             $selectStmt = $this->db->prepare("SELECT * FROM SanPham WHERE MaSanPham = ?");
-            $selectStmt->execute([$data['id']]);
+            $selectStmt->execute([$data['MaSanPham']]);
             return $selectStmt->fetch(\PDO::FETCH_ASSOC);
         } catch (\Exception $e) {
             error_log("AdminProductModel Error: " . $e->getMessage());

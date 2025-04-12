@@ -9,6 +9,7 @@
                 <th>Email</th>
                 <th>Họ và tên</th>
                 <th>Trạng thái</th>
+                <th>Vai Trò</th>
                 <th>Ngày tạo</th>
                 <th>Thao tác</th>
             </tr>
@@ -34,6 +35,7 @@
                             <span class="admin-tables__status admin-tables__status--inactive">Ẩn</span>
                         <?php endif; ?>
                     </td>
+                    <td><?= $customer['VaiTro'] ?></td>
                     <td><?= $customer['NgayTao'] ?></td>
                     <td>
                         <a class="admin-tables__action admin-tables__action--edit js-edit-btn" href="#" data-customer-id="<?= $customer['MaTaiKhoan'] ?>">Sửa</a>
