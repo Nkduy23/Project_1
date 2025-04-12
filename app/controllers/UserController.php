@@ -50,7 +50,7 @@ class UserController
                 exit;
             }
 
-            if ($this->userModel->register($username, $email, $password)) {
+            if ($this->userModel->register($username, $email, $password, 'user')) {
                 $_SESSION['register_success'] = 'Đăng ký thành công';
                 header('Location: /login');
                 exit;
@@ -88,10 +88,16 @@ class UserController
                     $_SESSION['user'] = $user;
                     $_SESSION['login_success'] = 'Đăng nhập thành công!';
 
+                    // Kiểm tra vai trò
+                    if ($user['VaiTro'] == 'admin') {
+                        header('Location: /admin');
+                        exit;
+                    }
+
                     // Kiểm tra nếu có giỏ hàng trong session thì đẩy vào database
                     if (!empty($_SESSION['cart'])) {
                         foreach ($_SESSION['cart'] as $productId => $cartItem) {
-                            $this->cartModel->addToCart($user['MaKhachHang'], $productId, $cartItem['SoLuong'], $cartItem['KichThuoc']);
+                            $this->cartModel->addToCart($user['MaTaiKhoan'], $productId, $cartItem['SoLuong'], $cartItem['KichThuoc']);
                         }
                         // ✅ Xóa session cart sau khi đồng bộ với database
                         unset($_SESSION['cart']);

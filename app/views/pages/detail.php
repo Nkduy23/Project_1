@@ -220,7 +220,7 @@
         <form action="/comment" method="POST" class="product-detail__comment-form">
             <input type="hidden" name="product_id" value="<?= $productDetail['MaSanPham'] ?>">
             <?php if (isset($_SESSION['user'])): ?>
-                <input type="hidden" name="user_id" value="<?= $_SESSION['user']['MaKhachHang'] ?>">
+                <input type="hidden" name="user_id" value="<?= $_SESSION['user']['MaTaiKhoan'] ?>">
                 <input type="hidden" name="name" value="<?= $_SESSION['user']['TenDangNhap'] ?>">
             <?php else: ?>
                 <input type="text" name="name" placeholder="Tên của bạn" required>

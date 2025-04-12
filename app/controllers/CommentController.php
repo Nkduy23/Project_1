@@ -22,11 +22,11 @@ class CommentController
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $MaSanPham = $_POST['product_id'];
-            $MaKhachHang = $_POST['user_id'];
+            $MaTaiKhoan = $_POST['user_id'];
             $TenKhachHang = $_POST['name'];
             $NoiDung = $_POST['content'];
 
-            $commentId = $this->commentModel->addComment($MaSanPham, $MaKhachHang, $TenKhachHang, $NoiDung);
+            $commentId = $this->commentModel->addComment($MaSanPham, $MaTaiKhoan, $TenKhachHang, $NoiDung);
 
             header('Location: /detail/' . $MaSanPham);
             exit;

@@ -16,7 +16,7 @@
         <tbody>
             <?php foreach ($customers as $customer): ?>
                 <tr>
-                    <td><?= $customer['MaKhachHang'] ?></td>
+                    <td><?= $customer['MaTaiKhoan'] ?></td>
                     <td>
                         <?php if ($customer['HinhAnh']): ?>
                             <img class="admin-tables__image" src="<?= $GLOBALS['baseUrl'] ?>img/user/<?= htmlspecialchars($customer['HinhAnh']) ?>" alt="Ảnh KH">
@@ -36,8 +36,8 @@
                     </td>
                     <td><?= $customer['NgayTao'] ?></td>
                     <td>
-                        <a class="admin-tables__action admin-tables__action--edit js-edit-btn" href="#" data-customer-id="<?= $customer['MaKhachHang'] ?>">Sửa</a>
-                        <a class="admin-tables__action admin-tables__action--delete js-delete-btn" href="#" data-customer-id="<?= $customer['MaKhachHang'] ?>">Xoá</a>
+                        <a class="admin-tables__action admin-tables__action--edit js-edit-btn" href="#" data-customer-id="<?= $customer['MaTaiKhoan'] ?>">Sửa</a>
+                        <a class="admin-tables__action admin-tables__action--delete js-delete-btn" href="#" data-customer-id="<?= $customer['MaTaiKhoan'] ?>">Xoá</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

@@ -36,7 +36,7 @@ class OrderController
             exit;
         }
 
-        $userId = $_SESSION['user']['MaKhachHang'];
+        $userId = $_SESSION['user']['MaTaiKhoan'];
         $orders = []; // Lấy từ model
 
         // Hiển thị view

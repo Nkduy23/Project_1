@@ -362,7 +362,7 @@
             ' <span class="admin-tables__status admin-tables__status--inactive"><i class="fa-solid fa-eye-slash"></i></span>'}</td>    
             <td>${product.MoTa}</td>
             <td>${product.GiaGiam}</td>
-            <td>${product.DangGiaGiam}</td>
+            <td>${product.DangGiaGiam == 1 ? 'Có' : 'Không'}</td>
             <td>${product.Nhan}</td>
             <td>
                 <a class="admin-tables__action admin-tables__action--edit js-edit-btn" href="#" data-product-id="${product.MaSanPham}">Sửa</a>

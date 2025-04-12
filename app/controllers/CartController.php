@@ -22,7 +22,7 @@ class CartController
     private function getCartItems()
     {
         if (isset($_SESSION['user'])) {
-            return $this->cartModel->getUserCart($_SESSION['user']['MaKhachHang']);
+            return $this->cartModel->getUserCart($_SESSION['user']['MaTaiKhoan']);
         }
         return $_SESSION['cart'] ?? [];
     }
@@ -31,7 +31,7 @@ class CartController
     {
         $cartCount = 0;
         if (isset($_SESSION['user'])) {
-            $cartCount = $this->cartModel->getTotalCartQuantity($_SESSION['user']['MaKhachHang']);
+            $cartCount = $this->cartModel->getTotalCartQuantity($_SESSION['user']['MaTaiKhoan']);
         } else {
             if (!empty($_SESSION['cart'])) {
                 foreach ($_SESSION['cart'] as $item) {
@@ -54,7 +54,7 @@ class CartController
             $product_size = $_POST['product_size'];
 
             if (isset($_SESSION['user'])) {
-                $user_id = $_SESSION['user']['MaKhachHang'];
+                $user_id = $_SESSION['user']['MaTaiKhoan'];
                 $this->cartModel->addToCart($user_id, $product_id, $product_quantity, $product_size);
             } else {
                 if (!isset($_SESSION['cart'])) {
@@ -81,7 +81,7 @@ class CartController
     public function removeFromCart($productId)
     {
         if (isset($_SESSION['user'])) {
-            $this->cartModel->removeFromCart($_SESSION['user']['MaKhachHang'], $productId);
+            $this->cartModel->removeFromCart($_SESSION['user']['MaTaiKhoan'], $productId);
         } elseif (isset($_SESSION['cart'][$productId])) {
             if ($_SESSION['cart'][$productId]['SoLuong'] > 1) {
                 $_SESSION['cart'][$productId]['SoLuong'] -= 1;
@@ -102,7 +102,7 @@ class CartController
             $product_size = $_POST['product_size'];
 
             if (isset($_SESSION['user'])) {
-                $user_id = $_SESSION['user']['MaKhachHang'];
+                $user_id = $_SESSION['user']['MaTaiKhoan'];
                 $this->cartModel->updateCart($user_id, $product_id, $product_quantity, $product_size);
             } else {
                 if (isset($_SESSION['cart'][$product_id])) {
@@ -126,12 +126,12 @@ class CartController
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['user'])) {
             try {
-                $user_id = $_SESSION['user']['MaKhachHang'];
+                $user_id = $_SESSION['user']['MaTaiKhoan'];
                 $cartItems = $this->cartModel->getCartItemByUser($user_id);
 
                 // Lấy thông tin từ form
                 $orderData = [
-                    'MaKhachHang' => $user_id,
+                    'MaTaiKhoan' => $user_id,
                     'DiaChiNhanHang' => $_POST['address'],
                     'ThanhPho' => $_POST['city'],
                     'TongTien' => $_POST['total_amount'],

@@ -17,7 +17,7 @@ class CartModel
             $sql = "SELECT c.*, p.TenSanPham, p.DonGia, p.HinhAnh 
     FROM GioHang c 
     JOIN SanPham p ON c.MaSanPham = p.MaSanPham
-    WHERE c.MaKhachHang = ?";
+    WHERE c.MaTaiKhoan = ?";
             $stmt = $this->db->prepare($sql);
             $stmt->execute([$userId]);
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
@@ -29,17 +29,17 @@ class CartModel
     public function addToCart($userId, $productId, $product_quantity, $product_size)
     {
         try {
-            $sql = "SELECT * FROM GioHang WHERE MaKhachHang = ? AND MaSanPham = ? AND KichThuoc = ?";
+            $sql = "SELECT * FROM GioHang WHERE MaTaiKhoan = ? AND MaSanPham = ? AND KichThuoc = ?";
             $stmt = $this->db->prepare($sql);
             $stmt->execute([$userId, $productId, $product_size]);
             $cartItem = $stmt->fetch(\PDO::FETCH_ASSOC);
 
             if ($cartItem) {
-                $updateSql = "UPDATE GioHang SET SoLuong = SoLuong + ? WHERE MaKhachHang = ? AND MaSanPham = ? AND KichThuoc = ?";
+                $updateSql = "UPDATE GioHang SET SoLuong = SoLuong + ? WHERE MaTaiKhoan = ? AND MaSanPham = ? AND KichThuoc = ?";
                 $stmt = $this->db->prepare($updateSql);
                 return $stmt->execute([$product_quantity, $userId, $productId, $product_size]);
             } else {
-                $insertSql = "INSERT INTO GioHang (MaKhachHang, MaSanPham, SoLuong, KichThuoc) VALUES (?, ?, ?, ?)";
+                $insertSql = "INSERT INTO GioHang (MaTaiKhoan, MaSanPham, SoLuong, KichThuoc) VALUES (?, ?, ?, ?)";
                 $stmt = $this->db->prepare($insertSql);
                 return $stmt->execute([$userId, $productId, $product_quantity, $product_size]);
             }
@@ -51,7 +51,7 @@ class CartModel
     public function getTotalCartQuantity($userId)
     {
         try {
-            $sql = "SELECT SUM(SoLuong) as total FROM GioHang WHERE MaKhachHang = ?";
+            $sql = "SELECT SUM(SoLuong) as total FROM GioHang WHERE MaTaiKhoan = ?";
             $stmt = $this->db->prepare($sql);
             $stmt->execute([$userId]);
             $result = $stmt->fetch(\PDO::FETCH_ASSOC);
@@ -64,7 +64,7 @@ class CartModel
     public function removeFromCart($user_id, $product_id)
     {
         try {
-            $sql = "DELETE FROM GioHang WHERE MaKhachHang = ? AND MaGioHang = ?";
+            $sql = "DELETE FROM GioHang WHERE MaTaiKhoan = ? AND MaGioHang = ?";
             $stmt = $this->db->prepare($sql);
             return $stmt->execute([$user_id, $product_id]);
         } catch (\Exception $e) {
@@ -75,7 +75,7 @@ class CartModel
     public function updateCart($user_id, $product_id, $product_quantity, $product_size)
     {
         try {
-            $sql = "UPDATE GioHang SET SoLuong = ?, KichThuoc = ? WHERE MaKhachHang = ? AND MaGioHang = ?";
+            $sql = "UPDATE GioHang SET SoLuong = ?, KichThuoc = ? WHERE MaTaiKhoan = ? AND MaGioHang = ?";
             $stmt = $this->db->prepare($sql);
             return $stmt->execute([$product_quantity, $product_size, $user_id, $product_id]);
         } catch (\Exception $e) {
@@ -89,7 +89,7 @@ class CartModel
             $sql = "SELECT g.*, p.TenSanPham, p.DonGia, p.HinhAnh 
     FROM GioHang g 
     JOIN SanPham p ON g.MaSanPham = p.MaSanPham 
-    WHERE g.MaKhachHang = ?";
+    WHERE g.MaTaiKhoan = ?";
             $stmt = $this->db->prepare($sql);
             $stmt->execute([$userId]);
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
@@ -112,7 +112,7 @@ class CartModel
         try {
             // 1. Tạo đơn hàng chính
             $sql = "INSERT INTO DonHang (
-                MaKhachHang, 
+                MaTaiKhoan, 
                 DiaChiNhanHang, 
                 ThanhPho, 
                 TongTien, 
@@ -122,7 +122,7 @@ class CartModel
 
             $stmt = $this->db->prepare($sql);
             $stmt->execute([
-                $orderData['MaKhachHang'],
+                $orderData['MaTaiKhoan'],
                 $orderData['DiaChiNhanHang'],
                 $orderData['ThanhPho'],
                 $orderData['TongTien'],
@@ -185,7 +185,7 @@ class CartModel
                     g.KichThuoc
                 FROM GioHang g
                 JOIN SanPham p ON g.MaSanPham = p.MaSanPham
-                WHERE g.MaKhachHang = ?";
+                WHERE g.MaTaiKhoan = ?";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([$userId]);
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
@@ -193,7 +193,7 @@ class CartModel
 
     public function deleteCartItem($userId, $productId)
     {
-        $sql = "DELETE FROM GioHang WHERE MaKhachHang = ? AND MaSanPham = ?";
+        $sql = "DELETE FROM GioHang WHERE MaTaiKhoan = ? AND MaSanPham = ?";
         $stmt = $this->db->prepare($sql);
         return $stmt->execute([$userId, $productId]);
     }
