@@ -50,13 +50,12 @@ class AdminProductModel
                 $data['MaDanhMucThuongHieu'] ?? null
             ]);
 
-            return $this->db->lastInsertId(); // trả về ID sản phẩm mới
+            return $this->db->lastInsertId(); // trả về ID sản phẩm mới (chỉ dụng được cho Insert)
         } catch (\Exception $e) {
             error_log("createProduct Error: " . $e->getMessage());
             return false;
         }
     }
-
 
     public function getProductById($id)
     {
@@ -103,11 +102,7 @@ class AdminProductModel
                     $data['MaSanPham']
                 ]);
             }
-
-            // ✅ Lấy lại sản phẩm sau khi update
-            $selectStmt = $this->db->prepare("SELECT * FROM SanPham WHERE MaSanPham = ?");
-            $selectStmt->execute([$data['MaSanPham']]);
-            return $selectStmt->fetch(\PDO::FETCH_ASSOC);
+            return $data['MaSanPham'];
         } catch (\Exception $e) {
             error_log("AdminProductModel Error: " . $e->getMessage());
             return false;

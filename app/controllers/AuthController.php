@@ -89,7 +89,7 @@ class AuthController
                     $_SESSION['login_success'] = 'Đăng nhập thành công!';
 
                     // Kiểm tra vai trò
-                    if ($user['VaiTro'] == 'admin') {
+                    if ($user['VaiTro'] == '1') {
                         header('Location: /admin');
                         exit;
                     }

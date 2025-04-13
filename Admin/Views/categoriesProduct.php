@@ -1,4 +1,5 @@
 <div class="admin-tables">
+
   <div id="successMessage" class="success-message" style="display: none;">
     <span class="checkmark">✔</span>
     <p class="success-message__text"></p>
@@ -98,6 +99,7 @@
         <h2 class="modal__title">Sửa danh mục</h2>
       </div>
       <form action="" method="POST" id="editCategoryForm">
+        <input type="hidden" id="editCategoryId" name="MaDanhMucSanPham">
         <div class="modal__form">
           <div class="modal__form-group">
             <label for="name" class="modal__form-label">Tên danh mục</label>
@@ -126,8 +128,6 @@
 
 <script>
   function showSuccessMessage(message) {
-    console.log(message);
-
     const messageBox = document.getElementById('successMessage');
     messageBox.querySelector('.success-message__text').textContent = message;
     messageBox.style.display = 'flex';
@@ -178,45 +178,43 @@
         throw new Error('Failed to create category');
       }
 
-      const data = await response.json();
+      const result = await response.json();
 
-      if (!data.success) {
-        showErrorMessage(data.message);
+      if (!result.success) {
+        console.warn("Lỗi nghiệp vụ:", result.message);
+        showErrorMessage(result.message);
         return;
       }
 
-      if (data.success && data.data) {
-        showSuccessMessage(data.message);
-        const category = data.data;
-        createCategoryModal.classList.remove('modal--active');
+      const data = result.data;
 
-        form.reset();
+      form.reset();
 
-        const newRow = document.createElement('tr');
-        newRow.className = 'category-row';
-        newRow.setAttribute('data-category-id', category.MaDanhMucSanPham);
+      const newRow = document.createElement('tr');
+      newRow.className = 'category-row';
+      newRow.setAttribute('data-category-id', data.MaDanhMucSanPham);
 
-        newRow.innerHTML = `
-          <td class="category__id">${category.MaDanhMucSanPham}</td>
-          <td class="category__name">${category.TenDanhMucSanPham}</td>
-          <td class="category__description">${category.MoTaDanhMuc}</td>
+      newRow.innerHTML = `
+          <td class="category__id">${data.MaDanhMucSanPham}</td>
+          <td class="category__name">${data.TenDanhMucSanPham}</td>
+          <td class="category__description">${data.MoTaDanhMuc}</td>
           <td class="category__status">
             <span class="admin-tables__status admin-tables__status--active">
               <i class="fa-solid fa-eye"></i>
             </span>
           </td>
           <td>
-            <a class="admin-tables__action admin-tables__action--edit js-edit-btn" href="#" data-category-id="${category.MaDanhMucSanPham}">Sửa</a>
-            <a class="admin-tables__action admin-tables__action--delete js-delete-btn" href="#" data-category-id="${category.MaDanhMucSanPham}">Xoá</a>
+            <a class="admin-tables__action admin-tables__action--edit js-edit-btn" href="#" data-category-id="${data.MaDanhMucSanPham}">Sửa</a>
+            <a class="admin-tables__action admin-tables__action--delete js-delete-btn" href="#" data-category-id="${data.MaDanhMucSanPham}">Xoá</a>
           </td>
         `;
 
-        document.querySelector(' #categoryTable tbody').appendChild(newRow);
-      } else {
-        throw new Error(data.message);
-      }
+      document.querySelector(' #categoryTable tbody').appendChild(newRow);
+      showSuccessMessage(result.message);
+      createCategoryModal.classList.remove('modal--active');
     } catch (error) {
       console.error(error);
+      showErrorMessage(result.message);
     }
   });
 </script>
@@ -238,13 +236,15 @@
   document.querySelectorAll('.js-edit-btn').forEach(btn => {
     btn.addEventListener('click', async (e) => {
 
+      editCategoryModal.classList.add('modal--active');
+
       e.preventDefault();
 
-      const categoryId = button.getAttribute('data-category-id');
+      const categoryId = btn.getAttribute('data-category-id');
 
       selectedCategoryId = categoryId;
 
-      editCategoryModal.classList.add('modal--active');
+      const editCategory = document.getElementById('editCategoryModal');
 
       try {
         const response = await fetch(`/api.php?module=category&action=get&id=${categoryId}`);
@@ -253,12 +253,21 @@
           throw new Error('Failed to fetch category');
         }
 
-        const category = await response.json();
+        const result = await response.json();
+        
+        const data = result.data;
 
-        editCategoryModal.querySelector('input[name="TenDanhMucSanPham"]').value = category.TenDanhMucSanPham;
-        editCategoryModal.querySelector('input[name="MoTaDanhMuc"]').value = category.MoTaDanhMuc;
+        if (!result.success) {
+          showErrorMessage(result.message);
+          return;
+        }
+
+        editCategory.querySelector('[name="TenDanhMucSanPham"]').value = data.TenDanhMucSanPham;
+        editCategory.querySelector('[name="MoTaDanhMuc"]').value = data.MoTaDanhMuc;
+
       } catch (error) {
         console.error(error);
+        showErrorMessage(error.message);
       }
     });
   });
@@ -268,34 +277,71 @@
 
     const form = e.target;
 
+    const formData = new FormData(form);
+
+    formData.append('MaDanhMucSanPham', selectedCategoryId);
+
     try {
       const response = await fetch(`/api.php?module=category&action=update&id=${selectedCategoryId}`, {
         method: 'POST',
-        body: new FormData(form),
+        body: formData,
       });
 
       if (!response.ok) {
         throw new Error('Failed to update category');
       }
 
-      const data = await response.json();
+      const result = await response.json();
 
-      if (data.success) {
-        showSuccessMessage(data.message);
-        const data = result.data;
-        const row = document.querySelector(`tr[data-category-id="${selectedCategoryId}"]`);
-
-        if (row) {
-          row.querySelector('.category__name').textContent = data.TenDanhMucSanPham;
-          row.querySelector('.category__description').textContent = data.MoTaDanhMuc;
-        }
-
-        editCategoryModal.classList.remove('modal--active');
-      } else {
-        showErrorMessage(data.message);
+      if (!result.success) {
+        throw new Error(result.message);
       }
+
+      const data = result.data;
+
+      const row = document.querySelector(`tr[data-category-id="${selectedCategoryId}"]`);
+
+      if (row) {
+        row.querySelector('.category__name').textContent = data.TenDanhMucSanPham;
+        row.querySelector('.category__description').textContent = data.MoTaDanhMuc;
+      }
+
+      editCategoryModal.classList.remove('modal--active');
+      showSuccessMessage(result.message);
     } catch (error) {
       console.error(error);
+      showErrorMessage(result.message);
+    }
+  });
+</script>
+
+<script>
+  document.querySelector('#categoryTable').addEventListener('click', async (e) => {
+    const deleteBtn = e.target.closest('.js-delete-btn');
+    if (!deleteBtn) return;
+
+    e.preventDefault();
+
+    const categoryId = deleteBtn.getAttribute('data-category-id');
+
+    if (confirm("Bạn có chắc chắn muốn xóa danh mục này?")) {
+      try {
+        const response = await fetch(`/api.php?module=category&action=delete&id=${categoryId}`, {
+          method: 'DELETE'
+        });
+
+        const result = await response.json();
+
+        if (!result.success) {
+          throw new Error(result.message);
+        }
+
+        const row = deleteBtn.closest('tr');
+        row.remove();
+        showSuccessMessage(result.message);
+      } catch (err) {
+        console.error("Lỗi khi xóa:", err);
+      }
     }
   });
 </script>

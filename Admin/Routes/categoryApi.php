@@ -10,7 +10,7 @@ require_once __DIR__ . '/../../Config/Database.php';
 $pdo = Database::getInstance()->getConnection();
 $adminCategoryProductModel = new Admin\Models\AdminCategoryProductModel($pdo);
 
-$action = $_GET['action'] ?? '';
+$action = $_GET['action'] ?? '';    
 $id = $_GET['id'] ?? '';
 
 switch ($action) {
@@ -18,5 +18,21 @@ switch ($action) {
         $data = $_POST;
         $controller = new AdminCategoryProductController($adminCategoryProductModel);
         $controller->create($data);
+        break;
+    case 'get':
+        $controller = new AdminCategoryProductController($adminCategoryProductModel);
+        $controller->get($id);
+        break;
+    case 'update':
+        $data = $_POST;
+        $controller = new AdminCategoryProductController($adminCategoryProductModel);
+        $controller->update($data);
+        break;
+    case 'delete':
+        $controller = new AdminCategoryProductController($adminCategoryProductModel);
+        $controller->delete($id);
+        break;
+    default:
+        echo "Invalid action: ";
         break;
 }

@@ -1,8 +1,15 @@
 <div class="admin-tables">
+
   <div id="successMessage" class="success-message" style="display: none;">
     <span class="checkmark">✔</span>
     <p class="success-message__text"></p>
   </div>
+
+  <div id="errorMessage" class="error-message" style="display: none;">
+    <span class="checkmark">✘</span>
+    <p class="error-message__text"></p>
+  </div>
+
   <button id="openCreateModalBtn" class="btn btn--primary">Tạo sản phẩm</button>
   <h1 class="admin-tables__title">Danh sách sản phẩm</h1>
   <table class="admin-tables__table" id="productTable">
@@ -184,6 +191,7 @@
   <div class="modal__content">
     <h2 class="modal__title">Sửa sản phẩm</h2>
     <form class="modal__form" id="editProductForm">
+
       <input type="hidden" id="editProductId" name="MaSanPham">
       <input type="hidden" id="oldImageInput" name="OldImage">
 
@@ -257,8 +265,19 @@
 
 <script>
   function showSuccessMessage(message) {
+    console.log(message);
+
     const messageBox = document.getElementById('successMessage');
     messageBox.querySelector('.success-message__text').textContent = message;
+    messageBox.style.display = 'flex';
+    setTimeout(() => {
+      messageBox.style.display = 'none';
+    }, 2500);
+  }
+
+  function showErrorMessage(message) {
+    const messageBox = document.getElementById('errorMessage');
+    messageBox.querySelector('.error-message__text').textContent = message;
     messageBox.style.display = 'flex';
     setTimeout(() => {
       messageBox.style.display = 'none';
@@ -289,11 +308,9 @@
   document.getElementById('createProductForm').addEventListener('submit', async (e) => {
     e.preventDefault(); //Ngăn chặn trình duyệt gửi form đi
 
-    // Tự sử lý form bằng javascript tại đây
-
     const form = e.target;
 
-    const formData = new FormData(form); // Là đối tượng giúp dễ dàng lấy dữ liệu từ form
+    const formData = new FormData(form);
 
     try {
       const response = await fetch('/api.php?module=product&action=create', {
@@ -307,21 +324,25 @@
 
       const result = await response.json();
 
-      if (result.success && result.data) {
+      if (!result.success) {
+        console.warn("Lỗi nghiệp vụ:", result.message);
+        showErrorMessage(result.message);
+        return;
+      }
 
-        const product = result.data;
+      const product = result.data;
 
-        createModal.classList.remove('modal--active');
+      createModal.classList.remove('modal--active');
 
-        showSuccessMessage(result.message);
+      showSuccessMessage(result.message);
 
-        form.reset();
+      form.reset();
 
-        const newRow = document.createElement('tr');
-        newRow.className = 'product-row';
-        newRow.setAttribute('data-product-id', product.MaSanPham);
+      const newRow = document.createElement('tr');
+      newRow.className = 'product-row';
+      newRow.setAttribute('data-product-id', product.MaSanPham);
 
-        newRow.innerHTML = `
+      newRow.innerHTML = `
             <td>${product.MaSanPham}</td>
             <td><img class="admin-tables__image" src="<?= $GLOBALS['baseUrl'] ?>img/product/${product.HinhAnh}" alt="${product.TenSanPham}"></td>
             <td><img class="admin-tables__image" src="<?= $GLOBALS['baseUrl'] ?>img/product/${product.HinhAnhHover}" alt="${product.TenSanPham}"></td>
@@ -341,12 +362,10 @@
             </td>
         `;
 
-        document.querySelector('#productTable tbody').appendChild(newRow);
-      } else {
-        throw new Error(result.message);
-      }
-    } catch (err) {
-      console.error(err);
+      document.querySelector('#productTable tbody').appendChild(newRow);
+    } catch (error) {
+      console.error(error);
+      showErrorMessage(error.message);
     }
 
   });
@@ -354,15 +373,15 @@
 
 <!-- Sửa sản phẩm -->
 <script>
-  const editModal = document.getElementById('editProductModal');
+  const editProductModal = document.getElementById('editProductModal');
   const closeEditModalBtn = document.getElementById('closeEditModalBtn');
 
   closeCreateModalBtn.addEventListener('click', () => {
-    editModal.classList.remove('modal--active');
+    editProductModal.classList.remove('modal--active');
   });
 
-  editModal.querySelector('.modal__overlay').addEventListener('click', () => {
-    editModal.classList.remove('modal--active');
+  editProductModal.querySelector('.modal__overlay').addEventListener('click', () => {
+    editProductModal.classList.remove('modal--active');
   });
 
   let editingProductId = null;
@@ -377,7 +396,7 @@
 
       const editForm = document.getElementById('editProductForm');
 
-      editModal.classList.add('modal--active');
+      editProductModal.classList.add('modal--active');
 
       try {
         const response = await fetch(`/api.php?module=product&action=get&id=${productId}`);
@@ -385,18 +404,19 @@
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
-
+        
         const product = await response.json();
 
-        editModal.querySelector('#EditCurrentImagePreview').src = `<?= rtrim($GLOBALS['baseUrl'], '/') ?>/img/product/${product.HinhAnh}`;
-        editModal.querySelector('#EditCurrentImagePreview').alt = product.TenSanPham;
+        editProductModal.querySelector('#EditCurrentImagePreview').src = `<?= rtrim($GLOBALS['baseUrl'], '/') ?>/img/product/${product.HinhAnh}`;
+        editProductModal.querySelector('#EditCurrentImagePreview').alt = product.TenSanPham;
         editForm.querySelector('[name="TenSanPham"]').value = product.TenSanPham;
         editForm.querySelector('[name="DonGia"]').value = product.DonGia;
         editForm.querySelector('[name="SoLuongTonKho"]').value = product.SoLuongTonKho;
         editForm.querySelector('[name="TrangThai"]').value = product.TrangThai;
         editForm.querySelector('[name="MoTa"]').value = product.MoTa || '';
       } catch (error) {
-        console.error("Fetch JSON error:", error)
+        console.error("Fetch JSON error:", error);
+        showErrorMessage(error.message);
       }
     });
   });
@@ -424,42 +444,48 @@
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
+
       const result = await response.json();
 
-      if (result.success) {
-        editModal.classList.remove('modal--active');
+      if (!result.success) {
+        console.warn("Lỗi nghiệp vụ:", result.message);
+        showErrorMessage(result.message);
+        return;
+      }
+
+      editProductModal.classList.remove('modal--active');
+
+      const data = result.data;
+
+      const row = document.querySelector(`tr[data-product-id="${editingProductId}"]`);
+
+      if (row) {
+        row.querySelector('.product__image img').src = `<?= $GLOBALS['baseUrl'] ?>img/product/${data.HinhAnh}`;
+        row.querySelector('.product__name').textContent = data.TenSanPham;
+        row.querySelector('.product__price').textContent = Number(data.DonGia).toLocaleString('vi-VN') + 'đ';
+        row.querySelector('.product__quantity').textContent = data.SoLuongTonKho;
+
+        const statusCell = row.querySelector('.product__status');
+        const span = statusCell.querySelector('.admin-tables__status');
+        const icon = span.querySelector('i');
+
+        span.className = data.TrangThai === 1 ?
+          'admin-tables__status admin-tables__status--active' :
+          'admin-tables__status admin-tables__status--inactive';
+
+        icon.className = data.TrangThai === 1 ?
+          'fa-solid fa-eye' :
+          'fa-solid fa-eye-slash';
+
+        const descriptionCell = row.querySelector('.product__description');
+        descriptionCell.textContent = data.MoTa || '';
 
         showSuccessMessage(result.message);
-
-        const data = result.data;
-        const row = document.querySelector(`tr[data-product-id="${editingProductId}"]`);
-
-        if (row) {
-          row.querySelector('.product__image img').src = `<?= $GLOBALS['baseUrl'] ?>img/product/${data.HinhAnh}`;
-          row.querySelector('.product__name').textContent = data.TenSanPham;
-          row.querySelector('.product__price').textContent = Number(data.DonGia).toLocaleString('vi-VN') + 'đ';
-          row.querySelector('.product__quantity').textContent = data.SoLuongTonKho;
-
-          const statusCell = row.querySelector('.product__status');
-          const span = statusCell.querySelector('.admin-tables__status');
-          const icon = span.querySelector('i');
-
-          span.className = data.TrangThai === 1 ?
-            'admin-tables__status admin-tables__status--active' :
-            'admin-tables__status admin-tables__status--inactive';
-
-          icon.className = data.TrangThai === 1 ?
-            'fa-solid fa-eye' :
-            'fa-solid fa-eye-slash';
-
-          const descriptionCell = row.querySelector('.product__description');
-          descriptionCell.textContent = data.MoTa || '';
-        }
-      } else {
-        throw new Error(result.message);
       }
+
     } catch (error) {
-      console.error(error)
+      console.error(error);
+      showErrorMessage(error.message);
     }
   });
 </script>
@@ -482,17 +508,17 @@
 
         const result = await response.json();
 
-        if (result.success) {
-          // Xoá dòng <tr> tương ứng khỏi DOM mà không cần reload
-          const row = deleteBtn.closest('tr');
-          row.remove();
-          alert("Đã xoá sản phẩm!");
-        } else {
-          alert("Xoá thất bại: " + (result.message || ""));
+        if (!result.success) {
+          console.warn("Lỗi nghiệp vụ:", result.message);
+          showErrorMessage(result.message);
+          return;
         }
-      } catch (err) {
-        console.error("Lỗi khi xoá:", err);
-        alert("Đã xảy ra lỗi khi xoá.");
+        // Xoá dòng <tr> tương ứng khỏi DOM mà không cần reload
+        const row = deleteBtn.closest('tr');
+        row.remove();
+        showSuccessMessage(result.message);
+      } catch (error) {
+        showErrorMessage('Xoá thất bại: ' + error.message);
       }
     }
   });

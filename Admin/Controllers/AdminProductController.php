@@ -26,7 +26,6 @@ class AdminProductController
 
         if ($productId) {
             $productById = $this->adminProductModel->getProductById($productId);
-
             echo json_encode([
                 'success' => true,
                 'data' => $productById,
@@ -53,11 +52,13 @@ class AdminProductController
     {
         header('Content-Type: application/json');
 
-        $result = $this->adminProductModel->updateProduct($data);
-        if ($result) {
+        $productId = $this->adminProductModel->updateProduct($data);
+
+        if ($productId) {
+            $productById = $this->adminProductModel->getProductById($productId);
             echo json_encode([
                 'success' => true,
-                'data' => $result,
+                'data' => $productById,
                 'message' => 'Sửa sản phẩm thành công'
             ]);
         } else {

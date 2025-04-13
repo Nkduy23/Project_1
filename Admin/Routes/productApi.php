@@ -2,9 +2,7 @@
 require_once __DIR__ . '/../../Core/Autoload.php';
 require_once __DIR__ . '/../../Core/Constants.php';
 
-
 use Admin\Controllers\AdminProductController;
-
 
 require_once __DIR__ . '/../../Config/Database.php';
 // Lấy kết nối PDO từ class Database
@@ -45,7 +43,7 @@ switch ($action) {
         if ($image && $image['error'] === UPLOAD_ERR_OK) {
             $originalName = uniqid() . '-' . basename($image['name']);
             $uploadPath = "$uploadDir/$originalName";
-            $imagePathForDb = "$publicPath/$originalName";
+            $imagePathForDb = "$publicPath/$originalName"; // Đường dẫn ảnh trong database
 
             // Di chuyển từ muc tạm của PHP đến nơi lưu cố định
             move_uploaded_file($image['tmp_name'], $uploadPath);
@@ -61,7 +59,6 @@ switch ($action) {
             move_uploaded_file($imageHover['tmp_name'], $uploadPathHover);
             $data['HinhAnhHover'] = $imageHoverPathForDb;
         }
-
 
         $controller = new AdminProductController($adminProductModel);
         $controller->create($data);

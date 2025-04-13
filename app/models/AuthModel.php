@@ -15,7 +15,7 @@ class AuthModel
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $sql = "INSERT INTO TaiKhoan (TenDangNhap, Email, MatKhau, VaiTro) VALUES (?, ?, ?,?)";
         $stmt = $this->db->prepare($sql);
-        $result = $stmt->execute([$username, $email, $hashedPassword, 'user']);
+        $result = $stmt->execute([$username, $email, $hashedPassword, 0]);
         return $result;
     }
 
