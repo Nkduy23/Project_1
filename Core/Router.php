@@ -7,13 +7,13 @@ use Exception;
 use App\Controllers\HomeController;
 use App\Controllers\ProductController;
 use App\Controllers\CartController;
-use App\Controllers\UserController;
+use App\Controllers\AuthController;
 use App\Controllers\OrderController;
 use App\Controllers\CommentController;
-
 use Admin\Controllers\AdminController;
 use Admin\Controllers\AdminProductController;
 use Admin\Controllers\AdminCustomerController;
+use Admin\Controllers\AdminCategoryProductController;
 
 
 class Router
@@ -108,9 +108,9 @@ class Router
                     $dependencies['cartModel'],
                     $dependencies['db']
                 );
-            case 'UserController':
-                return new UserController(
-                    $dependencies['userModel'],
+            case 'AuthController':
+                return new AuthController(
+                    $dependencies['AuthModel'],
                     $dependencies['cartModel']
                 );
             case 'OrderController':
@@ -126,6 +126,10 @@ class Router
             case 'AdminCustomerController':
                 return new AdminCustomerController(
                     $dependencies['adminCustomerModel']
+                );
+            case 'AdminCategoryProductController':
+                return new AdminCategoryProductController(
+                    $dependencies['adminCategoryProductModel']
                 );
             default:
                 throw new Exception("Controller $controllerName not found");

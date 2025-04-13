@@ -1,11 +1,12 @@
 <?php
-require_once __DIR__ . '/../Core/Autoload.php';
+require_once __DIR__ . '/../../Core/Autoload.php';
+require_once __DIR__ . '/../../Core/Constants.php';
 
 
 use Admin\Controllers\AdminProductController;
 
 
-require_once __DIR__ . '/../Config/Database.php';
+require_once __DIR__ . '/../../Config/Database.php';
 // Lấy kết nối PDO từ class Database
 $pdo = Database::getInstance()->getConnection();
 
@@ -33,7 +34,7 @@ switch ($action) {
         ];
 
         $folder = $categoryFolders[$categoryId] ?? 'other';
-        $uploadDir = __DIR__ . "/../public/assets/img/product/$folder"; // đường dẫn vật lý
+        $uploadDir = PUBLIC_PATH . "/img/product/$folder"; // đường dẫn vật lý
         $publicPath = "$folder"; // ✅ chỉ là "male", "female", v.v.
 
         if (!file_exists($uploadDir)) {
@@ -88,7 +89,7 @@ switch ($action) {
         ];
 
         $folder = $categoryFolders[$categoryId] ?? 'other';
-        $uploadDir = __DIR__ . "/img/product/$folder";
+        $uploadDir = PUBLIC_PATH . "/img/product/$folder";
         $publicPath = "$folder";
 
         if (!file_exists($uploadDir)) {
@@ -97,18 +98,11 @@ switch ($action) {
 
         if ($image && $image['error'] === UPLOAD_ERR_OK) {
             $originalName = basename($image['name']);
-            $uploadPath = "$uploadDir/$originalName";
-            $imagePathForDb = "$publicPath/$originalName";
+            $uploadPath = "$uploadDir/$originalName"; // đường dẫn góc / tên hình
+            $imagePathForDb = "$publicPath/$originalName"; // folder + tên hình
 
             move_uploaded_file($image['tmp_name'], $uploadPath);
             $data['HinhAnh'] = $imagePathForDb;
-
-            if (!empty($_POST['OldImage'])) {
-                $oldImagePath = __DIR__ . '/img/product/' . $_POST['OldImage'];
-                if (file_exists($oldImagePath)) {
-                    unlink($oldImagePath);
-                }
-            }
         } else {
             $data['HinhAnh'] = $_POST['OldImage'];
         }

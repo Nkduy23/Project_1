@@ -2,17 +2,17 @@
 
 namespace App\Controllers;
 
-class UserController
+class AuthController
 {
-    private $userModel;
+    private $AuthModel;
     private $cartModel;
 
     public function __construct(
-        $userModel,
+        $AuthModel,
         $cartModel
     ) {
-        // $this->userModel: là thuộc tính nội bộ của controller để lưu lại model
-        $this->userModel = $userModel;
+        // $this->AuthModel: là thuộc tính nội bộ của controller để lưu lại model
+        $this->AuthModel = $AuthModel;
         $this->cartModel = $cartModel;
     }
 
@@ -31,11 +31,11 @@ class UserController
 
             $errors = [];
             // Gọi method trong model từ bên trong controller
-            if ($this->userModel->isEmailExists($email)) {
+            if ($this->AuthModel->isEmailExists($email)) {
                 $errors[] = "Email đã tồn tại";
             }
 
-            if ($this->userModel->isUsernameExists($username)) {
+            if ($this->AuthModel->isUsernameExists($username)) {
                 $errors[] = "Tên đăng nhập đã tồn tại";
             }
 
@@ -50,7 +50,7 @@ class UserController
                 exit;
             }
 
-            if ($this->userModel->register($username, $email, $password, 'user')) {
+            if ($this->AuthModel->register($username, $email, $password, 'user')) {
                 $_SESSION['register_success'] = 'Đăng ký thành công';
                 header('Location: /login');
                 exit;
@@ -82,7 +82,7 @@ class UserController
             }
 
             if (empty($errors)) {
-                $user = $this->userModel->login($email, $password);
+                $user = $this->AuthModel->login($email, $password);
 
                 if ($user) {
                     $_SESSION['user'] = $user;

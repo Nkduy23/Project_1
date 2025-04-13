@@ -6,12 +6,14 @@ use App\Models\BrandModel;
 use App\Models\NewsModel;
 use App\Models\CartModel;
 use App\Models\MenuModel;
-use App\Models\UserModel;
+use App\Models\AuthModel;
 use App\Models\CommentModel;
+
 
 // Gọi file model Admin
 use Admin\Models\AdminProductModel;
 use Admin\Models\AdminCustomerModel;
+use Admin\Models\AdminCategoryProductModel;
 
 //Gọi file controller
 use App\Controllers\MenuController;
@@ -30,12 +32,13 @@ $brandModel = new BrandModel($db);
 $newsModel = new NewsModel($db);
 $cartModel = new CartModel($db);
 $menuModel = new MenuModel($db);
-$userModel = new UserModel($db);
+$AuthModel = new AuthModel($db);
 $commentModel = new CommentModel($db);
 
 // Khởi tạo Model Admin
 $adminProductModel = new AdminProductModel($db);
 $adminCustomerModel = new AdminCustomerModel($db);
+$adminCategoryProductModel = new AdminCategoryProductModel($db);
 
 
 // Khởi tạo Controller
@@ -51,11 +54,12 @@ $dependencies = [
     'cartModel' => $cartModel,
     'menuController' => $menuController,
     'cartController' => $cartController,
-    'userModel' => $userModel,
+    'AuthModel' => $AuthModel,
     'commentModel' => $commentModel,
 
     'adminProductModel' => $adminProductModel,
-    'adminCustomerModel' => $adminCustomerModel
+    'adminCustomerModel' => $adminCustomerModel,
+    'adminCategoryProductModel' => $adminCategoryProductModel
 
 ];
 
