@@ -118,7 +118,7 @@ class CartModel
                 TongTien, 
                 PhuongThucThanhToan,
                 TrangThai
-            ) VALUES (?, ?, ?, ?, ?, 'Đang xử lý')";
+            ) VALUES (?, ?, ?, ?, ?, 0)";
 
             $stmt = $this->db->prepare($sql);
             $stmt->execute([

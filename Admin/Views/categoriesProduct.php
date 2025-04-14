@@ -63,11 +63,11 @@
         <div class="modal__form">
           <div class="modal__form-group">
             <label for="name" class="modal__form-label">Tên danh mục</label>
-            <input type="text" id="categoryName" name="TenDanhMucSanPham" class="modal__form-input">
+            <input type="text" id="categoryName" name="TenDanhMucSanPham" class="modal__form-input" required>
           </div>
           <div class="modal__form-group">
             <label for="description" class="modal__form-label">Mô tả</label>
-            <input type="text" id="categoryDescription" name="MoTaDanhMuc" class="modal__form-input">
+            <input type="text" id="categoryDescription" name="MoTaDanhMuc" class="modal__form-input" required>
           </div>
           <!-- <div class="modal__form-group">
             <label for="image" class="modal__form-label">Hình ảnh</label>
@@ -103,11 +103,11 @@
         <div class="modal__form">
           <div class="modal__form-group">
             <label for="name" class="modal__form-label">Tên danh mục</label>
-            <input type="text" id="editCategoryName" name="TenDanhMucSanPham" class="modal__form-input">
+            <input type="text" id="editCategoryName" name="TenDanhMucSanPham" class="modal__form-input" required>
           </div>
           <div class="modal__form-group">
             <label for="description" class="modal__form-label">Mô tả</label>
-            <input type="text" id="editCategoryDescription" name="MoTaDanhMuc" class="modal__form-input">
+            <input type="text" id="editCategoryDescription" name="MoTaDanhMuc" class="modal__form-input" required>
           </div>
           <div class="modal__form-group">
             <label for="status" class="modal__form-label">Trang thái</label>
@@ -214,7 +214,7 @@
       createCategoryModal.classList.remove('modal--active');
     } catch (error) {
       console.error(error);
-      showErrorMessage(result.message);
+      showErrorMessage(error.message);
     }
   });
 </script>
@@ -254,17 +254,18 @@
         }
 
         const result = await response.json();
-        
+
         const data = result.data;
 
         if (!result.success) {
+          console.warn("Lỗi nghiệp vụ:", result.message);
           showErrorMessage(result.message);
           return;
         }
 
         editCategory.querySelector('[name="TenDanhMucSanPham"]').value = data.TenDanhMucSanPham;
         editCategory.querySelector('[name="MoTaDanhMuc"]').value = data.MoTaDanhMuc;
-
+        showSuccessMessage(result.message);
       } catch (error) {
         console.error(error);
         showErrorMessage(error.message);
@@ -294,7 +295,9 @@
       const result = await response.json();
 
       if (!result.success) {
-        throw new Error(result.message);
+        console.warn("Lỗi nghiệp vụ:", result.message);
+        showErrorMessage(result.message);
+        return;
       }
 
       const data = result.data;
@@ -333,14 +336,17 @@
         const result = await response.json();
 
         if (!result.success) {
-          throw new Error(result.message);
+          console.warn("Lỗi nghiệp vụ:", result.message);
+          showErrorMessage(result.message);
+          return;
         }
 
         const row = deleteBtn.closest('tr');
         row.remove();
         showSuccessMessage(result.message);
-      } catch (err) {
-        console.error("Lỗi khi xóa:", err);
+      } catch (error) {
+        console.error("Lỗi khi xóa:", error);
+        showErrorMessage(error.message);
       }
     }
   });

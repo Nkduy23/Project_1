@@ -57,9 +57,9 @@ $tongTien = $_POST['total_amount'] ?? 0;
 
                 <label for="payment_method">Phương thức thanh toán:</label>
                 <select name="payment_method" id="payment_method" required>
-                    <option value="cod">Thanh toán khi nhận hàng (COD)</option>
-                    <option value="bank">Chuyển khoản ngân hàng</option>
-                    <option value="momo">Ví MoMo</option>
+                    <option value="0">Thanh toán khi nhận hàng (COD)</option>
+                    <option value="1">Chuyển khoản ngân hàng</option>
+                    <option value="2">Ví MoMo</option>
                 </select>
 
                 <h3>Tổng tiền cần thanh toán: <?= number_format($tongTien, 0, ',', '.') ?> VND</h3>

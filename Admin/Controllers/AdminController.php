@@ -5,7 +5,7 @@ class AdminController
 {
     public function index()
     {
-       echo "Dashboard";
+        require_once __DIR__ . '/../Views/dashboard.php';
     }
 }
 ?>
