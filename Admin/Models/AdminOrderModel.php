@@ -67,7 +67,12 @@ class AdminOrderModel
     public function deleteOrder($id)
     {
         try {
+            // Xóa đơn hàng chi tiết trước
+            $this->db->prepare("DELETE FROM DonHangChiTiet WHERE MaDonHang = ?")->execute([$id]);
+
+            // Xóa đơn hàng
             $sql = "DELETE FROM DonHang WHERE MaDonHang = ?";
+
             $stmt = $this->db->prepare($sql);
             return $stmt->execute([$id]);
         } catch (\Exception $e) {

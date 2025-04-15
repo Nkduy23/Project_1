@@ -9,8 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.css" rel="stylesheet">
   <link rel="stylesheet" href="<?= $GLOBALS['baseUrl'] ?>css/admin.css?v=<?= time(); ?>">
 </head>
 
@@ -21,8 +19,9 @@
         <li class="admin-sidebar__item"><a href="/admin" class="admin-sidebar__link">Biểu đồ doanh thu</a></li>
         <li class="admin-sidebar__item"><a href="/admin/products" class="admin-sidebar__link">Quản lý sản phẩm</a></li>
         <li class="admin-sidebar__item"><a href="/admin/orders" class="admin-sidebar__link">Quản lý đơn hàng</a></li>
-        <li class="admin-sidebar__item"><a href="/admin/categories" class="admin-sidebar__link">Quản lý loại</a></li>
-        <li class="admin-sidebar__item"><a href="/admin/customers" class="admin-sidebar__link">Quản lý khách hàng</a></li>
+        <li class="admin-sidebar__item"><a href="/admin/categories" class="admin-sidebar__link">Quản lý danh mục sản phẩm</a></li>
+        <li class="admin-sidebar__item"><a href="/admin/brands" class="admin-sidebar__link">Quản lý danh mục thương hiệu</a></li>
+        <li class="admin-sidebar__item"><a href="/admin/customers" class="admin-sidebar__link">Quản lý tài khoản</a></li>
         <li class="admin-sidebar__item"><a href="/admin/comments" class="admin-sidebar__link">Quản lý bình luận</a></li>
         <li class="admin-sidebar__item"><a href="/admin/services" class="admin-sidebar__link">Quản lý dịch vụ</a></li>
       </ul>
@@ -59,7 +58,7 @@
       const pieChart = new Chart(pieCtx, {
         type: 'pie',
         data: {
-          labels: ['Thương hiệu', 'Đồng hồ nam', 'Đồng hồ nữ', 'Cặp đôi', 'Trang sức','Phụ kiện'],
+          labels: ['Thương hiệu', 'Đồng hồ nam', 'Đồng hồ nữ', 'Cặp đôi', 'Trang sức', 'Phụ kiện'],
           datasets: [{
             data: [35, 25, 20, 15, 5],
             backgroundColor: [

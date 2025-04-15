@@ -69,5 +69,8 @@ class AdminOrderController
                 'message' => 'Xóa đơn hàng thất bại'
             ]);
         }
+
+        exit;
+
     }
 }

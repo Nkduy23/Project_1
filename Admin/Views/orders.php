@@ -10,7 +10,7 @@
   </div>
 
   <h1 class="admin-tables__title">Danh sách đơn hàng</h1>
-  <table class="admin-tables__table" id="commentTable">
+  <table class="admin-tables__table" id="orderTable">
     <thead>
       <tr>
         <th>Mã đơn hàng</th>
@@ -28,11 +28,20 @@
         <tr class="order-row" data-order-id="<?= $order['MaDonHang'] ?>">
           <td class="order__id"><?= $order['MaDonHang'] ?></td>
           <td class="order__user-id"><?= $order['MaTaiKhoan'] ?></td>
-          <td class="order__user-id"><?= $order['NgayDat'] ?></td>
-          <td class="order__name"><?= $order['DiaChiNhanHang'] ?></td>
-          <td class="order__content"><?= $order['ThanhPho'] ?></td>
-          <td class="order__content"><?= $order['TongTien'] ?></td>
-          <td class="order__created-at"><?= $order['PhuongThucThanhToan'] ?></td>
+          <td class="order__created-at"><?= $order['NgayDat'] ?></td>
+          <td class="order__address"><?= $order['DiaChiNhanHang'] ?></td>
+          <td class="order__city"><?= $order['ThanhPho'] ?></td>
+          <td class="order__total"><?= $order['TongTien'] ?></td>
+          <td class="order__payment">
+            <?php
+            $paymentMethodText = [
+              0 => 'Thanh toán khi giao hàng (COD)',
+              1 => 'Chuyển khoản ngân hàng',
+              2 => 'Ví MoMo'
+            ];
+            echo $paymentMethodText[$order['PhuongThucThanhToan']] ?? 'Không xác định';
+            ?>
+          </td>
           <td class="order__status">
             <?php
             $statusText = [
@@ -227,24 +236,24 @@
 
       if (row) {
         row.querySelector('.order__user-id').textContent = data.MaTaiKhoan;
-        row.querySelector('.order__date').textContent = data.NgayDat;
+        row.querySelector('.order__created-at').textContent = data.NgayDat;
         row.querySelector('.order__address').textContent = data.DiaChiNhanHang;
         row.querySelector('.order__city').textContent = data.ThanhPho;
         row.querySelector('.order__total').textContent = data.TongTien;
-        row.querySelector('.order__payment-method').textContent = {
+        row.querySelector('.order__payment').textContent = {
           0: 'Thanh toán khi giao hàng (COD)',
           1: 'Chuyển khoản ngân hàng',
           2: 'Ví MoMo'
         } [data.PhuongThucThanhToan] || 'Không xác định';
 
-        }
+      }
 
-        row.querySelector('.order__status').textContent = {
-          0: 'Chờ xử lý',
-          1: 'Đang xử lý',
-          3: 'Đang giao hàng',
-          4: 'Giao hàng thành công'
-        } [data.TrangThai] || 'Không xác định';
+      row.querySelector('.order__status').textContent = {
+        0: 'Chờ xử lý',
+        1: 'Đang xử lý',
+        3: 'Đang giao hàng',
+        4: 'Giao hàng thành công'
+      } [data.TrangThai] || 'Không xác định';
 
       editOrderModal.classList.remove('modal--active');
 
@@ -253,6 +262,39 @@
     } catch (error) {
       console.log(error);
       showErrorMessage(error.message);
+    }
+  });
+</script>
+<script>
+  document.querySelector('#orderTable').addEventListener('click', async (e) => {
+    const deleteBtn = e.target.closest('.js-delete-btn');
+
+    if (!deleteBtn) return;
+
+    e.preventDefault();
+
+    const orderId = deleteBtn.getAttribute('data-order-id');
+
+    if (confirm("Bạn có chắc muốn xóa tài khoản này không?")) {
+      try {
+        const response = await fetch(`/api.php?module=order&action=delete&id=${orderId}`, {
+          method: 'DELETE'
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          // Xoá dòng <tr> tương ứng khỏi DOM mà không cần reload
+          const row = deleteBtn.closest('tr');
+          row.remove();
+          alert("Đã xoá đơn hàng!");
+        } else {
+          alert(result.message);
+        }
+      } catch (err) {
+        console.error("Lỗi khi xoá:", err);
+        alert("Đã xảy ra lỗi khi xóa");
+      }
     }
   });
 </script>

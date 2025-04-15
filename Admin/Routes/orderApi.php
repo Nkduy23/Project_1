@@ -25,7 +25,7 @@ switch ($action) {
         $controller->update($data);
         break;
     case 'delete':
-        $id = $_GET['id'] ?? '';
+        $id = $_GET['id'] ?? '';    
         $controller = new AdminOrderController($adminOrderModel);
         $success = $controller->delete($id);
         break;

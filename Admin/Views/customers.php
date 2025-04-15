@@ -66,7 +66,7 @@
           </td>
         </tr>
       <?php endforeach; ?>
-    </tbody>  
+    </tbody>
   </table>
 </div>
 
@@ -309,7 +309,7 @@
   const editModal = document.getElementById('editCustomerModal');
   const closeEditModalBtn = document.getElementById('closeEditModalBtn');
 
-  closeEditModalBtn.addEventListener('click', () => { 
+  closeEditModalBtn.addEventListener('click', () => {
     editModal.classList.remove('modal--active');
   });
 
@@ -429,11 +429,10 @@
           row.remove();
           alert("Đã xoá sản phẩm!");
         } else {
-          alert("Xoá thất bại: " + (result.message || ""));
+          alert(result.message);
         }
       } catch (err) {
         console.error("Lỗi khi xoá:", err);
-        alert("Đã xảy ra lỗi khi xoá.");
       }
     }
   });

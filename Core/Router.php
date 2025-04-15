@@ -16,7 +16,8 @@ use Admin\Controllers\AdminCustomerController;
 use Admin\Controllers\AdminCategoryProductController;
 use Admin\Controllers\AdminCommentController;
 use Admin\Controllers\AdminOrderController;
-
+use Admin\Controllers\AdminBrandController;
+use Admin\Controllers\AdminServiceController;
 
 class Router
 {
@@ -140,6 +141,15 @@ class Router
             case 'AdminOrderController':
                 return new AdminOrderController(
                     $dependencies['adminOrderModel']
+                );
+
+            case 'AdminBrandController':
+                return new AdminBrandController(
+                    $dependencies['adminBrandModel']
+                );
+            case 'AdminServiceController':
+                return new AdminServiceController(
+                    $dependencies['adminServiceModel']
                 );
             default:
                 throw new Exception("Controller $controllerName not found");

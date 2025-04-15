@@ -86,10 +86,11 @@ class AuthController
 
                 if ($user) {
                     $_SESSION['user'] = $user;
+                    $_SESSION['VaiTro'] = $user['VaiTro'];
                     $_SESSION['login_success'] = 'Đăng nhập thành công!';
 
                     // Kiểm tra vai trò
-                    if ($user['VaiTro'] == '1') {
+                    if ($user['VaiTro'] == 1) {
                         header('Location: /admin');
                         exit;
                     }
