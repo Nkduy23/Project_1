@@ -16,7 +16,11 @@
         <input type="password" id="password" name="password" required>
 
         <button type="submit">Đăng Nhập</button>
-        <a href="/register">Chưa có tài khoản? Đăng ký</a>
+        <div class="auth-footer">
+            <a href="/register">Chưa có tài khoản? Đăng ký</a>
+            <a href="/forget">Quên mật khẩu</a>
+        </div>
+
     </form>
 </div>
 

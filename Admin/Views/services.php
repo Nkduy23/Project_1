@@ -9,7 +9,7 @@
     <p class="error-message__text"></p>
   </div>
 
-  <h1 class="admin-tables__title">Danh dịch vụ</h1>
+  <h1 class="admin-tables__title">Danh sách dịch vụ</h1>
   <table class="admin-tables__table" id="orderTable">
     <thead>
       <tr>

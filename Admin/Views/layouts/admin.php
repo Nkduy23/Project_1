@@ -19,6 +19,7 @@
         <li class="admin-sidebar__item"><a href="/admin" class="admin-sidebar__link">Biểu đồ doanh thu</a></li>
         <li class="admin-sidebar__item"><a href="/admin/products" class="admin-sidebar__link">Quản lý sản phẩm</a></li>
         <li class="admin-sidebar__item"><a href="/admin/orders" class="admin-sidebar__link">Quản lý đơn hàng</a></li>
+        <li class="admin-sidebar__item"><a href="/admin/discountCode" class="admin-sidebar__link">Quản lý mã giảm giá</a></li>
         <li class="admin-sidebar__item"><a href="/admin/categories" class="admin-sidebar__link">Quản lý danh mục sản phẩm</a></li>
         <li class="admin-sidebar__item"><a href="/admin/brands" class="admin-sidebar__link">Quản lý danh mục thương hiệu</a></li>
         <li class="admin-sidebar__item"><a href="/admin/customers" class="admin-sidebar__link">Quản lý tài khoản</a></li>
