@@ -1,56 +1,108 @@
-.profile-container {
-  max-width: 80rem;
-  margin: 20px auto;
+.profile-layout {
+  display: flex;
+  max-width: 1200px;
+  margin: 30px auto;
+  gap: 20px;
   padding: 20px;
   background: #fff;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.profile {
-  &__form {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
+/* Sidebar */
+.profile-sidebar {
+  width: 250px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  &__title {
-    margin-bottom: 20px;
-    font-weight: bold;
-    font-size: 2rem;
-  }
+.avatar-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-  &__description {
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-  }
+.avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
 
-  label {
-    margin-top: 10px;
-    font-weight: bold;
-  }
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
 
-  input,
-  select {
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-  }
+.sidebar-nav a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
 
-  a {
-    display: block;
-    margin-top: 10px;
-    text-decoration: none;
-    color: #333;
-  }
+.sidebar-nav a:hover {
+  background: #eee;
+}
 
-  a:hover {
-    text-decoration: underline;
-  }
+/* Main Profile Content */
+.profile-main {
+  flex: 1;
+}
+
+.profile__form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.profile__description {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.profile__form label {
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+.profile__form input,
+.profile__form select {
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.profile__form button {
+  margin-top: 20px;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.profile__form button:hover {
+  background: #0056b3;
 }

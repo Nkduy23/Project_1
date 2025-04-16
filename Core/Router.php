@@ -6,6 +6,7 @@ use Exception;
 
 use App\Controllers\HomeController;
 use App\Controllers\ProductController;
+use App\Controllers\ContactController;
 use App\Controllers\CartController;
 use App\Controllers\AuthController;
 use App\Controllers\OrderController;
@@ -106,6 +107,8 @@ class Router
                     $dependencies['productModel'],
                     $dependencies['commentModel']
                 );
+            case 'ContactController':
+                return new ContactController();
             case 'CartController':
                 return new CartController(
                     $dependencies['cartModel'],

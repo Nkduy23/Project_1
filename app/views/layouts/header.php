@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,6 +26,11 @@
     <link rel="stylesheet" href="<?= $GLOBALS['baseUrl'] ?>css/product.css?v=<?= time(); ?>" />
   <?php endif; ?>
 
+  <?php if (preg_match('#^/contact/(about|info|news)$#', $uri)): ?>
+    <link rel="stylesheet" href="<?= $GLOBALS['baseUrl'] ?>css/contact.css?v=<?= time(); ?>" />
+  <?php endif; ?>
+
+
   <!-- Trang chi tiết sản phẩm: /detail/123, /detail/abc -->
   <?php if (preg_match('#^/detail(/.*)?$#', $uri)): ?>
     <link rel="stylesheet" href="<?= $GLOBALS['baseUrl'] ?>css/detail.css?v=<?= time(); ?>" />
@@ -36,7 +42,7 @@
   <?php endif; ?>
 
   <!-- Trang login & register -->
-  <?php if (preg_match('#^/(login|register)(/.*)?$#', $uri)): ?>
+  <?php if (preg_match('#^/(login|register|forget|change-password)(/.*)?$#', $uri)): ?>
     <link rel="stylesheet" href="<?= $GLOBALS['baseUrl'] ?>css/auth.css?v=<?= time(); ?>" />
   <?php endif; ?>
 

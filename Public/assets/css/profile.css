@@ -1,10 +1,62 @@
-.profile-container {
-  max-width: 80rem;
-  margin: 20px auto;
+.profile-layout {
+  display: flex;
+  max-width: 1200px;
+  margin: 30px auto;
+  gap: 20px;
   padding: 20px;
   background: #fff;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar */
+.profile-sidebar {
+  width: 250px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.sidebar-nav a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.sidebar-nav a:hover {
+  background: #eee;
+}
+
+/* Main Profile Content */
+.profile-main {
+  flex: 1;
 }
 
 .profile__form {
@@ -12,37 +64,46 @@
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
   display: flex;
   flex-direction: column;
 }
+
 .profile__title {
-  margin-bottom: 20px;
-  font-weight: bold;
   font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
+
 .profile__description {
+  font-size: 1.2rem;
   margin-bottom: 20px;
-  font-size: 1.5rem;
 }
-.profile label {
-  margin-top: 10px;
+
+.profile__form label {
+  margin-top: 12px;
   font-weight: bold;
 }
-.profile input,
-.profile select {
+
+.profile__form input,
+.profile__form select {
   padding: 10px;
   margin-top: 5px;
-  border: 1px solid #ccc;
   border-radius: 8px;
+  border: 1px solid #ccc;
   font-size: 16px;
 }
-.profile a {
-  display: block;
-  margin-top: 10px;
-  text-decoration: none;
-  color: #333;
+
+.profile__form button {
+  margin-top: 20px;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
 }
-.profile a:hover {
-  text-decoration: underline;
+
+.profile__form button:hover {
+  background: #0056b3;
 }

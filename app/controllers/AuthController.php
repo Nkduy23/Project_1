@@ -130,4 +130,13 @@ class AuthController
     {
         require_once __DIR__ . '/../Views/pages/profile.php';
     }
+
+    public function forgetPage()
+    {
+        require_once __DIR__ . '/../Views/pages/forget.php';
+    }
+
+    public function changePasswordPage() {
+        require_once __DIR__ . '/../Views/pages/change-password.php';
+    }
 }
